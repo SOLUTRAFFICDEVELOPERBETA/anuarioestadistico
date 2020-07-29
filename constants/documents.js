@@ -1,0 +1,8 @@
+export const TITLE = 'title'
+export const SUBTITLE = 'subtitle'
+export const PARAGRAPH = 'paragraph'
+export const DIVIDER = 'divider'
+export const QUOTES = 'quotes'
+export const IMAGE = 'image'
+export const LIST = 'list'
+export const TABLE = 'table'

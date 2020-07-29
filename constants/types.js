@@ -1,0 +1,10 @@
+// Tipos de Auth
+export const LOG_IN = 'LOG_IN'
+export const LOG_OUT = 'LOG_OUT'
+export const AUTH_STATE = 'AUTH_STATE'
+export const AUTH_ERROR = 'AUTH_ERROR'
+export const GET_USER = 'GET_USER'
+
+// alert
+export const SHOW_ALERT = 'SHOW_ALERT'
+export const CLOSE_ALERT = 'CLOSE_ALERT'

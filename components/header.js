@@ -7,20 +7,21 @@ import styled from '@emotion/styled'
 const LogoLink = styled('a')`
 color: #FFFF;
 cursor: pointer;
+font-size: 1.5rem;
 
 `
 const Header = () => {
     return (
         <header css={css`
           background-color: #0d283d;
-          padding: 1rem;
         
         `}>
             <div
                 css={css`
-                max-width: 120rem;
+                max-width: 85rem;
                 margin: 0 auto;
                 text-align: center;
+                line-height: 2;
 
                 @media (min-width: 720px) {
                     display: flex;

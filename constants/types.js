@@ -8,3 +8,8 @@ export const GET_USER = 'GET_USER'
 // alert
 export const SHOW_ALERT = 'SHOW_ALERT'
 export const CLOSE_ALERT = 'CLOSE_ALERT'
+
+// pages
+
+export const GET_PAGES = 'GET_PAGES'
+export const GET_PAGES_ERROR = 'GET_PAGES_ERROR'

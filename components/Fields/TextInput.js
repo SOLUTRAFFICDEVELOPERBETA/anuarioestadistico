@@ -123,7 +123,8 @@ const TextInput = ({ id, value, type, size }) => {
 
   const handleChange = event => {
     const { target: { textContent } } = event
-    onChangeField(id, textContent)
+    console.log("textContent", textContent)
+    onChangeField(id, { value: textContent })
   }
 
   const handleChangeProps = ({ target: { name, value } }) => {
@@ -139,8 +140,8 @@ const TextInput = ({ id, value, type, size }) => {
           data-type={type}
           contentEditable
           onBlur={handleChange}
-          // value={value}
-          // onChange={handleChange}
+        // value={value}
+        // onChange={handleChange}
         >
           {value}
         </span>

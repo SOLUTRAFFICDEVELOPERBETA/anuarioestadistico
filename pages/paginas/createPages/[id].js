@@ -33,7 +33,10 @@ const Page = () => {
   const [load, setLoad] = React.useState(true)
 
   const onChangeField = (id, data) => {
+    console.log("esta es la información del texto", data)
+    console.log("esta es el id del campo de l texto", id)
     const array = [...document.fields].map(field => field.id === id ? ({ ...field, ...data }) : field)
+    console.log("esta es la información de l array", array)
     setDocument({ ...document, fields: array })
   }
 
@@ -57,6 +60,7 @@ const Page = () => {
     setDocument({ ...document, fields: array })
   }
 
+  console.log("esta es la información del document", document)
   const handleSave = () => {
     try {
       if (!id) return null

@@ -83,7 +83,7 @@ const DocumentsForm = ({ onSubmit }) => {
     <React.Fragment>
       <AppBar position="static" color="transparent" elevation={0} className={classes.appbar}>
         <Toolbar variant="dense" className={classes.toolbar}>
-          <Typography color="primary" align="left" variant="h2" style={{ flexGrow: 1 }}>
+          <Typography color="primary" align="left" variant="h4" style={{ flexGrow: 1 }}>
               Administración de Páginas
           </Typography>
           <Tooltip title="Opciones">
@@ -110,7 +110,7 @@ const DocumentsForm = ({ onSubmit }) => {
                   <ListItemIcon>
                     <PostAddTwoTone />
                   </ListItemIcon>
-                  <ListItemText primary="Añadir Documento" />
+                  <ListItemText primary="Añadir Página" />
                 </ListItem>
               </List>
             </Popover>

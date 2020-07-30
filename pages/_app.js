@@ -5,15 +5,19 @@ import PropTypes from 'prop-types'
 import Layout from '../Layout'
 import AlertProvider from '../contexts/alert/provider'
 import AuthProvider from '../contexts/auth/provider'
+import PagesProvider from '../contexts/pagess/provider'
 
 
 const MyApp = ({ Component, pageProps }) => {
     return (
         <AlertProvider>
             <AuthProvider>
-                <Layout>
-                    <Component {...pageProps} />
-                </Layout>
+                <PagesProvider>
+                    <Layout>
+
+                        <Component {...pageProps} />
+                    </Layout>
+                </PagesProvider>
             </AuthProvider>
         </AlertProvider>
 

@@ -44,8 +44,6 @@ const useLayoutStyles = makeStyles((theme) => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    color: '#FFF',
-    backgroundColor: '#0d283d'
   },
   drawer: {
     [theme.breakpoints.up('md')]: {
@@ -146,7 +144,7 @@ const EditorLayout = ({ children, onSave, onChangeTitle }) => {
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  <IconButton type="submit" style={{color:'#0d283d'}}>
+                  <IconButton type="submit" color="secondary">
                     <SaveTwoTone />
                   </IconButton>
                 </InputAdornment>
@@ -157,23 +155,23 @@ const EditorLayout = ({ children, onSave, onChangeTitle }) => {
         <List>
           <ListSubheader>Campos de la página</ListSubheader>
           <ListItem button onClick={() => onCreateFile(PARAGRAPH)}>
-            <ListItemIcon><TextFieldsTwoTone style={{color:'#0d283d'}} color="primary" /></ListItemIcon>
+            <ListItemIcon><TextFieldsTwoTone color="primary" /></ListItemIcon>
             <ListItemText primary="Campo de Texto" />
           </ListItem>
           <ListItem button onClick={() => onCreateFile(DIVIDER)}>
-            <ListItemIcon><Remove style={{color:'#0d283d'}} color="primary" /></ListItemIcon>
+            <ListItemIcon><Remove color="primary" /></ListItemIcon>
             <ListItemText primary="Divisor" />
           </ListItem>
           <ListItem button onClick={() => onCreateFile(TABLE)}>
-            <ListItemIcon><TableChart style={{color:'#0d283d'}} color="primary" /></ListItemIcon>
+            <ListItemIcon><TableChart color="primary" /></ListItemIcon>
             <ListItemText primary="Tabla" />
           </ListItem>
           <ListItem button onClick={() => onCreateFile(LIST)}>
-            <ListItemIcon><ListAltTwoTone style={{color:'#0d283d'}} color="primary" /></ListItemIcon>
+            <ListItemIcon><ListAltTwoTone color="primary" /></ListItemIcon>
             <ListItemText primary="Lista" />
           </ListItem>
           <ListItem button onClick={() => onCreateFile(IMAGE)}>
-            <ListItemIcon><ImageTwoTone style={{color:'#0d283d'}} color="primary" /></ListItemIcon>
+            <ListItemIcon><ImageTwoTone color="primary" /></ListItemIcon>
             <ListItemText primary="Imagen" />
           </ListItem>
         </List>
@@ -181,11 +179,11 @@ const EditorLayout = ({ children, onSave, onChangeTitle }) => {
         <List>
           <ListSubheader>Opciones</ListSubheader>
           <ListItem button onClick={onSave}>
-            <ListItemIcon><SaveTwoTone  style={{color:'#0d283d'}} color="primary" /></ListItemIcon>
+            <ListItemIcon><SaveTwoTone  color="primary" /></ListItemIcon>
             <ListItemText primary="Guardar" />
           </ListItem>
           <ListItem button onClick={() => router.back()}>
-            <ListItemIcon><ExitToAppTwoTone  style={{color:'#0d283d'}} color="primary" /></ListItemIcon>
+            <ListItemIcon><ExitToAppTwoTone  color="primary" /></ListItemIcon>
             <ListItemText primary="Salir" />
           </ListItem>
         </List>

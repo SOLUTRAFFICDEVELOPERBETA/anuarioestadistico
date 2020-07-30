@@ -35,7 +35,7 @@ const Page = () => {
   const handleDelete = _id => {
     try {
       if (window.confirm('¿ Esta seguro de querer borrar esta página ?')) {
-        fb.db.collection('pages').doc(id).delete().then(() => {
+        fb.db.collection('pages').doc(_id).delete().then(() => {
           showMessage('página borrada con éxito', 'success')
           const array = [...documents].filter(doc => doc.id !== _id)
           setDocuments(array)

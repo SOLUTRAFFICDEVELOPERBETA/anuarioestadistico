@@ -225,18 +225,18 @@ const DocumentsTable = ({ documents, onDelete }) => {
                       <TableCell scope="row">{row.title}</TableCell>
                       <TableCell scope="row" align="right">{moment(row.lastModified).format('ll')}</TableCell>
                       <TableCell scope="row" align="center" padding="none">
-                        <Tooltip title="Borrar">
+                        <Tooltip title="Borrar"  arrow>
                           <IconButton size="small" className={classes.delete} onClick={() => onDelete(row.id)}>
-                            <Close fontSize="large" color="inherit" />
+                            <Close fontSize="small"/>
                           </IconButton>
                         </Tooltip>
-                        <Tooltip title="Abrir">
+                        <Tooltip title="Abrir" arrow>
                           <IconButton
                             size="small"
                             className={classes.send}
                             onClick={() => router.push('/paginas/createPages/[id]', `/paginas/createPages/${row.id}`)}
                           >
-                            <NavigateNext fontSize="large" color="inherit" />
+                            <NavigateNext fontSize="small"  />
                           </IconButton>
                         </Tooltip>
                       </TableCell>

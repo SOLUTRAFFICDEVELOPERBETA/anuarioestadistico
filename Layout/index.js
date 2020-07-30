@@ -1,15 +1,30 @@
 import React from 'react';
 import Head from 'next/head'
+import { CssBaseline, MuiThemeProvider } from '@material-ui/core'
 import { Global, css } from '@emotion/core'
 import Header from '../components/header';
+import theme from '../config/theme';
+
 
 const Layout = ({ children }) => {
+    const state = theme
     return (
-        <>
+        <MuiThemeProvider theme={theme}>
+            <CssBaseline />
             <Global
                 styles={css`
+                :root {
+                --primary: ${state.palette.primary.main};
+                --primary-dark: ${state.palette.primary.dark};
+                --primary-light: ${state.palette.primary.light};
+                --contrastText: ${state.palette.primary.contrastText};
+                --secondary: ${state.palette.secondary.main};
+                --error: ${state.palette.error.main};
+                --warning: ${state.palette.warning.main};
+                --success: ${state.palette.success.main};
+            }
                   html {
-                      font-size: 62.5%;
+                      font-size: 100%;
                       box-sizing: border-box;
 
                   }
@@ -18,21 +33,9 @@ const Layout = ({ children }) => {
                   }
         
                   body {
-                      font-size: 1.6rem;
-                      line-height: 2;
+                      font-size: 1rem !important;
+                      line-height: 3 !important;
                       font-family: 'Lato', sans-serif;
-                  }
-                  h1, h2, h3 {
-                      margin: 0;
-                      line-height: 1.5;
-                  }
-                  h1, h2 {
-                      text-align: center;
-                      font-family: 'Lato', sans-serif;
-                      font-weight: 300;
-                  }
-                  h3 {
-                      font-family: 'Roboto', sans-serif;
                   }
 
                   ul {
@@ -56,17 +59,14 @@ const Layout = ({ children }) => {
                 <link rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
                     integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-                    crossorigin="anonymous" />
+                    crossOrigin="anonymous" />
                 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
             </Head>
             <Header />
-            
-        
-                {children}
-                
-            
 
-        </>
+
+            {children}
+        </MuiThemeProvider>
     );
 }
 

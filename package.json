@@ -17,7 +17,6 @@
     "chart.js": "^2.9.3",
     "chartjs-plugin-datalabels": "^0.7.0",
     "firebase": "^7.17.1",
-    "firebase-tools": "^8.6.0",
     "mdi-react": "^7.3.0",
     "moment": "^2.27.0",
     "next": "9.5.0",
@@ -25,10 +24,10 @@
     "react": "16.13.1",
     "react-chartjs-2": "^2.9.0",
     "react-dom": "16.13.1",
-    "react-hook-form": "^6.1.2",
+    "react-hook-form": "^6.2.0",
     "reactstrap": "^8.5.1",
     "recharts": "^1.8.5",
     "redux-form": "^8.3.6",
-    "short-id": "0.1.0-1"
+    "shortid": "^2.2.15"
   }
 }

@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react';
 import { Pie, PieChart, ResponsiveContainer } from 'recharts';
-import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { Progress } from 'reactstrap';
-import Panel, { PanelTitle } from '../../../../shared/components/Panel';
+import Panel, { PanelTitle } from '../../../components/Panel';
 
 const data01 = [{ value: 78, fill: '#b8e986' },
   { value: 23, fill: '#eeeeee' }];
@@ -43,7 +42,7 @@ const WeeklyStat = ({ t }) => (
     lg={6}
     xl={3}
     xs={12}
-    title={t('dashboard_booking.weekly_stat')}
+    title={'dashboard_booking.weekly_stat'}
     subhead="Top selling items statistic by last month"
   >
     <div className="dashboard__weekly-stat">
@@ -90,7 +89,7 @@ const WeeklyStat = ({ t }) => (
         </div>
       </div>
       <hr />
-      <PanelTitle title={t('dashboard_booking.social_score')} />
+      <PanelTitle title={'dashboard_booking.social_score'} />
       <div className="dashboard__social-stat">
         <SocialScore progress={87}>
           Booking.com
@@ -112,5 +111,8 @@ const WeeklyStat = ({ t }) => (
 WeeklyStat.propTypes = {
   t: PropTypes.func.isRequired,
 };
+WeeklyStat.DefaultProps = {
+  t: 'WeeklyStat'
+}
 
-export default withTranslation('common')(WeeklyStat);
+export default WeeklyStat

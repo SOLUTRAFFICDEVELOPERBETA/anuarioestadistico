@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import { themes } from '../../../../shared/helpers';
+import { themes } from '../../../components/helpers';
 
 class OccupancyTooltipContent extends PureComponent {
   static propTypes = {

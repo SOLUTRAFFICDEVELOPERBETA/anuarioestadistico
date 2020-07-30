@@ -20,8 +20,7 @@ flex-wrap: wrap;
     border-color: #0d283d;
     width: 100%;
     border-radius: 5px;
-    padding: 10px 25px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-size: 14px;
     overflow: hidden;
     color: #fff;
@@ -36,7 +35,6 @@ flex-wrap: wrap;
     border: 1px solid ;
     width: 100%;
     border-radius: 5px;
-    padding: 10px 25px;
     margin-bottom: 20px;
     font-size: 14px;
     overflow: hidden;
@@ -47,7 +45,7 @@ flex-wrap: wrap;
 
 const AccountCard = styled.div`
     background-color: #ffffff;
-    padding: 50px 60px;
+    padding: 10px 40px;
     max-width: 520px;
     width: 100%;
     border-radius: 10px;
@@ -81,13 +79,11 @@ const AccountHead = styled.div`
 `
 
 const FormGroup = styled.div`
-        margin-bottom: 20px;
         width: 100%;
         position: relative;
 
         span {
             color: #646777;
-            margin-bottom: 4px;
             display: inline-block;
         }
 
@@ -114,7 +110,6 @@ const FormGroup = styled.div`
         }
         .formformgrouplabel {
             color: #646777;
-            margin-bottom: 4px;
             display: inline-block;
         }
         button {

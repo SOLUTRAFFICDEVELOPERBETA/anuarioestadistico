@@ -10,7 +10,7 @@ import Occupancy from './components/Occupancy';
 
 const BookingDashboard = () => {
 
-  const { t, rtl } = this.props;
+  // const { t, rtl } = this.props;
 
   return (
     <Container className="dashboard">
@@ -26,9 +26,9 @@ const BookingDashboard = () => {
         <BookingCancels />
       </Row>
       <Row>
-        <Reservations dir={rtl.direction} />
+        <Reservations dir={'ltr'} />
         <WeeklyStat />
-        <Occupancy dir={rtl.direction} />
+        <Occupancy />
       </Row>
     </Container>
   );

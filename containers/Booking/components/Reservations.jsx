@@ -1,16 +1,14 @@
 /* eslint-disable react/no-array-index-key */
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
 import {
   Legend, Pie, PieChart, ResponsiveContainer, Tooltip,
 } from 'recharts';
-import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import ArrowDownwardIcon from 'mdi-react/ArrowDownwardIcon';
-import Panel from '../../../../shared/components/Panel';
+import Panel from '../../../components/Panel';
 import OurMission from './OurMission';
 
-import getTooltipStyles from '../../../../shared/helpers';
+import getTooltipStyles from '../../../components/helpers';
 
 const data = [
   { name: 'Completed', value: 2500, fill: '#b8e986' },
@@ -50,9 +48,7 @@ renderLegend.propTypes = {
 
 class Reservations extends PureComponent {
   static propTypes = {
-    t: PropTypes.func.isRequired,
     dir: PropTypes.string.isRequired,
-    themeName: PropTypes.string.isRequired,
   };
 
   constructor(props) {
@@ -73,7 +69,7 @@ class Reservations extends PureComponent {
   };
 
   render() {
-    const { t, dir, themeName } = this.props;
+    const { t, dir } = this.props;
     const { x, y } = this.state;
 
     return (
@@ -81,7 +77,7 @@ class Reservations extends PureComponent {
         lg={6}
         xl={3}
         md={12}
-        title={t('dashboard_booking.reservations')}
+        title={'dashboard_booking.reservations'}
         subhead="Reservation overview"
         before={<OurMission />}
         panelClass="dashboard__booking-reservations-panel"
@@ -92,7 +88,7 @@ class Reservations extends PureComponent {
           <div className="dashboard__booking-reservations-chart" dir={dir}>
             <ResponsiveContainer>
               <PieChart className="dashboard__booking-reservations-chart-container">
-                <Tooltip position={{ x, y }} {...getTooltipStyles(themeName)} />
+                <Tooltip position={{ x, y }} {...getTooltipStyles('theme-light')} />
                 <Pie
                   data={data}
                   dataKey="value"
@@ -119,4 +115,5 @@ class Reservations extends PureComponent {
   }
 }
 
-export default connect(state => ({ themeName: state.theme.className }))(withTranslation('common')(Reservations));
+export default Reservations;
+

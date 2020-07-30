@@ -24,6 +24,7 @@
     "react-dom": "16.13.1",
     "react-hook-form": "^6.1.2",
     "reactstrap": "^8.5.1",
+    "recharts": "^1.8.5",
     "redux-form": "^8.3.6",
     "short-id": "0.1.0-1"
   }

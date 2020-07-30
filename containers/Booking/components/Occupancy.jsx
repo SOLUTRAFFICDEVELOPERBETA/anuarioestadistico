@@ -1,12 +1,10 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
 import {
   Bar, CartesianGrid, ComposedChart, Line, ResponsiveContainer, Tooltip, XAxis, YAxis,
 } from 'recharts';
-import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
-import Panel from '../../../../shared/components/Panel';
+import Panel from '../../../components/Panel';
 import OccupancyTooltipContent from './OccupancyTooltipContent';
 
 const data = [
@@ -55,23 +53,18 @@ const data = [
 ];
 
 class Occupancy extends PureComponent {
-  static propTypes = {
-    t: PropTypes.func.isRequired,
-    dir: PropTypes.string.isRequired,
-    themeName: PropTypes.string.isRequired,
-  };
-
+  
   toPercent = (decimal, fixed = 0) => `${decimal.toFixed(fixed)}%`;
 
   render() {
-    const { t, dir, themeName } = this.props;
+    const dir = 'rtl'
 
     return (
       <Panel
         xl={6}
         lg={12}
         md={12}
-        title={t('dashboard_booking.occupancy')}
+        title={'dashboard_booking.occupancy'}
         subhead="See how effective your business is"
       >
         <div dir="ltr">
@@ -79,7 +72,7 @@ class Occupancy extends PureComponent {
             <ComposedChart data={data} margin={{ top: 20, left: -15 }}>
               <XAxis dataKey="name" tickLine={false} padding={{ left: 20 }} reversed={dir === 'rtl'} />
               <YAxis tickLine={false} tickFormatter={this.toPercent} orientation={dir === 'rtl' ? 'right' : 'left'} />
-              <Tooltip content={<OccupancyTooltipContent colorForKey={{ uv: '#555555' }} theme={themeName} />} />
+              <Tooltip content={<OccupancyTooltipContent colorForKey={{ uv: '#555555' }} theme={"theme-light"} />} />
               <CartesianGrid vertical={false} />
               <Bar dataKey="uv" name="Stay overs" fill="#f2f4f7" barSize={20} />
               <Line type="linear" name="Departures" dataKey="departure" stroke="#b8e986" />
@@ -139,4 +132,4 @@ class Occupancy extends PureComponent {
   }
 }
 
-export default connect(state => ({ themeName: state.theme.className }))(withTranslation('common')(Occupancy));
+export default Occupancy;

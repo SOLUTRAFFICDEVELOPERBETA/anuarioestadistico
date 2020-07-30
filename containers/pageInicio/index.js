@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import { Box, Typography, Grid } from '@material-ui/core';
 import styled from '@emotion/styled';
+import BookingDashboard from '../Booking';
 
 const Img = styled.img`
 height: 500px;
@@ -26,7 +27,7 @@ const PageInicio = ({ fields }) => {
                 </Grid>
                 <Grid item md={6}>
                     <Box>
-                        <Typography align="center" style={{paddingBottom: '0.5rem'}} variant="h4">Observatorio de movilidad</Typography>
+                        <Typography align="center" style={{ paddingBottom: '0.5rem' }} variant="h4">Observatorio de movilidad</Typography>
                         <Img alt="imgmovidad" src={fields[5].value.url} />
                     </Box>
                 </Grid>
@@ -35,7 +36,9 @@ const PageInicio = ({ fields }) => {
                 <Typography align="center" variant="h4">Gráficas de Movilidad</Typography>
 
             </Box>
-
+            <Box>
+                <BookingDashboard />
+            </Box>
         </Box>
     );
 }

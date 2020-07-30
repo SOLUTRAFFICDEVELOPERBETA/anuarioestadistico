@@ -50,9 +50,9 @@ const Navegacion = () => {
             <Link href={'/'} >
                 <NavLink>Inicio</NavLink>
             </Link>
-            <Link href={'/paginas'} >
+            {auth ? (<Link href={'/paginas'} >
                 <NavLink>Páginas</NavLink>
-            </Link>
+            </Link>) : null}
             <Link href={'/anuario'} >
                 <NavLink>Nosotros</NavLink>
             </Link>

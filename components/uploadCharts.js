@@ -8,7 +8,7 @@ import  Spinner from '../components/Spinner'
 
 const UploadCharts = () => {
     const [insert, setInsert] = React.useState(false)
-    const [setChart, ChartComponent] = useChart(title, 'line', ['bar', 'line'], data)
+    // const [setChart, ChartComponent] = useChart("datos de movilidad", 'line', ['bar', 'line'], data)
     /**
      * @description
      * Función para manejar la subida de archivos.
@@ -34,7 +34,7 @@ const UploadCharts = () => {
                     // }
                     labels = others.map(d => d[0])
                 })
-                setChart({ labels, datasets })
+                // setChart({ labels, datasets })
                 console.log("esta es la nueva data", { data: { labels, datasets } })
                 setInsert(false)
             })
@@ -43,11 +43,11 @@ const UploadCharts = () => {
         }
     }
 
-    if(!insert) return <Spinner/>
+    // if(!insert) return <Spinner/>
 
     
     return (
-        <Box>
+        <Box paddingLeft={2} paddingRight={2}>
             <input
                 type={'file'}
                 name="csv-upload"

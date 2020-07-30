@@ -114,9 +114,7 @@ const AuthProvider = ({ children }) => {
               payload: user.uid
             })
             router.push('/')
-          } else {
-            router.push('/auth')
-          }
+          } 
         }, error => {
           showMessage(error.message, 'error')
         }, completed => {

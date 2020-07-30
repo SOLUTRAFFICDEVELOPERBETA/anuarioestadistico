@@ -9,7 +9,9 @@ height: 400px;
 `
 const PageInicio = ({ fields }) => {
     return (
-        <Box padding={2} style={{ background: '#f2f4f7'}}>
+        <Box
+            paddingLeft={2}
+            paddingRight={2}>
             <Grid container spacing={5}>
                 <Grid item md={6}>
                     <Box padding={0.5}>

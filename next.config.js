@@ -3,14 +3,14 @@ module.exports = {
       autoPrerender: true
     },
     env: {
-      apiKey: 'AIzaSyBxMhy970uaqRh5xkI_E5JzR9_hzD1if5A',
-      authDomain: 'anuarioestadistico2020.firebaseapp.com',
-      databaseURL: 'https://anuarioestadistico2020.firebaseio.com',
-      projectId: 'anuarioestadistico2020',
-      storageBucket: 'anuarioestadistico2020.appspot.com',
-      messagingSenderId: '1003799443077',
-      appId: '1:1003799443077:web:463ec3bccff8095e331bec',
-    //   measurementId: 'G-D4SJGYB081'
+      apiKey: 'AIzaSyCieTKzwZNEVJmQ65aIl_bxnLNO1ps_-Mg',
+      authDomain: 'anuarioestadistico-1a99a.firebaseapp.com',
+      databaseURL: 'https://anuarioestadistico-1a99a.firebaseio.com',
+      projectId: 'anuarioestadistico-1a99a',
+      storageBucket: 'anuarioestadistico-1a99a.appspot.com',
+      messagingSenderId: '966171660290',
+      appId: '1:966171660290:web:7ff08644a5312562e6d71b',
+      measurementId: 'G-7Z6K8NVE76'
     },
     webpack (config) {
       config.module.rules.push({

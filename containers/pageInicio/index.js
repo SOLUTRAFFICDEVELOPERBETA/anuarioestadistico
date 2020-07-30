@@ -5,11 +5,11 @@ import styled from '@emotion/styled';
 import BookingDashboard from '../Booking';
 
 const Img = styled.img`
-height: 500px;
+height: 400px;
 `
 const PageInicio = ({ fields }) => {
     return (
-        <Box padding={2}>
+        <Box padding={2} style={{ background: '#f2f4f7'}}>
             <Grid container spacing={5}>
                 <Grid item md={6}>
                     <Box padding={0.5}>
@@ -32,10 +32,6 @@ const PageInicio = ({ fields }) => {
                     </Box>
                 </Grid>
             </Grid>
-            <Box>
-                <Typography align="center" variant="h4">Gráficas de Movilidad</Typography>
-
-            </Box>
             <Box>
                 <BookingDashboard />
             </Box>

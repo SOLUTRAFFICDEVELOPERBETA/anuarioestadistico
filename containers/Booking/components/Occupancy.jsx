@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
 import Panel from '../../../components/Panel';
 import OccupancyTooltipContent from './OccupancyTooltipContent';
+import OurMission from './OurMission';
 
 const data = [
   {
@@ -53,17 +54,22 @@ const data = [
 ];
 
 class Occupancy extends PureComponent {
-  
+
+  static propTypes = {
+    dir: PropTypes.string.isRequired,
+    themeName: PropTypes.string.isRequired,
+  };
   toPercent = (decimal, fixed = 0) => `${decimal.toFixed(fixed)}%`;
 
   render() {
-    const dir = 'rtl'
+    const { dir } = this.props;
 
     return (
       <Panel
         xl={6}
         lg={12}
         md={12}
+        before={<OurMission/>}
         title={'dashboard_booking.occupancy'}
         subhead="See how effective your business is"
       >

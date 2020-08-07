@@ -6,6 +6,7 @@ import Layout from '../Layout'
 import AlertProvider from '../contexts/alert/provider'
 import AuthProvider from '../contexts/auth/provider'
 import PagesProvider from '../contexts/pagess/provider'
+import CsvContext from '../contexts/csv/provider'
 
 
 const MyApp = ({ Component, pageProps }) => {
@@ -13,10 +14,11 @@ const MyApp = ({ Component, pageProps }) => {
         <AlertProvider>
             <AuthProvider>
                 <PagesProvider>
-                    <Layout>
-
-                        <Component {...pageProps} />
-                    </Layout>
+                    <CsvContext>
+                        <Layout>
+                            <Component {...pageProps} />
+                        </Layout>
+                    </CsvContext>
                 </PagesProvider>
             </AuthProvider>
         </AlertProvider>

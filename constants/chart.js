@@ -8,43 +8,34 @@ const datalabels = {
 }
 
 export const BAR_OPTIONS = {
+  maintainAspectRatio: false,
+  legend: {
+    position: 'bottom',
+  },
   scales: {
     xAxes: [
       {
-        display: false,
         gridLines: {
-          display: false
-        }
-      }
+          color: 'rgb(204, 204, 204)',
+          borderDash: [3, 3],
+        },
+        ticks: {
+          fontColor: 'rgb(204, 204, 204)',
+        },
+      },
     ],
     yAxes: [
       {
-        display: true,
-        type: 'linear',
-        position: 'left',
         gridLines: {
-          display: false
+          color: 'rgb(204, 204, 204)',
+          borderDash: [3, 3],
         },
-        tricks: {
-          beginAtZero: true,
-          precision: 0,
-          fixedStepSize: 1
-        }
-      }
-    ]
+        ticks: {
+          fontColor: 'rgb(204, 204, 204)',
+        },
+      },
+    ],
   },
-  responsive: true,
-  legend: {
-    display: false
-  },
-  elements: {
-    line: {
-      fill: false
-    }
-  },
-  plugins: {
-    datalabels
-  }
 }
 
 export const PIE_OPTIONS = {
@@ -72,45 +63,33 @@ export const PIE_OPTIONS = {
 
 export const LINE_OPTIONS = {
   responsive: true,
-  tooltips: {
-    mode: 'index',
-    axis: 'y'
-  },
   legend: {
-    display: false
-  },
-  elements: {
-    line: {
-      fill: false
-    }
-  },
-  plugins: {
-    datalabels
+    position: 'bottom',
   },
   scales: {
     xAxes: [
       {
-        display: true,
         gridLines: {
-          display: false
-        }
-      }
+          color: 'rgb(204, 204, 204)',
+          borderDash: [3, 3],
+        },
+        ticks: {
+          fontColor: 'rgb(204, 204, 204)',
+        },
+      },
     ],
     yAxes: [
       {
-        display: true,
-        position: 'left',
         gridLines: {
-          display: false
+          color: 'rgb(204, 204, 204)',
+          borderDash: [3, 3],
         },
-        tricks: {
-          beginAtZero: true,
-          precision: 0,
-          fixedStepSize: 1
-        }
-      }
-    ]
-  }
+        ticks: {
+          fontColor: 'rgb(204, 204, 204)',
+        },
+      },
+    ],
+  },
 }
 
 export const HORIZONTAL_OPTIONS = {
@@ -158,7 +137,21 @@ export const HORIZONTAL_OPTIONS = {
   }
 }
 
-export const GRAPHIC_TYPES = ['bar', 'pie', 'line', 'doughnut', 'horizontal']
+export const POLAR_OPTIONS = {
+  legend: {
+    position: 'bottom',
+  },
+  scale: {
+    gridLines: {
+      color: 'rgb(204, 204, 204)',
+      borderDash: [3, 3],
+    },
+    ticks: {
+      fontColor: 'rgb(204, 204, 204)',
+    },
+  },
+};
+export const GRAPHIC_TYPES = ['bar', 'pie', 'line', 'doughnut', 'horizontal', 'polar']
 
 export const DEFAULT_CHART = {
   labels: ['Dato 1', 'Dato 2', 'Dato 3', 'Dato 4'],

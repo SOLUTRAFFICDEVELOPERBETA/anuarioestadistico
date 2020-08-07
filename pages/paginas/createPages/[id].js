@@ -4,6 +4,7 @@ import { DOCUMENT_TEMPLATE, FIELDS } from '../../../constants/templates'
 import EditorLayout from '../../../Layout/editor'
 import { Box, Grid, Paper } from '@material-ui/core'
 import styled from '@emotion/styled'
+// import FieldContainer from '../../../../containers/FieldsContainer'
 import EditorContext from '../../../contexts/editor'
 import shortid from 'shortid'
 import AlertContext from '../../../contexts/alert'
@@ -11,6 +12,9 @@ import fb from '../../../config/firebase'
 import moment from 'moment'
 import DocumentField from '../../../components/Fields/DocumentField'
 import Spinner from '../../../components/Spinner'
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
+import { moveArray } from '../../../constants/utils'
 
 const Container = styled(Box)`
   display: flex;
@@ -33,10 +37,7 @@ const Page = () => {
   const [load, setLoad] = React.useState(true)
 
   const onChangeField = (id, data) => {
-    console.log("esta es la información del texto", data)
-    console.log("esta es el id del campo de l texto", id)
     const array = [...document.fields].map(field => field.id === id ? ({ ...field, ...data }) : field)
-    console.log("esta es la información de l array", array)
     setDocument({ ...document, fields: array })
   }
 
@@ -45,8 +46,9 @@ const Page = () => {
     setDocument({ ...document, fields: array })
   }
 
-  const onChangeTitle = _title => {
-    setDocument({ ...document, title: _title })
+  const onChangeTitle = title => {
+    setDocument({ ...document, title })
+    showMessage('Titulo cambiado, recuerde guardar los cambios', 'success', 3000)
   }
 
   const onCreateFile = type => {
@@ -76,6 +78,14 @@ const Page = () => {
       })
     } catch (error) {
       showMessage(error.message, 'error')
+    }
+  }
+  const handleDragAndDrop = (key, item) => {
+    const $fields = [...document.fields]
+    const $index = $fields.findIndex((field) => field.id === item.id)
+    if ($index !== -1) {
+      const arr = moveArray($fields, $index, key)
+      setDocument({ ...document, fields: arr })
     }
   }
 
@@ -112,15 +122,17 @@ const Page = () => {
       }}
     >
       <EditorLayout onSave={handleSave} onChangeTitle={onChangeTitle}>
-        <Container>
-          <Box component={Paper} variant="outlined" className="paper">
-            <Grid container spacing={1} alignContent="flex-start" alignItems="flex-start" justify="flex-start">
-              {fields.map(field => (
-                <DocumentField key={field.id} {...field} />
-              ))}
-            </Grid>
-          </Box>
-        </Container>
+        <DndProvider backend={HTML5Backend}>
+          <Container>
+            <Box component={Paper} variant="outlined" className="paper">
+              <Grid container spacing={1} alignContent="flex-start" alignItems="flex-start" justify="flex-start">
+                {fields.map((field, key) => (
+                  <DocumentField key={field.id} {...field} onDrop={item => handleDragAndDrop(key, item)} />
+                ))}
+              </Grid>
+            </Box>
+          </Container>
+        </DndProvider>
       </EditorLayout>
     </EditorContext.Provider>
   )

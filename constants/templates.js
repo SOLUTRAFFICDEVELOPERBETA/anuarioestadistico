@@ -1,4 +1,4 @@
-import { PARAGRAPH, TITLE, QUOTES, DIVIDER, LIST, IMAGE, TABLE } from './documents'
+import { PARAGRAPH, TITLE, QUOTES, DIVIDER, LIST, IMAGE, TABLE, SECTION } from './documents'
 export const DOCUMENT_TEMPLATE = {
   title: 'Documento sin Nombre',
   fields: [
@@ -27,6 +27,10 @@ export const FIELDS = {
   [QUOTES]: {
     type: QUOTES,
     value: 'Cita'
+  },
+  [SECTION]: {
+    type: SECTION,
+    value: []
   },
   [DIVIDER]: {
     type: DIVIDER,

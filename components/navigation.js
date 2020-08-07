@@ -35,6 +35,7 @@ font-weight: 700;
 font-family: 'PT Sans', sans-serif;
 padding: .5rem;
 margin-right: 1rem;
+cursor: pointer;
 
 &.pagina-actual{
     border-bottom: 2px solid #fff;

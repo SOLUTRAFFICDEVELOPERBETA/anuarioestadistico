@@ -13,3 +13,9 @@ export const CLOSE_ALERT = 'CLOSE_ALERT'
 
 export const GET_PAGES = 'GET_PAGES'
 export const GET_PAGES_ERROR = 'GET_PAGES_ERROR'
+
+
+// CSV
+
+export const GET_DATA_CSV = 'GET_DATA_CSV'
+export const GET_DATA_CSV_ERROR = 'GET_DATA_CSV_ERROR'

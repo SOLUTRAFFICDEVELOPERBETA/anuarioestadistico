@@ -1,29 +1,65 @@
 import styled from '@emotion/styled'
 import PropTypes from 'prop-types'
-import { Box, Grid, IconButton, MenuItem, Popover, TextField, Tooltip } from '@material-ui/core'
-import { DeleteForever } from '@material-ui/icons'
+import { Box, Grid, IconButton, MenuItem, makeStyles, Popover, TextField, Tooltip } from '@material-ui/core'
+import { DeleteForever, DragIndicator } from '@material-ui/icons'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { UploadFile } from '../../constants/files'
 import AlertContext from '../../contexts/alert'
-import EditorContext from '../../contexts/editor'
+import { DragPreviewImage, useDrag } from 'react-dnd'
+import clsx from 'clsx'
+import { grey } from '@material-ui/core/colors'
+// import EditorContext from '../../contexts/editor'
 
 // Campo de la imagen
 const ImageContainer = styled.div`
-  display: flex;
+  display: grid;
+  padding: 16px;
+  grid-template-columns: 0px auto;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
 
   img {
     max-width: 100%;
   }
 
-  span {
+  input {
+    display: none;
+  }
+
+  .dragger {
+    align-self: center;
+    justify-self: center;
+    width: 24px;
+    height: 24px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+  }
+
+  .dragger:hover {
+    cursor: move;
+  }
+
+  :hover .dragger {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  :hover {
+    grid-template-columns: 30px auto;
+  }
+
+  .image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img-name {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    padding: 16px;
+    padding: 8px;
     position: absolute;
     width: 100%;
     text-align: center;
@@ -31,24 +67,23 @@ const ImageContainer = styled.div`
     left: 0;
     right: 0;
     z-index: 5;
-    display: none;
+    height: 0px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear, height 0.5s ease;
   }
 
-  :hover span {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .image:hover .img-name {
+    height: auto;
+    visibility: visible;
+    opacity: 1;
   }
 
-  .iconButton {
+  .image:hover {
     cursor: pointer;
   }
 
-  :hover .img-container {
-    cursor: pointer;
-  }
-  
-  :hover .img-container::after {
+  .image:hover::after {
     content: "";
     background-color: rgba(0, 0, 0, 0.25);
     top: 0;
@@ -57,13 +92,31 @@ const ImageContainer = styled.div`
     right: 0;
     position: absolute;
   }
-`
 
-const ImageField = ({ id, value, size }) => {
+  .img {
+    transition: width 0.5s ease, height 0.5s ease;
+  }
+
+`
+const useStyles = makeStyles(theme => ({
+  dragging: {
+    backgroundColor: '#eee',
+    // z-index: 5,
+    boxShadow: '0px 0px 5px 0px rgba(0,0,0,0.75)'
+  }
+}))
+const ImageField = ({ id, value, size, child, disableGrid, onChange, onDelete }) => {
+  const classes = useStyles()
   const { query } = useRouter()
   const [anchorEl, setAnchorEl] = React.useState(null)
   const { showMessage } = React.useContext(AlertContext)
-  const { onChangeField, onDeleteField } = React.useContext(EditorContext)
+  const [{ isDragging }, drag, preview] = useDrag({
+    item: { type: child ? 'CHILD' : 'ITEM', id },
+    collect: monitor => ({
+      isDragging: !!monitor.isDragging()
+    })
+  })
+  // const { onChangeField, onDeleteField } = React.useContext(EditorContext)
   /**
    * Método para abrir el popover
    * @param {Event} event Evento de click de la celda
@@ -85,8 +138,8 @@ const ImageField = ({ id, value, size }) => {
   const handleUpdateFile = files => {
     try {
       const [file] = files
-      UploadFile(file, `/paginas/${query.id}`, file.name).then(url => {
-        onChangeField(id, { value: url })
+      UploadFile(file, `/projects/${query.id}/documents/${query.doc}`, file.name).then(url => {
+        onChange({ value: url })
       })
     } catch (error) {
       showMessage(error.message, 'error')
@@ -97,26 +150,36 @@ const ImageField = ({ id, value, size }) => {
 
   return (
     <React.Fragment>
-      <Box padding={3} onContextMenu={handleClick}>
+      <DragPreviewImage connect={preview} src="/static/images/DragPreview.png" />
+      <Box
+        onContextMenu={handleClick}
+        ref={drag}
+        className={clsx({
+          [classes.dragging]: isDragging
+        })}
+      >
         <ImageContainer>
+          <span className="dragger">
+            <DragIndicator fontSize="small" style={{ fill: grey[500] }} />
+          </span>
           <label htmlFor={id}>
-            <div className="img-container">
+            <div className="image">
               <img src={value.url} />
+              <span className="img-name">
+                {value.name}
+              </span>
             </div>
           </label>
-          <span>
-            {value.name}
-          </span>
+          <input
+            id={id}
+            type="file"
+            name={id}
+            multiple={false}
+            // style={{ display: 'none' }}
+            onChange={(e) => handleUpdateFile(e.target.files)}
+          />
         </ImageContainer>
       </Box>
-      <input
-        id={id}
-        type="file"
-        name={id}
-        multiple={false}
-        style={{ display: 'none' }}
-        onChange={(e) => handleUpdateFile(e.target.files)}
-      />
       {open && (
         <Popover
           id={`popover-open-${id}`}
@@ -139,12 +202,13 @@ const ImageField = ({ id, value, size }) => {
                   fullWidth
                   label="Tamaño del objeto"
                   select
+                  disabled={disableGrid}
                   size="small"
                   variant="outlined"
                   value={size}
                   name="size"
                   style={{ minWidth: '160px' }}
-                  onChange={({ target: { value } }) => onChangeField(id, { size: value })}
+                  onChange={({ target: { value } }) => onChange({ size: value })}
                 // className={classes.option}
                 >
                   {[4, 5, 6, 7, 8, 9, 10, 11, 12].map($size => (
@@ -156,7 +220,7 @@ const ImageField = ({ id, value, size }) => {
               </Grid>
               <Grid item>
                 <Tooltip title="Borrar" interactive>
-                  <IconButton size="small" onClick={() => onDeleteField(id)}>
+                  <IconButton size="small" onClick={() => onDelete(id)}>
                     <DeleteForever color="error" />
                   </IconButton>
                 </Tooltip>
@@ -172,7 +236,16 @@ const ImageField = ({ id, value, size }) => {
 ImageField.propTypes = {
   id: PropTypes.string.isRequired,
   value: PropTypes.object,
-  size: PropTypes.any
+  size: PropTypes.any,
+  child: PropTypes.bool,
+  disableGrid: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired
+}
+
+ImageField.defaultProps = {
+  child: false,
+  disableGrid: false
 }
 
 export default ImageField

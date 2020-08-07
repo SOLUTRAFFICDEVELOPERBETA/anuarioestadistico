@@ -32,11 +32,12 @@ import {
   KeyboardArrowRight,
   KeyboardArrowDown,
   Close,
-  ViewArrayTwoTone
+  ViewArrayTwoTone, DragIndicator
 } from '@material-ui/icons'
 import ColorPick from '../ColorPick'
 import { red } from '@material-ui/core/colors'
-import EditorContext from '../../contexts/editor'
+import { DragPreviewImage, useDrag } from 'react-dnd'
+import clsx from 'clsx'
 
 /*
 const CellInput = styled.div`
@@ -323,21 +324,36 @@ RowField.defaultProps = {
 const useTableFieldStyles = makeStyles(theme => ({
   toolbar: {
     display: 'flex',
-    justifyContent: 'flex-end'
+    justifyContent: 'space-between'
+  },
+  drag: {
+    '&:hover': {
+      cursor: 'grab'
+    }
   },
   option: {
     color: theme.palette.primary.main
   },
   error: {
     color: red[500]
+  },
+  dragging: {
+    backgroundColor: '#eee',
+    // z-index: 5,
+    boxShadow: '0px 0px 5px 0px rgba(0,0,0,0.75)'
   }
 }))
 
 // Campo para mostrar la tabla en el editor
-const TableField = ({ id, value }) => {
+const TableField = ({ id, value, onChange, onDelete }) => {
   const classes = useTableFieldStyles()
-  const { onChangeField, onDeleteField } = React.useContext(EditorContext)
   const [anchorEl, setAnchorEl] = React.useState(null)
+  const [{ isDragging }, drag, preview] = useDrag({
+    item: { type: 'ITEM', id },
+    collect: monitor => ({
+      isDragging: !!monitor.isDragging()
+    })
+  })
 
   /**
    * Método para la apertura del popover de las opciones
@@ -375,7 +391,7 @@ const TableField = ({ id, value }) => {
         }
       })
 
-      onChangeField(id, { value: { ...object } })
+      onChange({ value: { ...object } })
     } else {
       const array = Object.values(value).map(row => [...row].filter((_, index) => index !== column))
       let object = {}
@@ -386,7 +402,7 @@ const TableField = ({ id, value }) => {
         }
       })
 
-      onChangeField(id, { value: { ...object } })
+      onChange({ value: { ...object } })
     }
   }
 
@@ -398,7 +414,7 @@ const TableField = ({ id, value }) => {
       [size]: [...value[size - 1]].map(cell => ({ ...cell, content: '' }))
     }
 
-    onChangeField(id, { value: { ...object } })
+    onChange({ value: { ...object } })
   }
 
   // Método para crear una columna
@@ -409,7 +425,7 @@ const TableField = ({ id, value }) => {
       object = { ...object, [index]: [...a, { ...a[a.length - 1], content: '' }] }
     })
 
-    onChangeField(id, { value: { ...object } })
+    onChange({ value: { ...object } })
   }
 
   /**
@@ -421,14 +437,28 @@ const TableField = ({ id, value }) => {
   const handleChange = (row, cell, data) => {
     const table = { ...value }
     const _row = table[row].map((_cell, index) => index === cell ? ({ ..._cell, ...data }) : _cell)
-    onChangeField(id, { value: { ...table, [row]: _row } })
+    onChange({ value: { ...table, [row]: _row } })
   }
 
   return (
     <React.Fragment>
-      <Box padding={3} marginBottom={1} id={`table-field-${id}`}>
+      <DragPreviewImage connect={preview} src="/static/img/DragPreview.png" />
+      <Box
+        padding={3}
+        marginBottom={1}
+        id={`table-field-${id}`}
+        ref={drag}
+        className={clsx({
+          [classes.dragging]: isDragging
+        })}
+      >
         <Paper variant="outlined" square>
           <Toolbar variant="dense" className={classes.toolbar}>
+            <Tooltip title="Mover">
+              <IconButton className={classes.drag} color="primary" size="small">
+                <DragIndicator fontSize="small" />
+              </IconButton>
+            </Tooltip>
             <Tooltip title="Opciones">
               <IconButton color="primary" size="small" onClick={handleClick}>
                 <MoreHoriz fontSize="small" />
@@ -481,7 +511,7 @@ const TableField = ({ id, value }) => {
               </ListItemIcon>
               <ListItemText primary="Añadir Columna" />
             </ListItem>
-            <ListItem button onClick={() => onDeleteField(id)} className={classes.error}>
+            <ListItem button onClick={() => onDelete(id)} className={classes.error}>
               <ListItemIcon>
                 <Close color="error" />
               </ListItemIcon>
@@ -496,7 +526,9 @@ const TableField = ({ id, value }) => {
 
 TableField.propTypes = {
   id: PropTypes.string.isRequired,
-  value: PropTypes.obj
+  value: PropTypes.obj,
+  onChange: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired
 }
 
 export default TableField

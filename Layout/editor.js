@@ -29,12 +29,13 @@ import {
   Remove,
   TableChart,
   Menu,
-  TextFieldsTwoTone
+  TextFieldsTwoTone,
+  ViewCompactTwoTone
 } from '@material-ui/icons'
 import EditorContext from '../contexts/editor'
-import { PARAGRAPH, LIST, IMAGE, DIVIDER, TABLE } from '../constants/documents'
+import { PARAGRAPH, LIST, IMAGE, DIVIDER, TABLE, SECTION } from '../constants/documents'
 import AlertContext from '../contexts/alert'
-import { useForm } from 'react-hook-form'
+// import { useForm } from 'react-hook-form'
 
 const drawerWidth = 360
 
@@ -43,7 +44,7 @@ const useLayoutStyles = makeStyles((theme) => ({
     display: 'flex'
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 1,
+    zIndex: theme.zIndex.drawer + 1
   },
   drawer: {
     [theme.breakpoints.up('md')]: {
@@ -109,11 +110,7 @@ const EditorLayout = ({ children, onSave, onChangeTitle }) => {
   const { showMessage } = React.useContext(AlertContext)
   const { onCreateFile, title } = React.useContext(EditorContext)
   const [mobileOpen, setMobileOpen] = React.useState(false)
-  const { register, handleSubmit } = useForm({
-    defaultValues: {
-      title
-    }
-  })
+  const [$title, setTitle] = React.useState(title)
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
@@ -122,8 +119,9 @@ const EditorLayout = ({ children, onSave, onChangeTitle }) => {
    * Método de cambio del titulo de los documentos
    * @param {*} values Evento de cambio del campo
    */
-  const handleChangeTitle = (values) => {
-    const { $title } = values
+  const handleChangeTitle = event => {
+    event.preventDefault()
+    // console.log({ $title })
     onChangeTitle($title)
     showMessage('Nombre del documento cambiado', 'success')
   }
@@ -132,20 +130,22 @@ const EditorLayout = ({ children, onSave, onChangeTitle }) => {
     <React.Fragment>
       <Toolbar />
       <div className={classes.drawerContainer}>
-        <form className={classes.titleForm} onSubmit={handleSubmit(handleChangeTitle)}>
+        <form className={classes.titleForm} onSubmit={handleChangeTitle}>
           <TextField
             fullWidth
             size="small"
             margin="dense"
-            defaultValue={title}
-            name="$title"
-            inputRef={register({ required: true })}
-            label="Nombre de la página"
+            // defaultValue={title}
+            placeholder="Ingrese un nuevo nombre"
+            name="title"
+            value={$title}
+            onChange={event => setTitle(event.target.value)}
+            label="Cambiar nombre del documento"
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  <IconButton type="submit" color="secondary">
-                    <SaveTwoTone />
+                  <IconButton type="submit">
+                    <SaveTwoTone color="primary" />
                   </IconButton>
                 </InputAdornment>
               )
@@ -153,7 +153,7 @@ const EditorLayout = ({ children, onSave, onChangeTitle }) => {
           />
         </form>
         <List>
-          <ListSubheader>Campos de la página</ListSubheader>
+          <ListSubheader>Campos del Documento</ListSubheader>
           <ListItem button onClick={() => onCreateFile(PARAGRAPH)}>
             <ListItemIcon><TextFieldsTwoTone color="primary" /></ListItemIcon>
             <ListItemText primary="Campo de Texto" />
@@ -174,16 +174,20 @@ const EditorLayout = ({ children, onSave, onChangeTitle }) => {
             <ListItemIcon><ImageTwoTone color="primary" /></ListItemIcon>
             <ListItemText primary="Imagen" />
           </ListItem>
+          <ListItem button onClick={() => onCreateFile(SECTION)}>
+            <ListItemIcon><ViewCompactTwoTone color="primary" /></ListItemIcon>
+            <ListItemText primary="Sección" />
+          </ListItem>
         </List>
         <Divider />
         <List>
           <ListSubheader>Opciones</ListSubheader>
           <ListItem button onClick={onSave}>
-            <ListItemIcon><SaveTwoTone  color="primary" /></ListItemIcon>
+            <ListItemIcon><SaveTwoTone color="primary" /></ListItemIcon>
             <ListItemText primary="Guardar" />
           </ListItem>
           <ListItem button onClick={() => router.back()}>
-            <ListItemIcon><ExitToAppTwoTone  color="primary" /></ListItemIcon>
+            <ListItemIcon><ExitToAppTwoTone color="primary" /></ListItemIcon>
             <ListItemText primary="Salir" />
           </ListItem>
         </List>

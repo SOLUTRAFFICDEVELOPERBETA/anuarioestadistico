@@ -3,14 +3,14 @@ module.exports = {
       autoPrerender: true
     },
     env: {
-      apiKey: 'AIzaSyCieTKzwZNEVJmQ65aIl_bxnLNO1ps_-Mg',
-      authDomain: 'anuarioestadistico-1a99a.firebaseapp.com',
-      databaseURL: 'https://anuarioestadistico-1a99a.firebaseio.com',
-      projectId: 'anuarioestadistico-1a99a',
-      storageBucket: 'anuarioestadistico-1a99a.appspot.com',
-      messagingSenderId: '966171660290',
-      appId: '1:966171660290:web:7ff08644a5312562e6d71b',
-      measurementId: 'G-7Z6K8NVE76'
+      apiKey: 'AIzaSyCCg7wmHI86CNpq9VdLv28dtHiNydSNeGw',
+      authDomain: 'anuario-estadistico.firebaseapp.com',
+      databaseURL: 'https://anuario-estadistico.firebaseio.com',
+      projectId: 'anuario-estadistico',
+      storageBucket: 'anuario-estadistico.appspot.com',
+      messagingSenderId: '180604864462',
+      appId: '1:180604864462:web:4fef89e887cbfc6ac20d9f',
+      measurementId: 'G-WFRZ9NEGGD'
     },
     webpack (config) {
       config.module.rules.push({

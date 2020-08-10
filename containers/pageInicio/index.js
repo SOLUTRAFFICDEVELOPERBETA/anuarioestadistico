@@ -12,32 +12,32 @@ const PageInicio = ({ fields }) => {
                 <Grid item md={6}>
                     <Box padding={0.5}>
                         <Typography
-                            variant="h4"
+                            style={{ marginBottom: '0.5rem' }}
+                            variant="h5"
                             style={{
                                 fontWeight: 700
                             }}
-                            color="textPrimary">{fields[0].value}</Typography>
-                        <Typography component="p" color="textSecondary" align="justify" >
-                            {fields[1].value}
-                        </Typography>
-                    </Box>
-                    <Box padding={1}>
+                            color="textPrimary">{fields[1].value}</Typography>
                         <Typography
-                            style={{
-                                fontWeight: 700
-                            }}
-                            color="textPrimary"
-                            variant="h4">{fields[3].value}</Typography>
-                        <Typography
+                            style={{ marginBottom: '0.5rem' }}
+                            component="p"
                             color="textSecondary"
-                            component="p" align="justify" >
-                            {fields[4].value}
+                            align="justify">
+                            {fields[2].value}
                         </Typography>
+                        <Typography
+                            style={{ marginBottom: '0.5rem' }}
+                            component="p"
+                            color="textSecondary"
+                            align="justify" >
+                            {fields[3].value}
+                        </Typography>
+
                     </Box>
                 </Grid>
                 <Grid item md={6}>
                     <Box>
-                        <img alt="imgmovidad" src={'/static/img/LogoMovilidad.png'} width={600} height={400} />
+                        <img alt="imgmovidad" src={fields[4].value.url} width={600} height={400} />
                     </Box>
                 </Grid>
             </Grid>

@@ -16,7 +16,7 @@ const Home = () => {
   const { title, id, fields } = data[0]
   return (
     <div>
-      <ImagBackground imgSrc={fields[2].value.url} title="Anuario Estadístico 2020" />
+      <ImagBackground imgSrc={fields[0].value.url} title="Anuario Estadístico 2020" />
       <div>
         
         <div>

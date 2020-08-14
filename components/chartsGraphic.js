@@ -571,11 +571,7 @@ const ChartGraphic = ({ id, value, onChange, }) => {
 
       <Box >
         <div data-uploading={loading}>
-          <div
-            css={css`
-                        border-radius: 5px; 
-                    `}
-          >
+          <div>
             {getChart()}
             <div style={{ margin: '0 auto', width: '96%', maxWidth: '96%' }}>
               <div style={{ width: '70%', margin: '0 auto' }}>

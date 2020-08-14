@@ -29,9 +29,9 @@ const SectionGeneric = ({ type, value, id }) => {
     const getField = () => {
         switch (type) {
             case 'title':
-                return <Typography style={{ fontWeight: 700 }} variant="h5" color="primary">{value}</Typography>
+                return <Typography align="center" style={{ fontWeight: 700, paddingBottom: '1rem' }} variant="h3" color="primary">{value}</Typography>
             case 'subtitle':
-                return <Typography style={{ fontWeight: 700 }} variant="h6" align="center" color="textPrimary">{value}</Typography>
+                return <Typography style={{ fontWeight: 700, paddingBottom:'1rem', paddingTop: '1rem' }} variant="h5" align="center" color="textPrimary">{value}</Typography>
             case 'paragraph':
                 return <Typography component="p" style={{ paddingBottom: '1rem' }} align="justify" color="textSecondary">{value}</Typography>
             case 'chart':
@@ -64,14 +64,13 @@ const SectionGeneric = ({ type, value, id }) => {
 
     return (
         <Box css={css`
-        width: 100%;
-        min-width: 96%;
-       
+            width: 100%;
+            min-width: 96%;
         `}
 
         >
             <div css={css`
-                width: 70%;
+                width: 80%;
                 margin: 0 auto;
                 background-color: 'blue';
             `}>

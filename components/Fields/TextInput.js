@@ -1,19 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import { PARAGRAPH, QUOTES, TITLE, SUBTITLE } from '../../constants/documents'
+import { PARAGRAPH, QUOTES, TITLE, SUBTITLE, GRID_SIZES, CUSTOM_TEXT } from '../../constants/documents'
 // import EditorContext from '../../contexts/editor'
 import { Box, Grid, IconButton, makeStyles, MenuItem, Popover, TextField, Tooltip } from '@material-ui/core'
-import { DeleteForever, DragIndicator } from '@material-ui/icons'
+import { DeleteForever, DragHandle, FormatColorText } from '@material-ui/icons'
 import { DragPreviewImage, useDrag } from 'react-dnd'
 import clsx from 'clsx'
 import { grey } from '@material-ui/core/colors'
+import ColorPick from '../ColorPick'
 
 const TEXT_TYPES = {
   [TITLE]: 'Titulo',
   [SUBTITLE]: 'Subtitulo',
   [PARAGRAPH]: 'Párrafo',
-  [QUOTES]: 'Cuotas'
+  [QUOTES]: 'Cuotas',
+  [CUSTOM_TEXT]: 'Personalizado'
 }
 
 const InputContainer = styled.div`
@@ -57,7 +59,8 @@ const InputContainer = styled.div`
   }
 
   .text-field {
-    color: inherit;
+    color: ${props => props.color};
+    text-align: ${props => props.align};
     border: 0px;
     width: 100%;
     padding: 0.5rem;
@@ -67,7 +70,7 @@ const InputContainer = styled.div`
     overflow: hidden;
     resize: none;
     min-height: 40px;
-    transition: font-size 0.5s ease;
+    transition: font-size 0.5s ease, color 0.5s ease, text-align 0.5s ease;
   }
 
   .text-field:hover {
@@ -90,6 +93,7 @@ const InputContainer = styled.div`
     font-size: 2.125rem;
     line-height: 1.235;
     letter-spacing: 0.00735em;
+    white-space: normal;
   }
 
   .text-field[data-type=${SUBTITLE}] {
@@ -98,6 +102,7 @@ const InputContainer = styled.div`
     font-size: 1.25rem;
     line-height: 1.6;
     letter-spacing: 0.0075em;
+    white-space: normal;
   }
 
   .text-field[data-type=${PARAGRAPH}] {
@@ -106,6 +111,16 @@ const InputContainer = styled.div`
     font-size: 1rem;
     line-height: 1.5;
     letter-spacing: 0.00938em;
+    white-space: pre-wrap;
+  }
+
+  .text-field[data-type=${CUSTOM_TEXT}] {
+    font-family: ""Roboto", "Helvetica", "Arial", sans-serif";
+    font-weight: 400;
+    font-size: ${props => props.fontSize}px;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    white-space: pre-wrap;
   }
 
   .text-field[data-type=${QUOTES}] {
@@ -114,6 +129,7 @@ const InputContainer = styled.div`
     font-size: 1rem;
     line-height: 1.5;
     letter-spacing: 0.00938em;
+    white-space: pre-wrap;
   }
 
   .text-field[data-type=${QUOTES}]::before{
@@ -138,7 +154,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const TextInput = ({ id, value, type, size, child, disableGrid, onChange, onDelete }) => {
+const TextInput = ({ id, value, type, color, size, align = 'start', fontSize = 14, child, disableGrid, onChange, onDelete }) => {
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = React.useState(null)
   const [{ isDragging }, drag, preview] = useDrag({
@@ -178,17 +194,20 @@ const TextInput = ({ id, value, type, size, child, disableGrid, onChange, onDele
 
   return (
     <React.Fragment>
-      <DragPreviewImage connect={preview} src="/static/img/DragPreview.png" />
+      <DragPreviewImage connect={preview} src="/static/images/DragPreview.png" />
       <InputContainer
         ref={drag}
         id={id}
+        color={color}
+        align={align}
+        fontSize={fontSize}
         onContextMenu={handleClick}
         className={clsx({
           [classes.dragging]: isDragging
         })}
       >
         <span className="dragger">
-          <DragIndicator style={{ fill: grey[500] }} />
+          <DragHandle style={{ fill: grey[500] }} />
         </span>
         <span
           data-type={type}
@@ -196,8 +215,8 @@ const TextInput = ({ id, value, type, size, child, disableGrid, onChange, onDele
           className="text-field"
           onBlur={handleChange}
           dangerouslySetInnerHTML={{ __html: value }}
-        // value={value}
-        // onChange={handleChange}
+          // value={value}
+          // onChange={handleChange}
         />
       </InputContainer>
       {open && (
@@ -223,13 +242,12 @@ const TextInput = ({ id, value, type, size, child, disableGrid, onChange, onDele
                   label="Tipo de campo"
                   select
                   size="small"
-                  variant="outlined"
                   value={type}
                   name="type"
                   onChange={handleChangeProps}
                   className={classes.option}
                 >
-                  {[TITLE, SUBTITLE, PARAGRAPH, QUOTES].map(($type, $key) => (
+                  {[TITLE, SUBTITLE, PARAGRAPH, QUOTES, CUSTOM_TEXT].map(($type, $key) => (
                     <MenuItem disabled={$type === type} value={$type} key={$key}>
                       {TEXT_TYPES[$type]}
                     </MenuItem>
@@ -239,22 +257,56 @@ const TextInput = ({ id, value, type, size, child, disableGrid, onChange, onDele
               <Grid item>
                 <TextField
                   fullWidth
+                  label="Alinear Texto"
+                  select
+                  size="small"
+                  value={align}
+                  defaultValue="start"
+                  name="align"
+                  onChange={handleChangeProps}
+                  className={classes.option}
+                >
+                  <MenuItem value="start">Inicio</MenuItem>
+                  <MenuItem value="center">Centro</MenuItem>
+                  <MenuItem value="end">Fin</MenuItem>
+                </TextField>
+              </Grid>
+              <Grid item>
+                <TextField
+                  fullWidth
+                  label="Tamaño de Fuente"
+                  type="number"
+                  size="small"
+                  value={fontSize}
+                  disabled={type !== CUSTOM_TEXT}
+                  name="fontSize"
+                  onChange={handleChangeProps}
+                  className={classes.option}
+                />
+              </Grid>
+              <Grid item>
+                <TextField
+                  fullWidth
                   label="Tamaño del objeto"
                   select
                   size="small"
-                  variant="outlined"
                   value={size}
                   name="size"
                   disabled={disableGrid}
                   onChange={handleChangeProps}
                   className={classes.option}
                 >
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map($size => (
-                    <MenuItem disabled={size === $size} value={$size} key={`select-size-option-${id}-${$size}`}>
-                      {$size}
+                  {GRID_SIZES.map($size => (
+                    <MenuItem disabled={size === $size.value} value={$size.value} key={`select-size-option-${id}-${$size.value}`}>
+                      {$size.label}
                     </MenuItem>
                   ))}
                 </TextField>
+              </Grid>
+              <Grid item>
+                <Tooltip title="Borrar" interactive>
+                  <ColorPick color={color} icon={FormatColorText} onChange={rgb => onChange({ color: rgb })} />
+                </Tooltip>
               </Grid>
               <Grid item>
                 <Tooltip title="Borrar" interactive>
@@ -274,7 +326,10 @@ const TextInput = ({ id, value, type, size, child, disableGrid, onChange, onDele
 TextInput.propTypes = {
   id: PropTypes.string.isRequired,
   value: PropTypes.string,
+  color: PropTypes.string,
   type: PropTypes.string,
+  fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  align: PropTypes.string,
   size: PropTypes.any,
   child: PropTypes.bool,
   disableGrid: PropTypes.bool,
@@ -285,6 +340,9 @@ TextInput.propTypes = {
 TextField.defaultProps = {
   value: '',
   type: PARAGRAPH,
+  color: '#000000',
+  fontSize: 14,
+  align: 'start',
   size: 12,
   child: false,
   disableGrid: false

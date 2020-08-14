@@ -3,6 +3,7 @@ import { Typography, Box } from '@material-ui/core';
 import styled from '@emotion/styled'
 
 import { css } from '@emotion/core'
+import ChartGraphic from './chartsGraphic';
 
 
 const ImageContainer = styled.div`
@@ -24,20 +25,24 @@ const ImageContainer = styled.div`
   }
 
 `
-const SectionGeneric = ({ type, value }) => {
+const SectionGeneric = ({ type, value, id }) => {
     const getField = () => {
         switch (type) {
             case 'title':
                 return <Typography style={{ fontWeight: 700 }} variant="h5" color="primary">{value}</Typography>
             case 'subtitle':
-                return <Typography style={{ fontWeight: 700 }} variant="h6" align="left" color="textPrimary">{value}</Typography>
+                return <Typography style={{ fontWeight: 700 }} variant="h6" align="center" color="textPrimary">{value}</Typography>
             case 'paragraph':
                 return <Typography component="p" style={{ paddingBottom: '1rem' }} align="justify" color="textSecondary">{value}</Typography>
+            case 'chart':
+                return (
+                    <ChartGraphic value={value} id={id} />
+                )
             case 'image':
                 return (
                     <ImageContainer>
                         <div className="image">
-                            <img src={value.url} alt="gráfica" />
+                            <img src={value.url} alt="img" />
                         </div>
                     </ImageContainer>
                 )

@@ -30,10 +30,12 @@ import {
   TableChart,
   Menu,
   TextFieldsTwoTone,
-  ViewCompactTwoTone
+  ViewCompactTwoTone,
+  InsertChartTwoTone,
+  InsertLink
 } from '@material-ui/icons'
 import EditorContext from '../contexts/editor'
-import { PARAGRAPH, LIST, IMAGE, DIVIDER, TABLE, SECTION } from '../constants/documents'
+import { PARAGRAPH, LIST, IMAGE, DIVIDER, TABLE, SECTION, CHART, IFRAME, CARD } from '../constants/documents'
 import AlertContext from '../contexts/alert'
 // import { useForm } from 'react-hook-form'
 
@@ -56,7 +58,15 @@ const useLayoutStyles = makeStyles((theme) => ({
     width: drawerWidth
   },
   drawerContainer: {
-    overflow: 'auto'
+    overflow: 'auto',
+    height: '100%',
+    display: 'contents'
+  },
+  drawerMenu: {
+    backgroundColor: theme.palette.background.paper,
+    overflowY: 'auto',
+    overflowX: 'hidden',
+    flexGrow: 2
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -115,10 +125,7 @@ const EditorLayout = ({ children, onSave, onChangeTitle }) => {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
   }
-  /**
-   * Método de cambio del titulo de los documentos
-   * @param {*} values Evento de cambio del campo
-   */
+
   const handleChangeTitle = event => {
     event.preventDefault()
     // console.log({ $title })
@@ -152,7 +159,7 @@ const EditorLayout = ({ children, onSave, onChangeTitle }) => {
             }}
           />
         </form>
-        <List>
+        <List className={classes.drawerMenu}>
           <ListSubheader>Campos del Documento</ListSubheader>
           <ListItem button onClick={() => onCreateFile(PARAGRAPH)}>
             <ListItemIcon><TextFieldsTwoTone color="primary" /></ListItemIcon>
@@ -177,6 +184,18 @@ const EditorLayout = ({ children, onSave, onChangeTitle }) => {
           <ListItem button onClick={() => onCreateFile(SECTION)}>
             <ListItemIcon><ViewCompactTwoTone color="primary" /></ListItemIcon>
             <ListItemText primary="Sección" />
+          </ListItem>
+          <ListItem button onClick={() => onCreateFile(CHART)}>
+            <ListItemIcon><InsertChartTwoTone color="primary" /></ListItemIcon>
+            <ListItemText primary="Gráfico" />
+          </ListItem>
+          <ListItem button onClick={() => onCreateFile(IFRAME)}>
+            <ListItemIcon><InsertLink color="primary" /></ListItemIcon>
+            <ListItemText primary="Referencia" />
+          </ListItem>
+          <ListItem button onClick={() => onCreateFile(CARD)}>
+            <ListItemIcon><ViewCompactTwoTone color="primary" /></ListItemIcon>
+            <ListItemText primary="Carta" />
           </ListItem>
         </List>
         <Divider />

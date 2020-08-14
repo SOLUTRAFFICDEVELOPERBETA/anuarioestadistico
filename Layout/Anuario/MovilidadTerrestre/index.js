@@ -1,18 +1,25 @@
 import React from 'react';
-import { MenuTabsSubModulos } from '../../../components/menuDropdown';
-import { terrestrialMobility } from '../../../constants';
 import usePages from '../../../hooks/usePages';
 import Spinner from '../../../components/Spinner';
 import AnuarioEstadistico from '..';
+import { Box } from '@material-ui/core';
+import SectionGeneric from '../../../components/section';
 const TerrestrialMobility = () => {
-    const dataInicio = usePages('Inicio')
+    const dataMovilidad = usePages('Movilidad')
 
-    if (!dataInicio) return <Spinner />
+    if (!dataMovilidad) return <Spinner />
     return (
         <AnuarioEstadistico>
-            <div>
-                <MenuTabsSubModulos data={terrestrialMobility} />
-            </div>
+            <Box>
+                {dataMovilidad[0].fields.map(field => {
+                    return (
+                        <Box>
+                            <SectionGeneric {...field} key={field.id} />
+                        </Box>
+                    )
+                })}
+
+            </Box>
         </AnuarioEstadistico>
     );
 }

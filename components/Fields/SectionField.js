@@ -5,7 +5,7 @@ import { DeleteForever, ImageTwoTone, MoreVert, Remove, TextFields } from '@mate
 import React from 'react'
 import { FIELDS } from '../../constants/templates'
 import shortid from 'shortid'
-import { DIVIDER, IMAGE, PARAGRAPH, QUOTES, SUBTITLE, TITLE } from '../../constants/documents'
+import { DIVIDER, GRID_SIZES, IMAGE, PARAGRAPH, QUOTES, SUBTITLE, TITLE } from '../../constants/documents'
 import TextInput from './TextInput'
 import ImageField from './ImageField'
 import { DragPreviewImage, useDrag, useDrop } from 'react-dnd'
@@ -166,15 +166,15 @@ const SectionField = ({ id, value, size, onChange, onDelete }) => {
   }
 
   const getField = ($field) => {
-    const { type } = $field
+    const { type, size: $size = 12 } = $field
     switch (type) {
       case SUBTITLE:
       case TITLE:
       case PARAGRAPH:
       case QUOTES:
-        return <TextInput {...$field} size={12} child disableGrid onChange={(data) => handleChangeField($field.id, data) } onDelete={handleDeleteField} />
+        return <TextInput {...$field} size={$size} child onChange={(data) => handleChangeField($field.id, data) } onDelete={handleDeleteField} />
       case IMAGE:
-        return <ImageField {...$field} size={12} child disableGrid onChange={(data) => handleChangeField($field.id, data) } onDelete={handleDeleteField} />
+        return <ImageField {...$field} size={$size} child onChange={(data) => handleChangeField($field.id, data) } onDelete={handleDeleteField} />
       case DIVIDER:
         return <DividerLine child id={$field.id} onDelete={handleDeleteField} />
       default:
@@ -195,12 +195,19 @@ const SectionField = ({ id, value, size, onChange, onDelete }) => {
         })}
       >
         <div className="container-section" aria-valuenow={value.length.toString()}>
-          {value.map(($field, key) => (
-            <div className="field" key={`field-container-${id}-${$field.id}-${key}`}>
-              {getField($field)}
-              <DropPlacement onDrop={(item) => handleMoveItem(key, item)} />
-            </div>
-          ))}
+          <Grid container spacing={1} alignContent="flex-start" alignItems="flex-start" justify="flex-start">
+            {value.map(($field, key) => {
+              const { size: $size = 12 } = $field
+              return (
+                <Grid item key={`field-container-${id}-${$field.id}-${key}`} xl={$size} lg={$size} md={$size} sm={12} xs={12}>
+                  <div className="field">
+                    {getField($field)}
+                    <DropPlacement onDrop={(item) => handleMoveItem(key, item)} />
+                  </div>
+                </Grid>
+              )
+            })}
+          </Grid>
           <Tooltip title="Añade elemento a la sección">
             <ButtonGroup
               className="options"
@@ -274,9 +281,9 @@ const SectionField = ({ id, value, size, onChange, onDelete }) => {
                   onChange={({ target: { value } }) => onChange({ size: value })}
                   // className={classes.option}
                 >
-                  {[6, 7, 8, 9, 10, 11, 12].map($size => (
-                    <MenuItem disabled={size === $size} value={$size} key={`select-size-option-${id}-${$size}`}>
-                      {$size}
+                  {GRID_SIZES.slice(2).map($size => (
+                    <MenuItem disabled={size === $size.value} value={$size.value} key={`select-size-option-${id}-${$size.label}`}>
+                      {$size.label}
                     </MenuItem>
                   ))}
                 </TextField>

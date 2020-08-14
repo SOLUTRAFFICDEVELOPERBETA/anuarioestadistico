@@ -7,172 +7,205 @@ import { UploadFile } from '../constants/files';
 import fb from '../config/firebase';
 import { CloudUpload } from '@material-ui/icons';
 import shortid from 'shortid';
+import Spinner from '../components/Spinner'
+
+
+
+/**
+ * Método para obtener la información del Chart
+ * @param {Array} csv Documento a revisar
+ */
+function getChartData(csv) {
+  return new Promise((resolve, reject) => {
+    console.time('csv')
+    const keys = csv.map(row => {
+      const [, key] = Object.entries(row).find(r => r[0] === '')
+      return ({ key: key.toLowerCase() })
+    })
+    // console.log({ keys })
+    const fields = []
+    keys.forEach(($key, index) => {
+      Object.entries(csv[index]).forEach(([key, value]) => {
+        const pos = fields.findIndex(fld => fld.name === key && key !== '')
+        if (key !== '' && pos === -1) {
+          fields.push({ name: key, [$key.key]: parseFloat(value) })
+        } else if (pos !== -1) {
+          fields[pos] = { ...fields[pos], [$key.key]: parseFloat(value) }
+        }
+      })
+    })
+    console.timeEnd('csv')
+    // console.log({ fields })
+    resolve({ keys, fields })
+  })
+}
 
 
 const GraphicForm = ({ onsubmit }) => {
-    const { auth } = React.useContext(AuthContext)
-    const { showMessage } = React.useContext(AlertContext)
-    const [data, setData] = React.useState({
-        title: '',
-        description: ''
+  const { auth } = React.useContext(AuthContext)
+  const { showMessage } = React.useContext(AlertContext)
+  const [data, setData] = React.useState({
+    title: '',
+    description: ''
+  })
+  const [dataGraphic, setDataGraphic] = React.useState(null)
+  const [openForm, setOpenForm] = React.useState(false)
+  const [loading, setLoading] = React.useState(false)
+
+  const { title, description } = data
+  const handlenOnchange = (e) => {
+    const { value, name } = e.target
+    setData({ ...data, [name]: value })
+  }
+
+  const handlenSubmit = (e) => {
+    e.preventDefault()
+    const { title, description } = data;
+
+    if (title.trim() === '' || description.trim() === '') {
+      showMessage("Todos los campos son obligatorios", 'warning')
+      return;
+    }
+    if (dataGraphic === null) {
+      showMessage("No haz subido la información de la gráfica, en formato csv", 'warning')
+      return;
+    }
+    const body = {
+      title: data.title,
+      type: 'bar',
+      sizes: 6,
+      id: shortid.generate(),
+      description: data.description,
+      value: dataGraphic
+
+    }
+    onsubmit(body)
+
+    setData({
+      title: '',
+      description: ''
     })
-    const [dataGraphic, setDataGraphic] = React.useState(null)
-    const [openForm, setOpenForm] = React.useState(false)
-    const [loading, setLoading] = React.useState(false)
+    setDataGraphic(null)
 
-    const { title, description } = data
-    const handlenOnchange = (e) => {
-        const { value, name } = e.target
-        setData({ ...data, [name]: value })
-    }
+    setOpenForm(false)
+  }
 
-    const handlenSubmit = (e) => {
-        e.preventDefault()
-        const { title, description } = data;
 
-        if (title.trim() === '' || description.trim() === '') {
-            showMessage("Todos los campos son obligatorios", 'warning')
-            return;
-        }
-        if (dataGraphic === null) {
-            showMessage("No haz subido la información de la gráfica, en formato csv", 'warning')
-            return;
-        }
-        const body = {
-            title: data.title,
-            type: 'bar',
-            description: data.description,
-            ...dataGraphic
+  /**
+ * Función para subir archivos a FireStorage
+ * @param file Archivo a subir a FireStorage
+ */
+  const handleUpdateFile = async files => {
+    try {
+      setLoading(true)
+      const [file] = files
+      const { path } = await UploadFile(file, `anuarioestadistico/${shortid.generate()}${file.name}`, `${name}.csv`).then(url => url)
 
-        }
-        onsubmit(body)
+      // console.log({ path })
 
-        setData({
-            title: '',
-            description: ''
+      const readCSV = fb.functions.httpsCallable('onReadCSV')
+
+      readCSV(path).then(res => {
+        showMessage("Información subida con exito", 'success')
+        getChartData(res.data).then((data) => {
+          setLoading(false)
+          setDataGraphic(data);
+          //   onChange({ value: { ...value, data } })
         })
-        setDataGraphic(null)
-
-        setOpenForm(false)
+        console.log(res.data)
+      })
+    } catch (error) {
+      showMessage(error.message, 'error')
     }
+  }
 
-    /**
-     * Función para subir archivos a FireStorage
-     * @param file Archivo a subir a FireStorage
-     */
-    const handleFilesUpload = async (files) => {
-        setLoading(true)
-        const name = String(files[0].name).replace(/ /g, "_").toLowerCase();
-        const [file] = files
-        const url = await UploadFile(file, `anuarioestadistico/${shortid.generate()}${file.name}`, `${name}.csv`).then(url => url)
-        const csv = await getCSVInfo(url.path);
-        const body = {
-            items: {
-                ...url,
-                data: csv.data
-            }
-        }
-        setLoading(false)
-        setDataGraphic(body);
-    }
 
-    /**
-    * Función para llamar el archivo de csv y obtener su información
-    * @param path Ruta del archivo a obtener la información
-    * (e.j) 'plsv/examples/example.csv'
-    */
-    const getCSVInfo = (path) => {
-        const readCSV = fb.functions.httpsCallable('onReadCSV');
-        const csv = readCSV(path).then(res => {
-            showMessage("Información subida con exito", 'success')
-            return { data: res.data }
-        })
-        return csv;
-    };
-    return (
-        <React.Fragment>
+  if (loading) return <Spinner />
+
+  return (
+    <React.Fragment>
+      <Box>
+        <Button
+          variant="contained"
+          size="small"
+          color="secondary"
+          onClick={() => setOpenForm(true)}>crear Gráfica</Button>
+      </Box>
+      {openForm && (
+        <Dialog
+          open={openForm}
+          onClose={() => setOpenForm(false)}
+          scroll="paper"
+          fullWidth
+          maxWidth="md"
+        >
+          <DialogTitle>Ingresan la información de la gráfica</DialogTitle>
+          <DialogContent>
             <Box>
-                <Button
-                    variant="contained"
-                    size="small"
-                    color="secondary"
-                    onClick={() => setOpenForm(true)}>crear Gráfica</Button>
-            </Box>
-            {openForm && (
-                <Dialog
-                    open={openForm}
-                    onClose={() => setOpenForm(false)}
-                    scroll="paper"
-                    fullWidth
-                    maxWidth="md"
-                >
-                    <DialogTitle>Ingresan la información de la gráfica</DialogTitle>
-                    <DialogContent>
-                        <Box>
-                            <form onSubmit={handlenSubmit}>
-                                <TextField
-                                    style={{ paddingBottom: '1rem' }}
-                                    variant="outlined"
-                                    name="title"
-                                    placeholder="Escriba el titulo de la gráfica"
-                                    fullWidth={true}
-                                    value={title}
-                                    onChange={handlenOnchange}
-                                />
-                                <TextField
-                                    variant="outlined"
-                                    name="description"
-                                    placeholder="Escriba el la descripción de la gráfica"
-                                    rows={5}
-                                    fullWidth={true}
-                                    value={description}
-                                    onChange={handlenOnchange}
-                                />
-                                <Box paddingLeft={1} paddingRight={1}>
-                                    <input
-                                        type={'file'}
-                                        name={`anuario_uploadFile`}
-                                        accept="text/csv"
-                                        id={`anuario_uploadFile`}
-                                        multiple={false}
-                                        style={{ display: 'none' }}
-                                        onChange={(e) => handleFilesUpload(e.target.files)}
-                                    />
-                                    <label htmlFor={`anuario_uploadFile`}>
-                                        <Button
-                                            endIcon={<CloudUpload />}
-                                            component={'div'}
-                                            size={'small'}
-                                            fullWidth={true}
-                                            variant={'contained'}
-                                            color={'secondary'}
-                                        >
-                                            Cargar datos de la gráfica
+              <form onSubmit={handlenSubmit}>
+                <TextField
+                  style={{ paddingBottom: '1rem' }}
+                  variant="outlined"
+                  name="title"
+                  placeholder="Escriba el titulo de la gráfica"
+                  fullWidth={true}
+                  value={title}
+                  onChange={handlenOnchange}
+                />
+                <TextField
+                  variant="outlined"
+                  name="description"
+                  placeholder="Escriba el la descripción de la gráfica"
+                  rows={5}
+                  fullWidth={true}
+                  value={description}
+                  onChange={handlenOnchange}
+                />
+                <Box paddingLeft={1} paddingRight={1}>
+                  <input
+                    type={'file'}
+                    name={`anuario_uploadFile`}
+                    accept="text/csv"
+                    id={`anuario_uploadFile`}
+                    multiple={false}
+                    style={{ display: 'none' }}
+                    onChange={(e) => handleUpdateFile(e.target.files)}
+                  />
+                  <label htmlFor={`anuario_uploadFile`}>
+                    <Button
+                      endIcon={<CloudUpload />}
+                      component={'div'}
+                      size={'small'}
+                      fullWidth={true}
+                      variant={'contained'}
+                      color={'secondary'}
+                    >
+                      Cargar datos de la gráfica
                                        </Button>
-                                    </label>
-                                </Box>
+                  </label>
+                </Box>
 
-                                <Button
-                                    disabled={dataGraphic === null ? true : false}
-                                    color="primary"
-                                    type="submit"
-                                    variant="outlined"
-                                    size="medium"
-                                >Crear Gráfica</Button>
-
-
-                            </form>
-                        </Box>
+                <Button
+                  disabled={dataGraphic === null ? true : false}
+                  color="primary"
+                  type="submit"
+                  variant="outlined"
+                  size="medium"
+                >Crear Gráfica</Button>
 
 
-                    </DialogContent>
-                </Dialog>
-            )}
-        </React.Fragment>
+              </form>
+            </Box>
 
-    );
+
+          </DialogContent>
+        </Dialog>
+      )}
+    </React.Fragment>
+
+  );
 }
 GraphicForm.propTypes = {
-    onsubmit: PropTypes.func.isRequired
+  onsubmit: PropTypes.func.isRequired
 }
 export default GraphicForm;

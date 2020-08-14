@@ -6,6 +6,7 @@ import { AddBoxTwoTone, Close, DeleteForever, DragHandle } from '@material-ui/ic
 import { DragPreviewImage, useDrag } from 'react-dnd'
 import clsx from 'clsx'
 import { grey } from '@material-ui/core/colors'
+import { GRID_SIZES } from '../../constants/documents'
 // import { useForm } from 'react-hook-form'
 // import EditorContext from '../../contexts/editor'
 
@@ -74,6 +75,7 @@ const ElementItem = styled(ListItem)`
     display: block;
   }
 `
+
 const useStyles = makeStyles(theme => ({
   dragging: {
     backgroundColor: '#eee',
@@ -81,7 +83,6 @@ const useStyles = makeStyles(theme => ({
     boxShadow: '0px 0px 5px 0px rgba(0,0,0,0.75)'
   }
 }))
-
 
 // Campo de listas
 const ListField = ({ id, value, size, onChange, onDelete }) => {
@@ -120,6 +121,7 @@ const ListField = ({ id, value, size, onChange, onDelete }) => {
     if (element.trim() === '') return
 
     const fields = [...value, element]
+    setElement('')
     onChange({ value: fields })
   }
 
@@ -145,7 +147,7 @@ const ListField = ({ id, value, size, onChange, onDelete }) => {
 
   return (
     <React.Fragment>
-      <DragPreviewImage connect={preview} src="/static/img/DragPreview.png" />
+      <DragPreviewImage connect={preview} src="/static/images/DragPreview.png" />
       <ListContainer
         ref={drag}
         padding={3}
@@ -184,7 +186,7 @@ const ListField = ({ id, value, size, onChange, onDelete }) => {
               fullWidth
               margin="dense"
               size="small"
-              variant="outlined"
+              // variant="outlined"
               name="field"
               value={element}
               placeholder="Añadir elemento"
@@ -230,11 +232,11 @@ const ListField = ({ id, value, size, onChange, onDelete }) => {
                   name="size"
                   style={{ minWidth: '160px' }}
                   onChange={({ target: { value } }) => onChange({ size: value })}
-                // className={classes.option}
+                  // className={classes.option}
                 >
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map($size => (
-                    <MenuItem disabled={size === $size} value={$size} key={`select-size-option-${id}-${$size}`}>
-                      {$size}
+                  {GRID_SIZES.map($size => (
+                    <MenuItem disabled={size === $size.value} value={$size.value} key={`select-size-option-${id}-${$size.value}`}>
+                      {$size.label}
                     </MenuItem>
                   ))}
                 </TextField>

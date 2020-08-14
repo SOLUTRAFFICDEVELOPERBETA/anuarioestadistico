@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import PropTypes from 'prop-types'
-import { Box, Grid, IconButton, MenuItem, makeStyles, Popover, TextField, Tooltip } from '@material-ui/core'
-import { DeleteForever, DragIndicator } from '@material-ui/icons'
+import { Box, Grid, IconButton, makeStyles, MenuItem, Popover, TextField, Tooltip } from '@material-ui/core'
+import { DeleteForever, DragHandle } from '@material-ui/icons'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { UploadFile } from '../../constants/files'
@@ -9,6 +9,7 @@ import AlertContext from '../../contexts/alert'
 import { DragPreviewImage, useDrag } from 'react-dnd'
 import clsx from 'clsx'
 import { grey } from '@material-ui/core/colors'
+import { GRID_SIZES } from '../../constants/documents'
 // import EditorContext from '../../contexts/editor'
 
 // Campo de la imagen
@@ -97,7 +98,41 @@ const ImageContainer = styled.div`
     transition: width 0.5s ease, height 0.5s ease;
   }
 
+  /*display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+
+
+  span {
+  }
+
+  :hover span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .iconButton {
+    cursor: pointer;
+  }
+
+  :hover .img-container {
+    cursor: pointer;
+  }
+  
+  :hover .img-container::after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.25);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+  }*/
 `
+
 const useStyles = makeStyles(theme => ({
   dragging: {
     backgroundColor: '#eee',
@@ -105,6 +140,7 @@ const useStyles = makeStyles(theme => ({
     boxShadow: '0px 0px 5px 0px rgba(0,0,0,0.75)'
   }
 }))
+
 const ImageField = ({ id, value, size, child, disableGrid, onChange, onDelete }) => {
   const classes = useStyles()
   const { query } = useRouter()
@@ -138,7 +174,7 @@ const ImageField = ({ id, value, size, child, disableGrid, onChange, onDelete })
   const handleUpdateFile = files => {
     try {
       const [file] = files
-      UploadFile(file, `/projects/${query.id}/documents/${query.doc}`, file.name).then(url => {
+      UploadFile(file, `/anuario/assets/${query.id}`, file.name).then(url => {
         onChange({ value: url })
       })
     } catch (error) {
@@ -150,7 +186,7 @@ const ImageField = ({ id, value, size, child, disableGrid, onChange, onDelete })
 
   return (
     <React.Fragment>
-      <DragPreviewImage connect={preview} src="/static/images/DragPreview.png" />
+      <DragPreviewImage connect={preview} src="/static/img/DragPreview.png" />
       <Box
         onContextMenu={handleClick}
         ref={drag}
@@ -160,7 +196,7 @@ const ImageField = ({ id, value, size, child, disableGrid, onChange, onDelete })
       >
         <ImageContainer>
           <span className="dragger">
-            <DragIndicator fontSize="small" style={{ fill: grey[500] }} />
+            <DragHandle fontSize="small" style={{ fill: grey[500] }} />
           </span>
           <label htmlFor={id}>
             <div className="image">
@@ -209,11 +245,11 @@ const ImageField = ({ id, value, size, child, disableGrid, onChange, onDelete })
                   name="size"
                   style={{ minWidth: '160px' }}
                   onChange={({ target: { value } }) => onChange({ size: value })}
-                // className={classes.option}
+                  // className={classes.option}
                 >
-                  {[4, 5, 6, 7, 8, 9, 10, 11, 12].map($size => (
-                    <MenuItem disabled={size === $size} value={$size} key={`select-size-option-${id}-${$size}`}>
-                      {$size}
+                  {GRID_SIZES.map($size => (
+                    <MenuItem disabled={size === $size.value} value={$size.value} key={`select-size-option-${id}-${$size.value}`}>
+                      {$size.label}
                     </MenuItem>
                   ))}
                 </TextField>

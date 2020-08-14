@@ -1,11 +1,8 @@
 
-// sub módulo de movilidad terrestre
-import HistoricalTraffic from "../Layout/Anuario/MovilidadTerrestre/HistoricalTraffic"
-import Mobility from "../Layout/Anuario/MovilidadTerrestre/Mobility"
+
 
 // Módulos
 import TerrestrialMobility from "../Layout/Anuario/MovilidadTerrestre"
-import TrafficAccidents from "../Layout/Anuario/MovilidadTerrestre/trafficAccidents"
 import HistoricosGeograficos from "../Layout/Anuario/historicosGeograficos"
 import Demografia from "../Layout/Anuario/demografia"
 import Salud from "../Layout/Anuario/salud"
@@ -43,125 +40,104 @@ export const COLOR_GRAPH = {
 }
 
 export const LinksMenu = [
-    {
-        label: 'Aspectos  Históricos  y  Geográficos', href: '#!',
-        Component: function () {
-            return <HistoricosGeograficos />
-        }
-    },
-    {
-        label: 'Demografía', href: '#!',
-        Component: function () {
-            return <Demografia />
-        }
-    },
-    {
-        label: 'Salud', href: '#!',
-        Component: function () {
-            return <Salud />
-        }
-    },
-    {
-        label: 'Educación', href: '#!',
-        Component: function () {
-            return <Educacion />
-        }
-    },
-    {
-        label: 'Recreación y zonas verdes', href: '#!',
-        Component: function () {
-            return <Reacreacion />
-        }
-    },
-    {
-        label: 'Servicios Públicos', href: '#!',
-        Component: function () {
-            return <ServiciosPublicos />
-        }
-    },
-    {
-        label: 'Seguridad y convivencia', href: '#!',
-        Component: function () {
-            return <SeguridadConvivencia />
-        }
-    },
-    {
-        label: 'Violencia Intrafamiliar', href: '#!',
-        Component: function () {
-            return <ViolenciaIntrafamiliar />
-        }
-    },
+    // {
+    //     label: 'Aspectos  Históricos  y  Geográficos', href: '#!',
+    //     Component: function () {
+    //         return <HistoricosGeograficos />
+    //     }
+    // },
+    // {
+    //     label: 'Demografía', href: '#!',
+    //     Component: function () {
+    //         return <Demografia />
+    //     }
+    // },
+    // {
+    //     label: 'Salud', href: '#!',
+    //     Component: function () {
+    //         return <Salud />
+    //     }
+    // },
+    // {
+    //     label: 'Educación', href: '#!',
+    //     Component: function () {
+    //         return <Educacion />
+    //     }
+    // },
+    // {
+    //     label: 'Recreación y zonas verdes', href: '#!',
+    //     Component: function () {
+    //         return <Reacreacion />
+    //     }
+    // },
+    // {
+    //     label: 'Servicios Públicos', href: '#!',
+    //     Component: function () {
+    //         return <ServiciosPublicos />
+    //     }
+    // },
+    // {
+    //     label: 'Seguridad y convivencia', href: '#!',
+    //     Component: function () {
+    //         return <SeguridadConvivencia />
+    //     }
+    // },
+    // {
+    //     label: 'Violencia Intrafamiliar', href: '#!',
+    //     Component: function () {
+    //         return <ViolenciaIntrafamiliar />
+    //     }
+    // },
     {
         label: 'Movilidad Terrestre', href: '#!',
         Component: function () {
             return <TerrestrialMobility />
         }
     },
-    {
-        label: 'Hacienda Públicas', href: '#!',
-        Component: function () {
-            return <HaciendaPublica />
-        }
-    },
-    {
-        label: 'Sector Financiero', href: '#!',
-        Component: function () {
-            return <SectorFinanciero />
-        }
-    },
-    {
-        label: 'Sector Agropecuario', href: '#!',
-        Component: function () {
-            return <SectorAgropecuario />
-        }
-    },
-    {
-        label: 'Construcción y vivienda', href: '#!',
-        Component: function () {
-            return <ConstruccionVivienda />
-        }
-    },
-    {
-        label: 'Sector Empresarial', href: '#!',
-        Component: function () {
-            return <SectorEmpresarial />
-        }
-    },
-    {
-        label: 'Comercio Exterior', href: '#!',
-        Component: function () {
-            return <ComercioExterior />
-        }
-    },
-    {
-        label: 'Movimiento Aéreo', href: '#!',
-        Component: function () {
-            return <MovimientoAereo />
-        }
-    },
+    // {
+    //     label: 'Hacienda Públicas', href: '#!',
+    //     Component: function () {
+    //         return <HaciendaPublica />
+    //     }
+    // },
+    // {
+    //     label: 'Sector Financiero', href: '#!',
+    //     Component: function () {
+    //         return <SectorFinanciero />
+    //     }
+    // },
+    // {
+    //     label: 'Sector Agropecuario', href: '#!',
+    //     Component: function () {
+    //         return <SectorAgropecuario />
+    //     }
+    // },
+    // {
+    //     label: 'Construcción y vivienda', href: '#!',
+    //     Component: function () {
+    //         return <ConstruccionVivienda />
+    //     }
+    // },
+    // {
+    //     label: 'Sector Empresarial', href: '#!',
+    //     Component: function () {
+    //         return <SectorEmpresarial />
+    //     }
+    // },
+    // {
+    //     label: 'Comercio Exterior', href: '#!',
+    //     Component: function () {
+    //         return <ComercioExterior />
+    //     }
+    // },
+    // {
+    //     label: 'Movimiento Aéreo', href: '#!',
+    //     Component: function () {
+    //         return <MovimientoAereo />
+    //     }
+    // },
 
 
 ]
 
-export const terrestrialMobility = [
-    {
-        label: 'Parque automotor matriculado', href: '#!',
-        Component: function () {
-            return <Mobility />
-        }
-    },
-    {
-        label: 'Tráfico histórico de vehículos', href: '#!',
-        Component: function () {
-            return <HistoricalTraffic />
-        }
-    },
-    {
-        label: 'Accidentes de tráfico ', href: '#!',
-        Component: function () {
-            return <TrafficAccidents />
-        }
-    },
 
-
-]

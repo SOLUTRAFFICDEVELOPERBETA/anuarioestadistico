@@ -1,4 +1,4 @@
-import { PARAGRAPH, TITLE, QUOTES, DIVIDER, LIST, IMAGE, TABLE, SECTION } from './documents'
+import { PARAGRAPH, TITLE, QUOTES, DIVIDER, LIST, IMAGE, TABLE, SECTION, CHART, IFRAME, CARD, SUBTITLE } from './documents'
 export const DOCUMENT_TEMPLATE = {
   title: 'Documento sin Nombre',
   fields: [
@@ -32,6 +32,34 @@ export const FIELDS = {
     type: SECTION,
     value: []
   },
+  [CARD]: {
+    type: SECTION,
+    size: 6,
+    value: [
+      {
+        id: 'card-image',
+        size: 4,
+        type: IMAGE,
+        value: {
+          name: 'Sin nombre, haga click para cambiar',
+          path: '',
+          url: 'https://firebasestorage.googleapis.com/v0/b/wise-365ab.appspot.com/o/assets%2Fno-img-placeholder-min.png?alt=media&token=c8f8b86f-0bdd-4258-87a1-8b83a3fa20dd'
+        }
+      },
+      {
+        id: 'card-title',
+        type: SUBTITLE,
+        size: 8,
+        value: 'Titulo'
+      },
+      {
+        id: 'card-content',
+        type: TITLE,
+        size: 12,
+        value: 'Contenido'
+      }
+    ]
+  },
   [DIVIDER]: {
     type: DIVIDER,
     value: null
@@ -47,6 +75,14 @@ export const FIELDS = {
       path: '',
       url: 'https://firebasestorage.googleapis.com/v0/b/wise-365ab.appspot.com/o/assets%2Fno-img-placeholder-min.png?alt=media&token=c8f8b86f-0bdd-4258-87a1-8b83a3fa20dd'
     }
+  },
+  [CHART]: {
+    type: CHART,
+    value: {}
+  },
+  [IFRAME]: {
+    type: IFRAME,
+    value: ''
   },
   [TABLE]: {
     type: TABLE,

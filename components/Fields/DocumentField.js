@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { TITLE, PARAGRAPH, QUOTES, DIVIDER, LIST, IMAGE, TABLE, SUBTITLE, SECTION } from '../../constants/documents'
+import { TITLE, PARAGRAPH, QUOTES, DIVIDER, LIST, IMAGE, TABLE, SUBTITLE, SECTION, CHART, IFRAME, CUSTOM_TEXT } from '../../constants/documents'
 import { Grid, makeStyles } from '@material-ui/core'
 import ListField from './ListField'
 import EditorContext from '../../contexts/editor'
@@ -11,6 +11,8 @@ import SectionField from './SectionField'
 import clsx from 'clsx'
 import { useDrop } from 'react-dnd'
 import DividerLine from './DividerLine'
+import ChartField from './ChartField'
+import IFrameField from './IFrameField'
 
 const usePlacementStyles = makeStyles(theme => ({
   root: {
@@ -24,6 +26,7 @@ const usePlacementStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.primary.light
   }
 }))
+
 const DropPlacement = ({ onDrop }) => {
   const classes = usePlacementStyles()
 
@@ -43,7 +46,7 @@ DropPlacement.propTypes = {
 }
 
 // Campos del documento
-const DocumentField = ({ id, value, type, size, onDrop }) => {
+const DocumentField = ({ id, value, type, size, onDrop, ...others }) => {
   const { onChangeField, onDeleteField } = React.useContext(EditorContext)
 
   const handleChange = data => {
@@ -56,7 +59,8 @@ const DocumentField = ({ id, value, type, size, onDrop }) => {
       case TITLE:
       case PARAGRAPH:
       case QUOTES:
-        return <TextInput id={id} value={value} type={type} size={size} onChange={handleChange} onDelete={() => onDeleteField(id)} />
+      case CUSTOM_TEXT:
+        return <TextInput id={id} {...others} value={value} type={type} size={size} onChange={handleChange} onDelete={() => onDeleteField(id)} />
       case SECTION:
         return <SectionField id={id} value={value} size={size} onChange={handleChange} onDelete={() => onDeleteField(id)} />
       case DIVIDER:
@@ -67,6 +71,10 @@ const DocumentField = ({ id, value, type, size, onDrop }) => {
         return <ListField id={id} value={value} size={size} onChange={handleChange} onDelete={() => onDeleteField(id)} />
       case TABLE:
         return <TableField id={id} value={value} onChange={handleChange} onDelete={() => onDeleteField(id)} />
+      case CHART:
+        return <ChartField id={id} value={value} size={size} onChange={handleChange} onDelete={() => onDeleteField(id)} />
+      case IFRAME:
+        return <IFrameField id={id} value={value} size={size} onChange={handleChange} onDelete={() => onDeleteField(id)} />
       default:
         return null
     }

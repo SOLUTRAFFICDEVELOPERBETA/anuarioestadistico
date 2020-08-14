@@ -215,7 +215,7 @@ const LogInForm = () => {
                         </button>
                     </div>
                     <div className="accountforgotpassword">
-                        <a href="/auth/recoverPassword">Olvidaste tu contraseña?</a>
+                        <a href="#!">Olvidaste tu contraseña?</a>
                     </div>
                 </FormGroup>
 
@@ -226,7 +226,7 @@ const LogInForm = () => {
                         </a>
 
 
-                <a href={'/auth/register'} className="createAccount">
+                <a href={'#!'} className="createAccount">
                     Crear Cuenta
                     </a>
 

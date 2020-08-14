@@ -25,18 +25,18 @@ const useStyles = makeStyles(theme => ({
   },
   success: {
     backgroundColor: green[600],
-    fontSize: '1.5rem',
+    
     color: theme.palette.getContrastText(green[600])
   },
   error: {
     backgroundColor: red[600],
-    fontSize: '1.5rem',
+    
     color: theme.palette.getContrastText(red[600])
   },
   warning: {
     backgroundColor: orange[600],
     color: theme.palette.getContrastText(orange[600]),
-    fontSize: '1.5rem'
+    
   }
 }))
 

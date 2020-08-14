@@ -32,13 +32,15 @@ const AuthProvider = ({ children }) => {
           payload: uid
         })
         router.push('/')
+      }).catch((error) => {
+        showMessage(error.message, 'error')
+        dispatch({
+          type: AUTH_ERROR
+        })
       })
     } catch (error) {
       console.log(error)
-      showMessage(error.message, 'error')
-      dispatch({
-        type: AUTH_ERROR
-      })
+
     }
   }
 
@@ -114,7 +116,7 @@ const AuthProvider = ({ children }) => {
               payload: user.uid
             })
             router.push('/')
-          } 
+          }
         }, error => {
           showMessage(error.message, 'error')
         }, completed => {

@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 
 import { css } from '@emotion/core'
 import ChartGraphic from './chartsGraphic';
+import TableGeneric from './table';
 
 
 const ImageContainer = styled.div`
@@ -31,7 +32,7 @@ const SectionGeneric = ({ type, value, id }) => {
             case 'title':
                 return <Typography align="center" style={{ fontWeight: 700, paddingBottom: '1rem' }} variant="h3" color="primary">{value}</Typography>
             case 'subtitle':
-                return <Typography style={{ fontWeight: 700, paddingBottom:'1rem', paddingTop: '1rem' }} variant="h5" align="center" color="textPrimary">{value}</Typography>
+                return <Typography style={{ fontWeight: 700, paddingBottom: '1rem', paddingTop: '1rem' }} variant="h5" align="center" color="textPrimary">{value}</Typography>
             case 'paragraph':
                 return <Typography component="p" style={{ paddingBottom: '1rem' }} align="justify" color="textSecondary">{value}</Typography>
             case 'chart':
@@ -55,6 +56,10 @@ const SectionGeneric = ({ type, value, id }) => {
                             </li>
                         ))}
                     </ul>
+                )
+            case 'table':
+                return (
+                    <TableGeneric data={value} />
                 )
             default:
                 return null;

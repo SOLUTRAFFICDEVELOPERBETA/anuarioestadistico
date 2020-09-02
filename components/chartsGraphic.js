@@ -230,7 +230,7 @@ const ChartGraphic = ({ id, value }) => {
             switch (type) {
                 case CHART_LINE:
                     return (
-                        <Recharts.ResponsiveContainer width="100%" height={300}>
+                        <Recharts.ResponsiveContainer debounce={1} width="100%" height={300}>
                             <Recharts.LineChart
                                 data={fields}
                                 margin={{
@@ -278,7 +278,7 @@ const ChartGraphic = ({ id, value }) => {
                     );
                 case CHART_BAR:
                     return (
-                        <Recharts.ResponsiveContainer width="100%" height={300}>
+                        <Recharts.ResponsiveContainer debounce={1} width="100%" height={300}>
                             <Recharts.BarChart
                                 data={fields}
                                 margin={{
@@ -333,7 +333,7 @@ const ChartGraphic = ({ id, value }) => {
                     );
                 case CHART_AREA:
                     return (
-                        <Recharts.ResponsiveContainer width="100%" height={300}>
+                        <Recharts.ResponsiveContainer debounce={1} width="100%" height={300}>
                             <Recharts.AreaChart
                                 data={fields}
                                 margin={{
@@ -386,7 +386,7 @@ const ChartGraphic = ({ id, value }) => {
                     );
                 case CHART_PIE:
                     return (
-                        <Recharts.ResponsiveContainer width="100%" height={300}>
+                        <Recharts.ResponsiveContainer debounce={1} width="100%" height={300}>
                             <Recharts.PieChart
                                 margin={{
                                     top: 5,
@@ -430,7 +430,7 @@ const ChartGraphic = ({ id, value }) => {
                     });
 
                     return (
-                        <Recharts.ResponsiveContainer width="100%" height={300}>
+                        <Recharts.ResponsiveContainer debounce={1} width="100%" height={300}>
                             <Recharts.RadialBarChart innerRadius={20} data={fields}>
                                 <Recharts.RadialBar
                                     minAngle={20}
@@ -446,7 +446,7 @@ const ChartGraphic = ({ id, value }) => {
                 }
                 case CHART_RADAR:
                     return (
-                        <Recharts.ResponsiveContainer width="100%" height={300}>
+                        <Recharts.ResponsiveContainer debounce={1} width="100%" height={300}>
                             <Recharts.RadarChart data={fields}>
                                 <Recharts.PolarGrid />
                                 <Recharts.PolarAngleAxis dataKey="name" />
@@ -486,7 +486,7 @@ const ChartGraphic = ({ id, value }) => {
                     );
                 case CHART_COMPOSE:
                     return (
-                        <Recharts.ResponsiveContainer width="100%" height={300}>
+                        <Recharts.ResponsiveContainer debounce={1} width="100%" height={300}>
                             <Recharts.ComposedChart
                                 data={fields}
                                 margin={{
@@ -581,9 +581,7 @@ const ChartGraphic = ({ id, value }) => {
     return (
         <React.Fragment>
             <Box>
-                <div>
-                    <div>{getChart()}</div>
-                </div>
+                <div style={{ width: '95%' }}>{getChart()}</div>
             </Box>
         </React.Fragment>
     );

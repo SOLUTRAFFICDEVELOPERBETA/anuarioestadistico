@@ -1,5 +1,5 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import PropTypes from 'prop-types';
 // import styled from '@emotion/styled'
@@ -34,7 +34,8 @@ import {
     CloudUploadTwoTone,
     DeleteForever,
     DragHandle,
-    EditAttributes
+    EditAttributes,
+    HelpOutlineTwoTone
 } from '@material-ui/icons';
 import {
     CHARTS_LINES_TYPES,
@@ -58,7 +59,10 @@ import { GRID_SIZES } from '../../constants/documents';
 import { grey } from '@material-ui/core/colors';
 import { DragPreviewImage, useDrag } from 'react-dnd';
 import styled from '@emotion/styled';
+import useDialog from '../../hooks/useDialog';
+import StepperContainer from '../StepperContainer';
 
+// Componente contenedor del Gráfico
 const ChartContainer = styled(Box)`
     width: 100%;
     padding: 1rem;
@@ -97,6 +101,7 @@ const ChartContainer = styled(Box)`
     }
 `;
 
+// Estilos del componente
 const useStyles = makeStyles((theme) => ({
     loader: {
         display: 'flex',
@@ -129,7 +134,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Método para obtener la información del Chart
+ * Método para obtener la información del Chart desde un CSV
  * @param {Array} csv Documento a revisar
  */
 function getChartData(csv) {
@@ -157,28 +162,83 @@ function getChartData(csv) {
     });
 }
 
+/**
+ * Método para obtener el radio interno y externo para los charts de pastel
+ * @param {number} size Numero de elementos en el chart de pastel
+ * @param {number} index Posición del grupo dentro del arreglo
+ */
 const getRadius = (size, index) => {
     const unit = 100 / size;
 
     return [0 + unit * index + unit * 0.2, unit + unit * index - unit * 0.2];
 };
 
-const AttributesForm = ({ open, onClose, type, data, onSubmit }) => {
+// Estilos del formulario de los atributos
+const useAttributeFormStyles = makeStyles((theme) => ({
+    iconContainer: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: theme.spacing(0.5, 1)
+    }
+}));
+
+/**
+ * Componente para cambiar los atributos del formulario
+ * @param {{ id: string, open: boolean, onClose: () => void, type: string, data: any, onSubmit: () => void }} props Propiedades del componente
+ */
+const AttributesForm = ({ id, open, onClose, type, data, onSubmit }) => {
     if (!open) return null;
+
+    const classes = useAttributeFormStyles();
+    const [uploading, setUploading] = React.useState(false);
+    const { showMessage } = React.useContext(AlertContext);
+    const { query } = useRouter();
 
     const { keys = [] } = data;
 
     const [info, setInfo] = React.useState([...keys]);
 
+    /**
+     * Método para cambiar las propiedades del formulario
+     * @param {string} key Identificador de la propiedad
+     * @param {*} data Información a ingresar
+     */
     const handleChange = (key, data) => {
         const $info = info.map(($key) => ($key.key === key ? { ...$key, ...data } : $key));
         setInfo($info);
     };
 
+    // Método para efectuar los cambios
     const handleSubmit = () => {
-        console.log(' esta es la data que tiene data', data);
         onSubmit({ ...data, keys: info });
         onClose();
+    };
+
+    /**
+     * Método para subir o actualizar los iconos para los puntos de la gráfica lineal
+     * @param {string} key Identificador de la propiedad
+     * @param {FileList} files Archivos a subir
+     */
+    const handleUpdateFile = (key, files) => {
+        try {
+            setUploading(true);
+            const [file] = files;
+            UploadFile(
+                file,
+                `anuario/charts/${query.id}/charts/${id}/lines/icon`,
+                `${key}.png`
+            ).then((url) => {
+                const $info = info.map(($key) =>
+                    $key.key === key ? { ...$key, icon: url } : $key
+                );
+
+                setInfo($info);
+                setUploading(false);
+            });
+        } catch (error) {
+            showMessage(error.message, 'error');
+        }
     };
 
     return (
@@ -189,6 +249,7 @@ const AttributesForm = ({ open, onClose, type, data, onSubmit }) => {
                     const {
                         key,
                         disabled = false,
+                        label = true,
                         unit = '',
                         stackId = '',
                         format = type,
@@ -224,19 +285,44 @@ const AttributesForm = ({ open, onClose, type, data, onSubmit }) => {
                                     }
                                 />
                             </Collapse>
-                            <Collapse in={type === CHART_BAR}>
+                            <Collapse
+                                in={
+                                    type === CHART_BAR ||
+                                    (type === CHART_COMPOSE && format === CHART_BAR)
+                                }>
                                 <TextField
                                     fullWidth
                                     margin="dense"
                                     variant="outlined"
                                     value={stackId}
                                     label="Identificador de la barra"
-                                    disabled={type !== CHART_BAR}
+                                    // disabled={type !== CHART_BAR}
                                     placeholder="En las gráficas de barras las barras con el mismo nombre se apilaran"
                                     onChange={({ target: { value } }) =>
                                         handleChange(key, { stackId: value })
                                     }
                                 />
+                            </Collapse>
+                            <Collapse in={type === CHART_LINE}>
+                                <Box className={classes.iconContainer}>
+                                    <Typography variant="body2" display="inline">
+                                        Icono del punto
+                                    </Typography>
+                                    <label htmlFor={`upload-chart-line-icon-${key}`}>
+                                        <IconButton color="primary" size="small" component="div">
+                                            <CloudUploadTwoTone />
+                                        </IconButton>
+                                    </label>
+                                    <input
+                                        id={`upload-chart-line-icon-${key}`}
+                                        type="file"
+                                        name={`upload-chart-line-icon-${key}`}
+                                        accept=".png, .jpg, .jpeg"
+                                        multiple={false}
+                                        style={{ display: 'none' }}
+                                        onChange={(e) => handleUpdateFile(key, e.target.files)}
+                                    />
+                                </Box>
                             </Collapse>
                             <Collapse in={type === CHART_COMPOSE}>
                                 <TextField
@@ -296,6 +382,20 @@ const AttributesForm = ({ open, onClose, type, data, onSubmit }) => {
                                         />
                                     </ListItemSecondaryAction>
                                 </ListItem>
+                                <Collapse in={[CHART_LINE, CHART_BAR].includes(type)}>
+                                    <ListItem>
+                                        <ListItemText primary="Ver valores" />
+                                        <ListItemSecondaryAction>
+                                            <Switch
+                                                checked={label}
+                                                color="primary"
+                                                onChange={({ target: { checked } }) =>
+                                                    handleChange(key, { label: checked })
+                                                }
+                                            />
+                                        </ListItemSecondaryAction>
+                                    </ListItem>
+                                </Collapse>
                                 <ListItem>
                                     <ListItemText
                                         primary="Color"
@@ -318,7 +418,12 @@ const AttributesForm = ({ open, onClose, type, data, onSubmit }) => {
                 <Button color="primary" size="small" variant="outlined" onClick={onClose}>
                     Cerrar
                 </Button>
-                <Button color="primary" size="small" variant="contained" onClick={handleSubmit}>
+                <Button
+                    color="primary"
+                    size="small"
+                    variant="contained"
+                    disabled={uploading}
+                    onClick={handleSubmit}>
                     Guardar
                 </Button>
             </DialogActions>
@@ -327,6 +432,7 @@ const AttributesForm = ({ open, onClose, type, data, onSubmit }) => {
 };
 
 AttributesForm.propTypes = {
+    id: PropTypes.string.isRequired,
     open: PropTypes.bool.isRequired,
     onClose: PropTypes.func.isRequired,
     type: PropTypes.string.isRequired,
@@ -334,6 +440,10 @@ AttributesForm.propTypes = {
     onSubmit: PropTypes.func.isRequired
 };
 
+/**
+ * Componente para mostrar la etiqueta de calor para los Gráficos lineares
+ * @param {{ x: number, y: number, stroke: string, value: any }} props Propiedades del componente
+ */
 const ChartLineLabel = ({ x, y, stroke, value }) => {
     const theme = useTheme();
 
@@ -347,7 +457,7 @@ const ChartLineLabel = ({ x, y, stroke, value }) => {
             {/* <rect {...getRectProps()} height={20} rx={5} ry={5} fill={stroke}> </rect> */}
             <rect
                 x={x - width / 2}
-                y={y - 20}
+                y={y - 35}
                 rx={2}
                 ry={2}
                 width={width}
@@ -358,7 +468,7 @@ const ChartLineLabel = ({ x, y, stroke, value }) => {
             <text
                 x={x}
                 y={y}
-                dy={-10}
+                dy={-25}
                 fill={theme.palette.getContrastText(stroke)}
                 fontSize={10}
                 textAnchor="middle">
@@ -375,6 +485,10 @@ ChartLineLabel.propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
+/**
+ * Componente para mostrar el valor de las etiquetas para los gráficos de barras
+ * @param {{ x: number, y: number, width: number, value: any, stroke: string }} props Propiedades del componente
+ */
 const ChartBarLabel = ({ x, y, width, value, stroke }) => {
     const theme = useTheme();
 
@@ -407,6 +521,10 @@ ChartBarLabel.propTypes = {
     stroke: PropTypes.number.isRequired
 };
 
+/**
+ * Componente para mostrar la etiqueta del valor simple para los gráficos de barras
+ * @param {{ x: number, y: number, width: number, height: number, value: any, stroke: string }} props Propiedades del componente
+ */
 const ChartBarLabelSimple = ({ x, y, width, height, value, stroke }) => {
     const theme = useTheme();
 
@@ -432,7 +550,7 @@ ChartBarLabelSimple.propTypes = {
 };
 
 /**
- * Tooltip para los Pie
+ * Tooltip para los gráficos de Pie
  * @param {{ payload: Array }} props Propiedades del componente
  */
 const ChartPieTooltip = ({ payload = [] }) => (
@@ -479,6 +597,10 @@ ChartPieTooltip.propTypes = {
     payload: PropTypes.array.isRequired
 };
 
+/**
+ * Tooltip personalizado para los gráficos
+ * @param {{ active: boolean, payload: Array, label: string }} props Propiedades del componente
+ */
 const CustomTooltip = ({ active, payload, label }) =>
     active ? (
         <Box paddingY={1} paddingX={2} component={Paper} variant="outlined">
@@ -528,6 +650,43 @@ CustomTooltip.propTypes = {
     label: PropTypes.string.isRequired
 };
 
+/**
+ * Componente para mostrar una imagen en los puntos de un gráfico de linea
+ * @param {{ cx: number, cy: number, id: string, stroke: string, href: string }} props Propiedades del componente
+ */
+const ImageDot = ({ cx, cy, id, stroke, href }) => {
+    if (href) {
+        return (
+            <svg x={cx - 15} y={cy - 15} width={30} height={30}>
+                <defs>
+                    <clipPath id={`dot-${id}`}>
+                        <circle x={cx - 15} cx={30} y={cy - 15} cy={30} r={15} fill={stroke} />
+                    </clipPath>
+                </defs>
+                <image width={30} height={30} xlinkHref={href} clipPath={`dot-${id}`} />
+            </svg>
+        );
+    }
+
+    return (
+        <svg x={cx - 10} y={cy - 10} width={20} height={20}>
+            <circle x={cx - 10} cx={10} y={cy - 10} cy={10} r={5} fill="#fff" stroke={stroke} />
+        </svg>
+    );
+};
+
+ImageDot.propTypes = {
+    cx: PropTypes.number.isRequired,
+    cy: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
+    stroke: PropTypes.string.isRequired,
+    href: PropTypes.any
+};
+
+/**
+ * Componente para el elemento de los Gráficos de los documentos
+ * @param {{ id: string, value: { data: {}, type: string }, size: number | string, onChange: () => void, onDelete: () => void }} props Propiedades del componente
+ */
 const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
     const classes = useStyles();
     const { query } = useRouter();
@@ -535,6 +694,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
     const [loading, setLoading] = React.useState(false);
     const [attributes, setAttributes] = React.useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const [openHelp, HelpContainer] = useDialog();
     const theme = useTheme();
     const { data = {}, type = CHART_LINE } = value;
     const [{ isDragging }, drag, preview] = useDrag({
@@ -558,10 +718,18 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
         setAnchorEl(null);
     };
 
+    /**
+     * Método para cambiar una de las propiedades del elemento
+     * @param {Event} event Evento de cambio de campo
+     */
     const handleChangeProps = ({ target: { name, value } }) => {
         onChange({ [name]: value });
     };
 
+    /**
+     * Método para cambiar los valores del formulario
+     * @param {Event} event Evento de cambio
+     */
     const handleChangeValue = ({ target: { name, value: $value } }) => {
         const $val = { ...value, [name]: $value };
         onChange({ value: $val });
@@ -577,9 +745,11 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
         try {
             setLoading(true);
             const [file] = files;
-            const { path } = await UploadFile(file, `anuario/charts/${query.id}`, `${id}.csv`).then(
-                (url) => url
-            );
+            const { path } = await UploadFile(
+                file,
+                `projects/${query.id}/documents/${query.doc}/charts`,
+                `${id}.csv`
+            ).then((url) => url);
 
             // console.log({ path })
 
@@ -597,17 +767,22 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
         }
     };
 
+    /**
+     * Método para efectuar los cambios dentro del formulario
+     * @param {*} data Datos a cambiar
+     */
     const handleSaveChanges = (data) => {
         onChange({ value: { ...value, data } });
     };
 
+    // Método para obtener el Gráfico
     const getChart = () => {
         const { keys = [], fields = [] } = data;
         if (keys.length !== 0) {
             switch (type) {
                 case CHART_LINE:
                     return (
-                        <Recharts.ResponsiveContainer width="100%" height={300}>
+                        <Recharts.ResponsiveContainer debounce={1} width="100%" height={300}>
                             <Recharts.LineChart
                                 data={fields}
                                 margin={{
@@ -618,7 +793,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                 }}>
                                 <Recharts.CartesianGrid strokeDasharray="3 3" />
                                 <Recharts.XAxis dataKey="name" padding={{ left: 20, right: 20 }} />
-                                <Recharts.YAxis padding={{ top: 20 }} domain={[0, 'dataMax']} />
+                                <Recharts.YAxis padding={{ top: 40 }} domain={[0, 'dataMax']} />
                                 <Recharts.Legend />
                                 <Recharts.Tooltip content={<CustomTooltip />} />
                                 <Recharts.Brush
@@ -630,7 +805,9 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                     const {
                                         key,
                                         type = 'monotone',
+                                        label = true,
                                         unit = '',
+                                        icon = { url: null },
                                         disabled = false,
                                         color = randomHexColorCode()
                                     } = $key;
@@ -645,8 +822,11 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                             dataKey={key}
                                             stroke={color}
                                             unit={unit}
+                                            dot={
+                                                <ImageDot id={`line-icon-${key}`} href={icon.url} />
+                                            }
                                             activeDot={{ r: 6 }}
-                                            label={<ChartLineLabel stroke={color} />}
+                                            label={label && <ChartLineLabel stroke={color} />}
                                         />
                                     );
                                 })}
@@ -655,7 +835,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                     );
                 case CHART_BAR:
                     return (
-                        <Recharts.ResponsiveContainer width="100%" height={300}>
+                        <Recharts.ResponsiveContainer debounce={1} width="100%" height={300}>
                             <Recharts.BarChart
                                 data={fields}
                                 margin={{
@@ -679,6 +859,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                         key,
                                         unit = '',
                                         disabled = false,
+                                        label = true,
                                         stackId = '',
                                         color = randomHexColorCode()
                                     } = $key;
@@ -694,13 +875,14 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                             dataKey={key}
                                             fill={color}
                                             unit={unit}
-                                            stackId={stackId !== '' ? stackId : key}
+                                            stackId={stackId.trim() !== '' ? stackId : key}
                                             label={
-                                                stackId === '' ? (
+                                                label &&
+                                                (stackId === '' ? (
                                                     <ChartBarLabel stroke={color} />
                                                 ) : (
                                                     <ChartBarLabelSimple stroke={color} />
-                                                )
+                                                ))
                                             }
                                         />
                                     );
@@ -710,7 +892,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                     );
                 case CHART_AREA:
                     return (
-                        <Recharts.ResponsiveContainer width="100%" height={300}>
+                        <Recharts.ResponsiveContainer debounce={1} width="100%" height={300}>
                             <Recharts.AreaChart
                                 data={fields}
                                 margin={{
@@ -763,7 +945,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                     );
                 case CHART_PIE:
                     return (
-                        <Recharts.ResponsiveContainer width="100%" height={300}>
+                        <Recharts.ResponsiveContainer debounce={1} width="100%" height={300}>
                             <Recharts.PieChart
                                 margin={{
                                     top: 5,
@@ -807,7 +989,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                     });
 
                     return (
-                        <Recharts.ResponsiveContainer width="100%" height={300}>
+                        <Recharts.ResponsiveContainer width="100%" debounce={1} height={300}>
                             <Recharts.RadialBarChart innerRadius={20} data={fields}>
                                 <Recharts.RadialBar
                                     minAngle={20}
@@ -823,7 +1005,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                 }
                 case CHART_RADAR:
                     return (
-                        <Recharts.ResponsiveContainer width="100%" height={300}>
+                        <Recharts.ResponsiveContainer width="100%" debounce={1} height={300}>
                             <Recharts.RadarChart data={fields}>
                                 <Recharts.PolarGrid />
                                 <Recharts.PolarAngleAxis dataKey="name" />
@@ -863,7 +1045,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                     );
                 case CHART_COMPOSE:
                     return (
-                        <Recharts.ResponsiveContainer width="100%" height={300}>
+                        <Recharts.ResponsiveContainer debounce={1} width="100%" height={300}>
                             <Recharts.ComposedChart
                                 data={fields}
                                 margin={{
@@ -908,6 +1090,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                                 />
                                             );
                                         case CHART_BAR: {
+                                            const { stackId = '' } = $key;
                                             const { light, main } = theme.palette.augmentColor({
                                                 main: color
                                             });
@@ -918,6 +1101,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                                     dataKey={key}
                                                     fill={light}
                                                     stroke={main}
+                                                    stackId={stackId.trim() !== '' ? stackId : key}
                                                     fillOpacity={0.2}
                                                     unit={unit}
                                                 />
@@ -1006,7 +1190,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
 
     return (
         <React.Fragment>
-            <DragPreviewImage connect={preview} src="/static/images/DragPreview.png" />
+            <DragPreviewImage connect={preview} src="/static/img/DragPreview.png" />
             <ChartContainer onContextMenu={handleClick}>
                 <span className="dragger" ref={drag}>
                     <DragHandle fontSize="small" style={{ fill: grey[500] }} />
@@ -1017,11 +1201,14 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                             <CircularProgress />
                         </div>
                     ) : (
-                        <div data-uploading={loading}>{getChart()}</div>
+                        <div data-uploading={loading} style={{ width: '95%' }}>
+                            {getChart()}
+                        </div>
                     )}
                 </div>
             </ChartContainer>
             <AttributesForm
+                id={id}
                 open={attributes}
                 type={type}
                 onClose={() => setAttributes(false)}
@@ -1098,6 +1285,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                     id={`upload-chart-data-${id}`}
                                     type="file"
                                     name={`upload-chart-data-${id}`}
+                                    accept=".csv"
                                     multiple={false}
                                     style={{ display: 'none' }}
                                     onChange={(e) => handleUpdateFile(e.target.files)}
@@ -1107,6 +1295,13 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                 <Tooltip title="Editar Contenido" interactive>
                                     <IconButton size="small" onClick={() => setAttributes(true)}>
                                         <EditAttributes color="primary" />
+                                    </IconButton>
+                                </Tooltip>
+                            </Grid>
+                            <Grid item>
+                                <Tooltip title="Ayuda" interactive>
+                                    <IconButton size="small" onClick={() => openHelp()}>
+                                        <HelpOutlineTwoTone color="primary" />
                                     </IconButton>
                                 </Tooltip>
                             </Grid>
@@ -1121,6 +1316,83 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                     </Box>
                 </Popover>
             )}
+            <HelpContainer title="Ayuda para los gráficos">
+                <StepperContainer
+                    id={`guide-help-${id}`}
+                    StepperConfig={[
+                        { label: 'Datos' },
+                        { label: 'Tipos' },
+                        { label: 'Contenido' },
+                        { label: 'Barras apiladas', optional: true },
+                        { label: 'Precaución' }
+                    ]}
+                    onOver={() => openHelp()}>
+                    <Box>
+                        <Typography variant="h5" color="primary" gutterBottom>
+                            Modelo de datos
+                        </Typography>
+                        <Typography variant="body1" paragraph>
+                            Para que el componente de gráficos muestre la información de forma
+                            correcta el CSV debe de seguir el modelo de datos presentado en la
+                            aplicación
+                        </Typography>
+                        <Typography variant="body1" paragraph>
+                            Recuerde que el contenido de la casilla A1 debe de mantenerse vació por
+                            razones de referencia de la información
+                        </Typography>
+                        <Button
+                            style={{ marginBottom: '0.5rem' }}
+                            startIcon={<CloudDownloadTwoTone />}
+                            color="primary"
+                            variant="outlined"
+                            size="small"
+                            component="a"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://firebasestorage.googleapis.com/v0/b/wise-365ab.appspot.com/o/assets%2FPlantilla%20para%20datos%20de%20una%20Grafica.xlsx?alt=media&token=00d27cbd-a5e5-48b6-a8ba-5454e04ba292">
+                            Descargar plantilla
+                        </Button>
+                    </Box>
+                    <Box>
+                        <Typography variant="h5" color="primary" gutterBottom>
+                            Tipo de Gráfica
+                        </Typography>
+                        <Typography variant="body1" paragraph>
+                            Para cambiar el tipo de gráfica seleccione el tipo de gráfica
+                        </Typography>
+                    </Box>
+                    <Box>
+                        <Typography variant="h5" color="primary" gutterBottom>
+                            Personalizar Gráfica
+                        </Typography>
+                        <Typography variant="body1" paragraph>
+                            Cosas como el color y la visualización de la gráficas se pueden cambiar,
+                            para ingresar a ello haga click al botón de editar contenido{' '}
+                            <EditAttributes />
+                        </Typography>
+                    </Box>
+                    <Box>
+                        <Typography variant="h5" color="primary" gutterBottom>
+                            Barras: Apilar Datos
+                        </Typography>
+                        <Typography variant="body1" paragraph>
+                            En las gráficas de barras es posible apilar el contenido de las barras,
+                            para ello desde la opción de editar contenido <EditAttributes />, desde
+                            ahi asegúrese que el campo de identificador de la barra sean iguales,
+                            las barras con el mismo identificador se apilaran
+                        </Typography>
+                    </Box>
+                    <Box>
+                        <Typography variant="h5" color="primary" gutterBottom>
+                            Precauciones
+                        </Typography>
+                        <Typography variant="body1" paragraph>
+                            En las gráficas con la radial, solo se visualizan el primer grupo de
+                            contenidos
+                        </Typography>
+                    </Box>
+                </StepperContainer>
+            </HelpContainer>
         </React.Fragment>
     );
 };

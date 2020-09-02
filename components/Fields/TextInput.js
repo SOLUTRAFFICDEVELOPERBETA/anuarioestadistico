@@ -1,23 +1,41 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from '@emotion/styled'
-import { PARAGRAPH, QUOTES, TITLE, SUBTITLE, GRID_SIZES, CUSTOM_TEXT } from '../../constants/documents'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from '@emotion/styled';
+import {
+    PARAGRAPH,
+    QUOTES,
+    TITLE,
+    SUBTITLE,
+    GRID_SIZES,
+    CUSTOM_TEXT
+} from '../../constants/documents';
 // import EditorContext from '../../contexts/editor'
-import { Box, Grid, IconButton, makeStyles, MenuItem, Popover, TextField, Tooltip } from '@material-ui/core'
-import { DeleteForever, DragHandle, FormatColorText } from '@material-ui/icons'
-import { DragPreviewImage, useDrag } from 'react-dnd'
-import clsx from 'clsx'
-import { grey } from '@material-ui/core/colors'
-import ColorPick from '../ColorPick'
+import {
+    Box,
+    Grid,
+    IconButton,
+    makeStyles,
+    MenuItem,
+    Popover,
+    TextField,
+    Tooltip
+} from '@material-ui/core';
+import { DeleteForever, DragHandle, FormatColorText } from '@material-ui/icons';
+import { DragPreviewImage, useDrag } from 'react-dnd';
+import clsx from 'clsx';
+import { grey } from '@material-ui/core/colors';
+import ColorPick from '../ColorPick';
+import EmojiPicker from '../EmojiPicker';
 
 const TEXT_TYPES = {
-  [TITLE]: 'Titulo',
-  [SUBTITLE]: 'Subtitulo',
-  [PARAGRAPH]: 'Párrafo',
-  [QUOTES]: 'Cuotas',
-  [CUSTOM_TEXT]: 'Personalizado'
-}
+    [TITLE]: 'Titulo',
+    [SUBTITLE]: 'Subtitulo',
+    [PARAGRAPH]: 'Párrafo',
+    [QUOTES]: 'Cuotas',
+    [CUSTOM_TEXT]: 'Personalizado'
+};
 
+// Contenedor del Input
 const InputContainer = styled.div`
   width: 100%;
   padding: 16px;
@@ -59,8 +77,8 @@ const InputContainer = styled.div`
   }
 
   .text-field {
-    color: ${props => props.color};
-    text-align: ${props => props.align};
+    color: ${(props) => props.color};
+    text-align: ${(props) => props.align};
     border: 0px;
     width: 100%;
     padding: 0.5rem;
@@ -117,7 +135,7 @@ const InputContainer = styled.div`
   .text-field[data-type=${CUSTOM_TEXT}] {
     font-family: ""Roboto", "Helvetica", "Arial", sans-serif";
     font-weight: 400;
-    font-size: ${props => props.fontSize}px;
+    font-size: ${(props) => props.fontSize}px;
     line-height: 1.5;
     letter-spacing: 0.00938em;
     white-space: pre-wrap;
@@ -141,211 +159,255 @@ const InputContainer = styled.div`
     content: close-quote;
     font-weight: bold;
   }
-`
+`;
 
-const useStyles = makeStyles(theme => ({
-  option: {
-    minWidth: theme.spacing(20)
-  },
-  dragging: {
-    backgroundColor: '#eee',
-    // z-index: 5,
-    boxShadow: '0px 0px 5px 0px rgba(0,0,0,0.75)'
-  }
-}))
+// Estilos del componente
+const useStyles = makeStyles((theme) => ({
+    option: {
+        minWidth: theme.spacing(20)
+    },
+    dragging: {
+        backgroundColor: '#eee',
+        // z-index: 5,
+        boxShadow: '0px 0px 5px 0px rgba(0,0,0,0.75)'
+    }
+}));
 
-const TextInput = ({ id, value, type, color, size, align = 'start', fontSize = 14, child, disableGrid, onChange, onDelete }) => {
-  const classes = useStyles()
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const [{ isDragging }, drag, preview] = useDrag({
-    item: { type: child ? 'CHILD' : 'ITEM', id },
-    collect: monitor => ({
-      isDragging: !!monitor.isDragging()
-    })
-  })
-  // const { onChangeField, onDeleteField } = React.useContext(EditorContext)
+/**
+ * Componente para mostrar un campo de texto
+ * @param {{ id: string, value: string, type: string, color: string, size: number | string, align: string, fontSize: string | number, child: boolean, disableGrid: boolean, onChange: () => void, onDelete: () => void }} props Propiedades del componente
+ */
+const TextInput = ({
+    id,
+    value,
+    type,
+    color,
+    size,
+    align = 'start',
+    fontSize = 14,
+    child,
+    disableGrid,
+    onChange,
+    onDelete
+}) => {
+    const classes = useStyles();
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [{ isDragging }, drag, preview] = useDrag({
+        item: { type: child ? 'CHILD' : 'ITEM', id },
+        collect: (monitor) => ({
+            isDragging: !!monitor.isDragging()
+        })
+    });
+    // const { onChangeField, onDeleteField } = React.useContext(EditorContext)
 
-  /**
-   * Método para abrir el popover
-   * @param {Event} event Evento de click de la celda
-   */
-  const handleClick = (event) => {
-    event.preventDefault()
-    setAnchorEl(event.currentTarget)
-  }
+    /**
+     * Método para abrir el popover
+     * @param {Event} event Evento de click de la celda
+     */
+    const handleClick = (event) => {
+        event.preventDefault();
+        setAnchorEl(event.currentTarget);
+    };
 
-  // Método para cerrar el popover
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
+    // Método para cerrar el popover
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
-  const handleChange = event => {
-    const { currentTarget: { innerText } } = event
-    // console.log({ currentTarget }, currentTarget.innerText)
-    // console.log({ innerText })
-    onChange({ value: innerText })
-  }
+    /**
+     * Método para cambiar el contenido del componente
+     * @param {Event} event Evento de cambio del campo
+     */
+    const handleChange = (event) => {
+        const {
+            currentTarget: { innerText }
+        } = event;
+        // console.log({ currentTarget }, currentTarget.innerText)
+        // console.log({ innerText })
+        onChange({ value: innerText });
+    };
 
-  const handleChangeProps = ({ target: { name, value } }) => {
-    onChange({ [name]: value })
-  }
+    const handlePushEmoji = ({ emoji }) => onChange({ value: `${value}${emoji}` });
 
-  const open = Boolean(anchorEl)
+    /**
+     * Método para cambiar una propiedad del componente
+     * @param {Event} event Evento de cambio del Input
+     */
+    const handleChangeProps = ({ target: { name, value } }) => {
+        onChange({ [name]: value });
+    };
 
-  return (
-    <React.Fragment>
-      <DragPreviewImage connect={preview} src="/static/images/DragPreview.png" />
-      <InputContainer
-        ref={drag}
-        id={id}
-        color={color}
-        align={align}
-        fontSize={fontSize}
-        onContextMenu={handleClick}
-        className={clsx({
-          [classes.dragging]: isDragging
-        })}
-      >
-        <span className="dragger">
-          <DragHandle style={{ fill: grey[500] }} />
-        </span>
-        <span
-          data-type={type}
-          contentEditable
-          className="text-field"
-          onBlur={handleChange}
-          dangerouslySetInnerHTML={{ __html: value }}
-          // value={value}
-          // onChange={handleChange}
-        />
-      </InputContainer>
-      {open && (
-        <Popover
-          id={`popover-open-${id}`}
-          open={open}
-          anchorEl={anchorEl}
-          onClose={handleClose}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'left'
-          }}
-          transformOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left'
-          }}
-        >
-          <Box padding={1}>
-            <Grid container spacing={1} alignContent="center" alignItems="center">
-              <Grid item>
-                <TextField
-                  fullWidth
-                  label="Tipo de campo"
-                  select
-                  size="small"
-                  value={type}
-                  name="type"
-                  onChange={handleChangeProps}
-                  className={classes.option}
-                >
-                  {[TITLE, SUBTITLE, PARAGRAPH, QUOTES, CUSTOM_TEXT].map(($type, $key) => (
-                    <MenuItem disabled={$type === type} value={$type} key={$key}>
-                      {TEXT_TYPES[$type]}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </Grid>
-              <Grid item>
-                <TextField
-                  fullWidth
-                  label="Alinear Texto"
-                  select
-                  size="small"
-                  value={align}
-                  defaultValue="start"
-                  name="align"
-                  onChange={handleChangeProps}
-                  className={classes.option}
-                >
-                  <MenuItem value="start">Inicio</MenuItem>
-                  <MenuItem value="center">Centro</MenuItem>
-                  <MenuItem value="end">Fin</MenuItem>
-                </TextField>
-              </Grid>
-              <Grid item>
-                <TextField
-                  fullWidth
-                  label="Tamaño de Fuente"
-                  type="number"
-                  size="small"
-                  value={fontSize}
-                  disabled={type !== CUSTOM_TEXT}
-                  name="fontSize"
-                  onChange={handleChangeProps}
-                  className={classes.option}
+    const open = Boolean(anchorEl);
+
+    return (
+        <React.Fragment>
+            <DragPreviewImage connect={preview} src="/static/img/DragPreview.png" />
+            <InputContainer
+                ref={drag}
+                id={id}
+                color={color}
+                align={align}
+                fontSize={fontSize}
+                onContextMenu={handleClick}
+                className={clsx({
+                    [classes.dragging]: isDragging
+                })}>
+                <span className="dragger">
+                    <DragHandle style={{ fill: grey[500] }} />
+                </span>
+                <span
+                    data-type={type}
+                    contentEditable
+                    className="text-field"
+                    onBlur={handleChange}
+                    dangerouslySetInnerHTML={{ __html: value }}
+                    // value={value}
+                    // onChange={handleChange}
                 />
-              </Grid>
-              <Grid item>
-                <TextField
-                  fullWidth
-                  label="Tamaño del objeto"
-                  select
-                  size="small"
-                  value={size}
-                  name="size"
-                  disabled={disableGrid}
-                  onChange={handleChangeProps}
-                  className={classes.option}
-                >
-                  {GRID_SIZES.map($size => (
-                    <MenuItem disabled={size === $size.value} value={$size.value} key={`select-size-option-${id}-${$size.value}`}>
-                      {$size.label}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </Grid>
-              <Grid item>
-                <Tooltip title="Borrar" interactive>
-                  <ColorPick color={color} icon={FormatColorText} onChange={rgb => onChange({ color: rgb })} />
-                </Tooltip>
-              </Grid>
-              <Grid item>
-                <Tooltip title="Borrar" interactive>
-                  <IconButton size="small" onClick={() => onDelete(id)}>
-                    <DeleteForever color="error" />
-                  </IconButton>
-                </Tooltip>
-              </Grid>
-            </Grid>
-          </Box>
-        </Popover>
-      )}
-    </React.Fragment>
-  )
-}
+            </InputContainer>
+            {open && (
+                <Popover
+                    id={`popover-open-${id}`}
+                    open={open}
+                    anchorEl={anchorEl}
+                    onClose={handleClose}
+                    anchorOrigin={{
+                        vertical: 'top',
+                        horizontal: 'left'
+                    }}
+                    transformOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left'
+                    }}>
+                    <Box padding={1}>
+                        <Grid container spacing={1} alignContent="center" alignItems="center">
+                            <Grid item>
+                                <TextField
+                                    fullWidth
+                                    label="Tipo de campo"
+                                    select
+                                    size="small"
+                                    value={type}
+                                    name="type"
+                                    onChange={handleChangeProps}
+                                    className={classes.option}>
+                                    {[TITLE, SUBTITLE, PARAGRAPH, QUOTES, CUSTOM_TEXT].map(
+                                        ($type, $key) => (
+                                            <MenuItem
+                                                disabled={$type === type}
+                                                value={$type}
+                                                key={$key}>
+                                                {TEXT_TYPES[$type]}
+                                            </MenuItem>
+                                        )
+                                    )}
+                                </TextField>
+                            </Grid>
+                            <Grid item>
+                                <TextField
+                                    fullWidth
+                                    label="Alinear Texto"
+                                    select
+                                    size="small"
+                                    value={align}
+                                    defaultValue="start"
+                                    name="align"
+                                    onChange={handleChangeProps}
+                                    className={classes.option}>
+                                    <MenuItem value="start">Inicio</MenuItem>
+                                    <MenuItem value="center">Centro</MenuItem>
+                                    <MenuItem value="end">Fin</MenuItem>
+                                </TextField>
+                            </Grid>
+                            <Grid item>
+                                <TextField
+                                    fullWidth
+                                    label="Tamaño de Fuente"
+                                    type="number"
+                                    size="small"
+                                    value={fontSize}
+                                    disabled={type !== CUSTOM_TEXT}
+                                    name="fontSize"
+                                    onChange={handleChangeProps}
+                                    className={classes.option}
+                                />
+                            </Grid>
+                            <Grid item>
+                                <TextField
+                                    fullWidth
+                                    label="Tamaño del objeto"
+                                    select
+                                    size="small"
+                                    value={size}
+                                    name="size"
+                                    disabled={disableGrid}
+                                    onChange={handleChangeProps}
+                                    className={classes.option}>
+                                    {GRID_SIZES.map(($size) => (
+                                        <MenuItem
+                                            disabled={size === $size.value}
+                                            value={$size.value}
+                                            key={`select-size-option-${id}-${$size.value}`}>
+                                            {$size.label}
+                                        </MenuItem>
+                                    ))}
+                                </TextField>
+                            </Grid>
+                            <Grid item>
+                                <Tooltip title="Borrar" interactive>
+                                    <ColorPick
+                                        color={color}
+                                        icon={FormatColorText}
+                                        onChange={(rgb) => onChange({ color: rgb })}
+                                    />
+                                </Tooltip>
+                            </Grid>
+                            <Tooltip title="Insertar Emoji">
+                                <EmojiPicker
+                                    id={`emoji-picker-text-${id}`}
+                                    onSelect={handlePushEmoji}
+                                />
+                            </Tooltip>
+                        </Grid>
+                        <Grid item>
+                            <Grid item>
+                                <Tooltip title="Borrar" interactive>
+                                    <IconButton size="small" onClick={() => onDelete(id)}>
+                                        <DeleteForever color="error" />
+                                    </IconButton>
+                                </Tooltip>
+                            </Grid>
+                        </Grid>
+                    </Box>
+                </Popover>
+            )}
+        </React.Fragment>
+    );
+};
 
 TextInput.propTypes = {
-  id: PropTypes.string.isRequired,
-  value: PropTypes.string,
-  color: PropTypes.string,
-  type: PropTypes.string,
-  fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  align: PropTypes.string,
-  size: PropTypes.any,
-  child: PropTypes.bool,
-  disableGrid: PropTypes.bool,
-  onChange: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired
-}
+    id: PropTypes.string.isRequired,
+    value: PropTypes.string,
+    color: PropTypes.string,
+    type: PropTypes.string,
+    fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    align: PropTypes.string,
+    size: PropTypes.any,
+    child: PropTypes.bool,
+    disableGrid: PropTypes.bool,
+    onChange: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired
+};
 
 TextField.defaultProps = {
-  value: '',
-  type: PARAGRAPH,
-  color: '#000000',
-  fontSize: 14,
-  align: 'start',
-  size: 12,
-  child: false,
-  disableGrid: false
-}
+    value: '',
+    type: PARAGRAPH,
+    color: '#000000',
+    fontSize: 14,
+    align: 'start',
+    size: 12,
+    child: false,
+    disableGrid: false
+};
 
-export default TextInput
+export default TextInput;

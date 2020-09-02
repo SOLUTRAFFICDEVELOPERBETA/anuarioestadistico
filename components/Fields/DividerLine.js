@@ -1,20 +1,21 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Divider, Tooltip } from '@material-ui/core'
-import styled from '@emotion/styled'
-import { DragPreviewImage, useDrag } from 'react-dnd'
-import { DragHandle } from '@material-ui/icons'
-import { grey } from '@material-ui/core/colors'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Divider, Tooltip } from '@material-ui/core';
+import styled from '@emotion/styled';
+import { DragPreviewImage, useDrag } from 'react-dnd';
+import { DragHandle } from '@material-ui/icons';
+import { grey } from '@material-ui/core/colors';
 // import clsx from 'clsx'
 
+// Componente con estilos para obtener un divider con color
 const ColorDivider = styled.div`
-  min-height: 8px;
-  padding: 2px 0px;
-  margin-bottom: 8px;
-  transition: 0.5s ease;
-  display: grid;
-  grid-template-columns: 0px auto;
-  align-items: center;
+    min-height: 8px;
+    padding: 2px 0px;
+    margin-bottom: 8px;
+    transition: 0.5s ease;
+    display: grid;
+    grid-template-columns: 0px auto;
+    align-items: center;
 
     .dragger {
         align-self: center;
@@ -35,51 +36,55 @@ const ColorDivider = styled.div`
         cursor: move;
     }
 
-  :hover {
-    padding: 8px 0px;
-    cursor: pointer;
-    background-color: rgb(245,245,245);
-    grid-template-columns: 30px auto;
-  }
+    :hover {
+        padding: 8px 0px;
+        cursor: pointer;
+        background-color: rgb(245, 245, 245);
+        grid-template-columns: 30px auto;
+    }
 
-  :hover .MuiDivider-root {
-    background-color: var(--primary)
-  }
-`
+    :hover .MuiDivider-root {
+        background-color: var(--primary);
+    }
+`;
 
+/**
+ * Componente del divisor para los documentos
+ * @param {{ id: string, child: boolean, onDelete: () => void }} props Propiedades del componente
+ */
 const DividerLine = ({ id, child, onDelete }) => {
-  const [{ isDragging }, drag, preview] = useDrag({
-    item: { type: child ? 'CHILD' : 'ITEM', id },
-    collect: monitor => ({
-      isDragging: !!monitor.isDragging()
-    })
-  })
+    const [{ isDragging }, drag, preview] = useDrag({
+        item: { type: child ? 'CHILD' : 'ITEM', id },
+        collect: (monitor) => ({
+            isDragging: !!monitor.isDragging()
+        })
+    });
 
-  if (isDragging) return null
+    if (isDragging) return null;
 
-  return (
-    <React.Fragment>
-      <DragPreviewImage connect={preview} src="/static/images/DragPreview.png" />
-      <Tooltip title="Click para Eliminar">
-        <ColorDivider ref={drag} id={id} onClick={() => onDelete(id)}>
-          <span className="dragger">
-            <DragHandle fontSize="small" style={{ fill: grey[500] }} />
-          </span>
-          <Divider variant="middle" />
-        </ColorDivider>
-      </Tooltip>
-    </React.Fragment>
-  )
-}
+    return (
+        <React.Fragment>
+            <DragPreviewImage connect={preview} src="/static/img/DragPreview.png" />
+            <Tooltip title="Click para Eliminar">
+                <ColorDivider ref={drag} id={id} onClick={() => onDelete(id)}>
+                    <span className="dragger">
+                        <DragHandle fontSize="small" style={{ fill: grey[500] }} />
+                    </span>
+                    <Divider variant="middle" />
+                </ColorDivider>
+            </Tooltip>
+        </React.Fragment>
+    );
+};
 
 DividerLine.propTypes = {
-  id: PropTypes.string.isRequired,
-  child: PropTypes.bool,
-  onDelete: PropTypes.func.isRequired
-}
+    id: PropTypes.string.isRequired,
+    child: PropTypes.bool,
+    onDelete: PropTypes.func.isRequired
+};
 
 DividerLine.defaultProps = {
-  child: false
-}
+    child: false
+};
 
-export default DividerLine
+export default DividerLine;

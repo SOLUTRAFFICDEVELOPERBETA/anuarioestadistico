@@ -31,6 +31,11 @@ const SectionGeneric = ({ type, value, id }) => {
             case 'title':
                 return (
                     <Typography
+                        css={css`
+                            @media (max-width: 768px) {
+                                padding-top: 1rem;
+                            }
+                        `}
                         align="center"
                         style={{ fontWeight: 700, paddingBottom: '1rem' }}
                         variant="h5"

@@ -16,6 +16,11 @@ import * as Recharts from 'recharts';
 import { randomHexColorCode } from '../constants/colors';
 import { grey } from '@material-ui/core/colors';
 
+/**
+ * Método para obtener el radio interno y externo para los charts de pastel
+ * @param {number} size Numero de elementos en el chart de pastel
+ * @param {number} index Posición del grupo dentro del arreglo
+ */
 const getRadius = (size, index) => {
     const unit = 100 / size;
 
@@ -32,7 +37,6 @@ const ChartLineLabel = ({ x, y, stroke, value }) => {
 
     return (
         <g>
-            {/* <rect {...getRectProps()} height={20} rx={5} ry={5} fill={stroke}> </rect> */}
             <rect
                 x={x - width / 2}
                 y={y - 20}
@@ -56,6 +60,10 @@ const ChartLineLabel = ({ x, y, stroke, value }) => {
     );
 };
 
+/**
+ * Componente para mostrar la etiqueta de calor para los Gráficos lineares
+ * @param {{ x: number, y: number, stroke: string, value: any }} props Propiedades del componente
+ */
 ChartLineLabel.propTypes = {
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired,
@@ -63,6 +71,10 @@ ChartLineLabel.propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
+/**
+ * Componente para mostrar el valor de las etiquetas para los gráficos de barras
+ * @param {{ x: number, y: number, width: number, value: any, stroke: string }} props Propiedades del componente
+ */
 const ChartBarLabel = ({ x, y, width, value, stroke }) => {
     const theme = useTheme();
 
@@ -94,6 +106,11 @@ ChartBarLabel.propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     stroke: PropTypes.number.isRequired
 };
+
+/**
+ * Componente para mostrar la etiqueta del valor simple para los gráficos de barras
+ * @param {{ x: number, y: number, width: number, height: number, value: any, stroke: string }} props Propiedades del componente
+ */
 
 const ChartBarLabelSimple = ({ x, y, width, height, value, stroke }) => {
     const theme = useTheme();
@@ -167,6 +184,11 @@ ChartPieTooltip.propTypes = {
     payload: PropTypes.array.isRequired
 };
 
+/**
+ * Tooltip personalizado para los gráficos
+ * @param {{ active: boolean, payload: Array, label: string }} props Propiedades del componente
+ */
+
 const CustomTooltip = ({ active, payload, label }) =>
     active ? (
         <Box paddingY={1} paddingX={2} component={Paper} variant="outlined">
@@ -215,6 +237,11 @@ CustomTooltip.propTypes = {
     payload: PropTypes.array.isRequired,
     label: PropTypes.string.isRequired
 };
+
+/**
+ * Componente para el elemento de los Gráficos de los documentos
+ * @param {{ id: string, value: { data: {}, type: string }
+ */
 
 const ChartGraphic = ({ id, value }) => {
     const theme = useTheme();

@@ -5,23 +5,24 @@ import AnuarioEstadistico from '..';
 import { Box } from '@material-ui/core';
 import SectionGeneric from '../../../components/section';
 
-
-
+/**
+ * layout que permite visualizar la información del módulo de Sector Agropecuario.
+ */
 const SectorAgropecuario = () => {
-    const dataAgropecuario = usePages('SectorAgropecuario')
+    const dataAgropecuario = usePages('SectorAgropecuario');
 
-    if (!dataAgropecuario) return <Spinner />
+    if (!dataAgropecuario) return <Spinner />;
     return (
         <AnuarioEstadistico>
-            {dataAgropecuario[0].fields.map(field => {
+            {dataAgropecuario[0].fields.map((field, index) => {
                 return (
-                    <Box>
+                    <Box key={index}>
                         <SectionGeneric {...field} key={field.id} />
                     </Box>
-                )
+                );
             })}
         </AnuarioEstadistico>
     );
-}
+};
 
 export default SectorAgropecuario;

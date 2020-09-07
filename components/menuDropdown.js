@@ -4,9 +4,12 @@ import PropTypes from 'prop-types';
 import { AppBar, Tabs, Tab, Box, useTheme } from '@material-ui/core';
 import { css } from '@emotion/core';
 
+/**
+ * Componente que permite visualizar cada tab.
+ * @param {children: any, value: string, index: any} props del componente.
+ */
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
-
     return (
         <div
             role="tabpanel"
@@ -36,13 +39,17 @@ TabPanel.propTypes = {
     value: PropTypes.any.isRequired
 };
 
+// Método para cambiar de panel.
 function a11yProps(index) {
     return {
         id: `scrollable-auto-tab-${index}`,
         'aria-controls': `scrollable-auto-tabpanel-${index}`
     };
 }
-
+/**
+ * Componente que permite visualizar los panel de la plataforma.
+ * @param {data: {}} props del componente.
+ */
 const MenuTabsMain = ({ data }) => {
     const [value, setValue] = React.useState(0);
 

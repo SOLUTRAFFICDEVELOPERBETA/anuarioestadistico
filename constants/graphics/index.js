@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export const GENERAL_OPTIONS = {
     MIN: {
         responsive: true,
@@ -6,7 +7,7 @@ export const GENERAL_OPTIONS = {
         },
         plugins: {
             datalabels: {
-               display: false,
+                display: false
             }
         },
         legend: {
@@ -23,7 +24,7 @@ export const GENERAL_OPTIONS = {
                     display: false,
                     gridLines: {
                         display: false
-                    },
+                    }
                 }
             ],
             yAxes: [
@@ -31,7 +32,7 @@ export const GENERAL_OPTIONS = {
                     display: false,
                     gridLines: {
                         display: false
-                    },
+                    }
                 }
             ]
         }
@@ -43,7 +44,7 @@ export const GENERAL_OPTIONS = {
         },
         legend: {
             display: true,
-            position: 'bottom',
+            position: 'bottom'
         },
         elements: {
             line: {
@@ -56,7 +57,7 @@ export const GENERAL_OPTIONS = {
                     display: true,
                     gridLines: {
                         display: false
-                    },
+                    }
                 }
             ],
             yAxes: [
@@ -65,19 +66,19 @@ export const GENERAL_OPTIONS = {
                     position: 'left',
                     gridLines: {
                         display: false
-                    },
+                    }
                 }
             ]
-        },
+        }
     }
-}
+};
 
 export const POPULATION_OPTIONS = {
     MIN: {
         responsive: true,
         plugins: {
             datalabels: {
-               display: false,
+                display: false
             }
         },
         legend: {
@@ -94,7 +95,7 @@ export const POPULATION_OPTIONS = {
                     display: false,
                     gridLines: {
                         display: false
-                    },
+                    }
                 }
             ],
             yAxes: [
@@ -102,26 +103,26 @@ export const POPULATION_OPTIONS = {
                     display: false,
                     gridLines: {
                         display: false
-                    },
+                    }
                 }
             ]
         },
         tooltips: {
             callbacks: {
-                title: function(tooltipItem, data) {
+                title: function (tooltipItem, data) {
                     return data['labels'][tooltipItem[0]['index']];
                 },
-                label: function(tooltipItem) {
+                label: function (tooltipItem) {
                     return Number(tooltipItem.value).toExponential(2);
                 }
             }
-        },
+        }
     },
     FULL: {
         responsive: true,
         legend: {
             display: true,
-            position: 'bottom',
+            position: 'bottom'
         },
         elements: {
             line: {
@@ -130,19 +131,19 @@ export const POPULATION_OPTIONS = {
         },
         plugins: {
             datalabels: {
-               display: 'auto',
-               formatter: function(value, context) {
-                   const num = Number(value);
-                   return `${num.toExponential(1)}`;
-               }
+                display: 'auto',
+                formatter: function (value, context) {
+                    const num = Number(value);
+                    return `${num.toExponential(1)}`;
+                }
             }
         },
         tooltips: {
             callbacks: {
-                title: function(tooltipItem, data) {
+                title: function (tooltipItem, data) {
                     return data['labels'][tooltipItem[0]['index']];
                 },
-                label: function(tooltipItem) {
+                label: function (tooltipItem) {
                     return Number(tooltipItem.value).toExponential(2);
                 }
             }
@@ -155,7 +156,7 @@ export const POPULATION_OPTIONS = {
                         display: false
                     },
                     ticks: {
-                        callback: function(value) {
+                        callback: function (value) {
                             return Math.abs(value);
                         }
                     }
@@ -169,26 +170,26 @@ export const POPULATION_OPTIONS = {
                         display: false
                     },
                     ticks: {
-                        callback: function(value) {
+                        callback: function (value) {
                             return parseFloat(value).toExponential(2);
                         }
                     }
                 }
             ]
-        },
+        }
     }
-}
+};
 
 export const DISTRIBUTION_OPTIONS = {
     MIN: {
         responsive: true,
         plugins: {
             datalabels: {
-               display: false,
-               formatter: function(value, context) {
-                   const num = parseFloat(value);
-                   return `${num.toExponential(1)}`;
-               }
+                display: false,
+                formatter: function (value, context) {
+                    const num = parseFloat(value);
+                    return `${num.toExponential(1)}`;
+                }
             }
         },
         legend: {
@@ -201,11 +202,11 @@ export const DISTRIBUTION_OPTIONS = {
         },
         tooltips: {
             callbacks: {
-                title: function(tooltipItem, data) {
+                title: function (tooltipItem, data) {
                     return data['labels'][tooltipItem[0]['index']];
                 },
-                label: function(tooltipItem) {
-                    return tooltipItem.value.replace('-','') + '%';
+                label: function (tooltipItem) {
+                    return tooltipItem.value.replace('-', '') + '%';
                 }
             }
         },
@@ -234,7 +235,7 @@ export const DISTRIBUTION_OPTIONS = {
         responsive: true,
         legend: {
             display: true,
-            position: 'bottom',
+            position: 'bottom'
         },
         elements: {
             line: {
@@ -243,7 +244,7 @@ export const DISTRIBUTION_OPTIONS = {
         },
         plugins: {
             datalabels: {
-                formatter: function(value, context) {
+                formatter: function (value, context) {
                     const num = Number(value);
                     return `${Math.abs(num)}%`;
                 }
@@ -251,11 +252,11 @@ export const DISTRIBUTION_OPTIONS = {
         },
         tooltips: {
             callbacks: {
-                title: function(tooltipItem, data) {
+                title: function (tooltipItem, data) {
                     return data['labels'][tooltipItem[0]['index']];
                 },
-                label: function(tooltipItem) {
-                    return tooltipItem.value.replace('-','') + '%';
+                label: function (tooltipItem) {
+                    return tooltipItem.value.replace('-', '') + '%';
                 }
             }
         },
@@ -270,7 +271,7 @@ export const DISTRIBUTION_OPTIONS = {
                     labelString: 'porcentaje',
                     ticks: {
                         // Include a dollar sign in the ticks
-                        callback: function(value) {
+                        callback: function (value) {
                             return Math.abs(value) + '%';
                         }
                     }
@@ -286,19 +287,19 @@ export const DISTRIBUTION_OPTIONS = {
                     stacked: true
                 }
             ]
-        },
+        }
     }
-}
+};
 
 export const GRAPHIC_OPTIONS = {
     responsive: true,
     tooltips: {
         mode: 'label',
         callbacks: {
-            title: function(tooltipItem, data) {
+            title: function (tooltipItem, data) {
                 return data['labels'][tooltipItem[0]['index']];
             },
-            label: function(tooltipItem) {
+            label: function (tooltipItem) {
                 return tooltipItem.value;
             }
         }
@@ -311,8 +312,8 @@ export const GRAPHIC_OPTIONS = {
     plugins: {
         datalabels: {
             display: 'auto',
-            formatter: function(value, context) {
-                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            formatter: function (value, context) {
+                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             }
         }
     },
@@ -331,16 +332,16 @@ export const GRAPHIC_OPTIONS = {
                 display: true,
                 position: 'left',
                 gridLines: {
-                  display: false
+                    display: false
                 },
                 tricks: {
                     min: 0,
-                    beginAtZero: true,
+                    beginAtZero: true
                 }
             }
         ]
     }
-}
+};
 
 export const DEFAULT_OPTIONS = {
     responsive: true,
@@ -349,10 +350,10 @@ export const DEFAULT_OPTIONS = {
     },
     plugins: {
         datalabels: {
-           display: true,
-           formatter: function(value, context) {
-               return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-           }
+            display: true,
+            formatter: function (value, context) {
+                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
         }
     },
     legend: {
@@ -369,7 +370,7 @@ export const DEFAULT_OPTIONS = {
                 display: true,
                 gridLines: {
                     display: false
-                },
+                }
             }
         ],
         yAxes: [
@@ -381,9 +382,9 @@ export const DEFAULT_OPTIONS = {
                 ticks: {
                     beginAtZero: true,
                     min: 0,
-                    callback: function(value) {
-                        if(!isNaN(value)) {
-                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                    callback: function (value) {
+                        if (!isNaN(value)) {
+                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
                         }
                         return value;
                     }
@@ -391,8 +392,7 @@ export const DEFAULT_OPTIONS = {
             }
         ]
     }
-    
-}
+};
 
 export const RADAR_OPTION = {
     responsive: true,
@@ -401,7 +401,7 @@ export const RADAR_OPTION = {
     },
     plugins: {
         datalabels: {
-           display: true,
+            display: true
         }
     },
     legend: {
@@ -428,7 +428,7 @@ export const RADAR_OPTION = {
                 display: false,
                 gridLines: {
                     display: false
-                },
+                }
             }
         ],
         yAxes: [
@@ -436,8 +436,8 @@ export const RADAR_OPTION = {
                 display: false,
                 gridLines: {
                     display: false
-                },
+                }
             }
         ]
     }
-}
+};

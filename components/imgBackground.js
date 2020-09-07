@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { Typography } from '@material-ui/core';
 
+// Estilos del componente.
 const ContainerImagen = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
@@ -60,6 +61,11 @@ const ContainerImagen = styled.div`
         width: 100%;
     }
 `;
+
+/**
+ * Componente, permite visualizar la imagen principal de la plataforma.
+ * @param {imgSrc: string, title: string, subTitle: string} Props del componente.
+ */
 const ImagBackground = ({ imgSrc, title, subTitle }) => {
     return (
         <ContainerImagen>

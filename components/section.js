@@ -7,6 +7,7 @@ import { css } from '@emotion/core';
 import ChartGraphic from './chartsGraphic';
 import TableGeneric from './table';
 
+// Estilos del campo de tipo imagen => ImageContainer
 const ImageContainer = styled.div`
     padding: 16px;
     grid-template-columns: 0px auto;
@@ -25,6 +26,11 @@ const ImageContainer = styled.div`
         transition: width 0.5s ease, height 0.5s ease;
     }
 `;
+
+/**
+ * Componente que permite renderizar diferentes campos dependiendo del type.
+ * @param {type: string, value: any, id:any} Props Propiedades del componente.
+ */
 const SectionGeneric = ({ type, value, id }) => {
     const getField = () => {
         switch (type) {

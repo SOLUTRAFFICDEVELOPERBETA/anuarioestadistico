@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styled from '@emotion/styled';
 import AuthContext from '../contexts/auth';
 
+//Estilos del componente.
 const LogoOut = styled.img`
     width: 40px;
     height: 40px;
@@ -40,6 +41,9 @@ const NavLink = styled.a`
     }
 `;
 
+/**
+ * Componente que permite la navegación en la plataforma.
+ */
 const Navegacion = () => {
     const { user, auth, onLogOut } = React.useContext(AuthContext);
     return (

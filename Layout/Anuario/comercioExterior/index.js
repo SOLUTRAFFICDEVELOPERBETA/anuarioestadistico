@@ -5,23 +5,24 @@ import AnuarioEstadistico from '..';
 import { Box } from '@material-ui/core';
 import SectionGeneric from '../../../components/section';
 
-
-
+/**
+ * layout que permite visualizar la información del módulo de comercio Exterior.
+ */
 const ComercioExterior = () => {
-    const dataExterior = usePages('ComercioExterior')
+    const dataExterior = usePages('ComercioExterior');
 
-    if (!dataExterior) return <Spinner />
+    if (!dataExterior) return <Spinner />;
     return (
         <AnuarioEstadistico>
-            {dataExterior[0].fields.map(field => {
+            {dataExterior[0].fields.map((field, index) => {
                 return (
-                    <Box>
+                    <Box key={index}>
                         <SectionGeneric {...field} key={field.id} />
                     </Box>
-                )
+                );
             })}
         </AnuarioEstadistico>
     );
-}
+};
 
 export default ComercioExterior;

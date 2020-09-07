@@ -12,6 +12,10 @@ const Picker = dynamic(import('emoji-picker-react'), {
     loading: () => <Spinner />
 });
 
+/**
+ *Componente que permite Visualizar Emojis y seleccionar en cada texto.
+ * @param {onSelect: () => void, id: string}
+ */
 const EmojiPicker = ({ onSelect, id }) => {
     const [handleOpen, PopoverComponent] = usePopover();
     const handleEmojiClick = (event, emojiObject) => onSelect(emojiObject);

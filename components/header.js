@@ -9,6 +9,10 @@ const LogoLink = styled('a')`
     cursor: pointer;
     font-size: 1rem;
 `;
+
+/**
+ * Componente que muestra en menú de navegación de la plataforma.
+ */
 const Header = () => {
     return (
         <header

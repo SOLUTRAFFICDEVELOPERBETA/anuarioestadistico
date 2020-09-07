@@ -46,6 +46,10 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+/**
+ * Componente que se encarga de mostrar el mensaje de cualquier notificación de la plataforma.
+ *
+ */
 const AlertMessage = () => {
     const classes = useStyles();
     const { closeMessage } = React.useContext(AlertContext);

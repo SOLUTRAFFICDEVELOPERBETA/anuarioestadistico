@@ -1,25 +1,28 @@
 import React from 'react';
-import usePages from '../../../hooks/usePages'
+import usePages from '../../../hooks/usePages';
 import Spinner from '../../../components/Spinner';
 import AnuarioEstadistico from '..';
 import { Box } from '@material-ui/core';
 import SectionGeneric from '../../../components/section';
 
+/**
+ * layout que permite visualizar la información del módulo de Educación.
+ */
 const Educacion = () => {
-    const dataEducacion = usePages('Educacion')
+    const dataEducacion = usePages('Educacion');
 
-    if (!dataEducacion) return <Spinner />
+    if (!dataEducacion) return <Spinner />;
     return (
         <AnuarioEstadistico>
-            {dataEducacion[0].fields.map(field => {
+            {dataEducacion[0].fields.map((field, index) => {
                 return (
-                    <Box>
+                    <Box key={index}>
                         <SectionGeneric {...field} key={field.id} />
                     </Box>
-                )
+                );
             })}
         </AnuarioEstadistico>
     );
-}
+};
 
 export default Educacion;

@@ -3,17 +3,18 @@ import { Box } from '@material-ui/core';
 
 import DocumentsForm from '../../forms/DocumentsForm';
 import DocumentsTable from '../../containers/DocumentsTable';
-
 import AlertContext from '../../contexts/alert';
 import fb from '../../config/firebase';
-
 import moment from 'moment';
-// import { DOCUMENT_TEMPLATE } from '../../../constants/templates'
 
+/**
+ * Page que permite crear una nueva página o en listar las páginas creadas.
+ */
 const Page = () => {
     const [documents, setDocuments] = React.useState([]);
     const { showMessage } = React.useContext(AlertContext);
 
+    // Método para eliminar una página.
     const handleDelete = (_id) => {
         try {
             if (window.confirm('¿ Esta seguro de querer borrar esta página ?')) {
@@ -32,6 +33,7 @@ const Page = () => {
         }
     };
 
+    // Método para crear una nueva paǵina.
     const handleCreateDocument = (temp) => {
         try {
             const date = moment().valueOf();
@@ -53,6 +55,7 @@ const Page = () => {
         }
     };
 
+    // useEffect para obtener las páginas creadas.
     React.useEffect(() => {
         const getDocuments = () => {
             try {

@@ -24,19 +24,6 @@ export const AUTH_ITEM = 'WISE_AUTH';
 // Fecha
 export const INPUT_DATE = 'YYYY-MM-DD';
 
-export const COLOR_GRAPH = {
-    backgroundColor: ['#629749', '#ffb04c', '#ff833a', '#f05545'],
-    borderColor: ['#003d00', '#bc5100', '#ac1900', '#7f0000'],
-    borderWidth: 1,
-    hoverBackgroundColor: ['#33691e', '#f57f17', '#e65100', '#b71c1c'],
-    hoverBorderColor: ['#003d00', '#bc5100', '#ac1900', '#7f0000'],
-    datalabels: {
-        color: ['#629749', '#ffb04c', '#ff833a', '#f05545'],
-        backgroundColor: '#fff',
-        borderColor: ['#003d00', '#bc5100', '#ac1900', '#7f0000']
-    }
-};
-
 export const LinksMenu = [
     {
         label: 'Movilidad Terrestre',

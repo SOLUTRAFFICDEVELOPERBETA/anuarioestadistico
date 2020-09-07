@@ -5,23 +5,24 @@ import AnuarioEstadistico from '..';
 import { Box } from '@material-ui/core';
 import SectionGeneric from '../../../components/section';
 
-
-
+/**
+ * layout que permite visualizar la información del módulo de Sector Empresarial.
+ */
 const SectorEmpresarial = () => {
-    const dataEmpresarial = usePages('SectorEmpresarial')
+    const dataEmpresarial = usePages('SectorEmpresarial');
 
-    if (!dataEmpresarial) return <Spinner />
+    if (!dataEmpresarial) return <Spinner />;
     return (
         <AnuarioEstadistico>
-            {dataEmpresarial[0].fields.map(field => {
+            {dataEmpresarial[0].fields.map((field, index) => {
                 return (
-                    <Box>
+                    <Box key={index}>
                         <SectionGeneric {...field} key={field.id} />
                     </Box>
-                )
+                );
             })}
         </AnuarioEstadistico>
     );
-}
+};
 
 export default SectorEmpresarial;

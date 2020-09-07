@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Typography, Grid } from '@material-ui/core';
 
+/**
+ * Componente que permite visualizar la información del inicio de la plataforma.
+ * @param {fields: array[]} Props Propiedades del componente.
+ */
 const PageInicio = ({ fields }) => {
     return (
         <Box style={{ background: '#f2f4f7' }} paddingLeft={1} paddingRight={1} paddingBottom={2}>

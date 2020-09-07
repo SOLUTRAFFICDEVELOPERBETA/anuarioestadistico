@@ -5,23 +5,24 @@ import AnuarioEstadistico from '..';
 import { Box } from '@material-ui/core';
 import SectionGeneric from '../../../components/section';
 
-
-
+/**
+ * layout que permite visualizar la información del módulo de Violencia Intrafamiliar.
+ */
 const ViolenciaIntrafamiliar = () => {
     const dataViolencia = usePages('ViolenciaIntrafamiliar');
 
-    if (!dataViolencia) return <Spinner />
+    if (!dataViolencia) return <Spinner />;
     return (
         <AnuarioEstadistico>
-            {dataViolencia[0].fields.map(field => {
+            {dataViolencia[0].fields.map((field, index) => {
                 return (
-                    <Box>
+                    <Box key={index}>
                         <SectionGeneric {...field} key={field.id} />
                     </Box>
-                )
+                );
             })}
         </AnuarioEstadistico>
     );
-}
+};
 
 export default ViolenciaIntrafamiliar;

@@ -157,3 +157,44 @@ export const FIELDS = {
         }
     }
 };
+
+export const documents = [
+    {
+        id: 'WgPns4dbIvwlqUCJQ2tX ',
+        title: 'Manual de uso de aplicaciones',
+        uid: 'Jesus Daniel Neira',
+        icon: '',
+        created: 1589236235954,
+        lastModified: 1589236235954,
+        fields: [
+            {
+                id: 'project_title',
+                type: TITLE,
+                value: 'Manual de uso de la aplicación, [Nombre de la aplicación]'
+            },
+            {
+                id: 'content',
+                type: PARAGRAPH,
+                value: 'Introducción al manual'
+            },
+            {
+                id: '70bb12',
+                type: PARAGRAPH,
+                value: 'Contenido sobre el manual de la aplicación'
+            }
+        ]
+    },
+    {
+        id: 'Zy1Lq4eCG37U9DDZ07Qq',
+        title: 'Documento en Blanco',
+        uid: 'Alfredo Prado',
+        icon: '',
+        created: 1589236235954,
+        lastModified: 1589236235954,
+        fields: [
+            {
+                id: 'project_title'
+            }
+        ]
+    }
+];

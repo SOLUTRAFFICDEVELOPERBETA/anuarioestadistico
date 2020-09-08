@@ -70,7 +70,6 @@ const AuthProvider = ({ children }) => {
                     dispatch({
                         type: LOG_OUT
                     });
-                    router.push('/auth');
                 })
                 .catch((e) => {
                     console.log('error', e);
@@ -82,39 +81,6 @@ const AuthProvider = ({ children }) => {
         }
     };
 
-    /**
-     * Función para cambiar la contraseña de la cuenta.
-     * @param {string} email Correo del usuario
-     * @param {string} old Contraseña actual
-     * @param {string} password Nueva contraseña
-     */
-    const doChangePassword = async (email, old, password) => {
-        try {
-            const user = await fb.auth.currentUser;
-            const credentials = await fb._auth.EmailAuthProvider.credential(email, old);
-
-            if (!credentials) {
-                showMessage('Usuario o contraseñas no validos', 'error');
-                return;
-            }
-
-            await user.reauthenticateWithCredential(credentials).catch((res) => {
-                showMessage(res.message, 'error');
-            });
-            await user
-                .updatePassword(password)
-                .then(() => {
-                    showMessage('Contraseña cambiada con exito', 'success');
-                })
-                .catch((res) => {
-                    console.log('error', res);
-                    showMessage(res.message, 'error');
-                });
-        } catch (error) {
-            console.log('error', error);
-            showMessage(error.message, 'error');
-        }
-    };
     React.useEffect(() => {
         const onCheckAuthState = () => {
             try {
@@ -185,7 +151,6 @@ const AuthProvider = ({ children }) => {
                 user: state.user,
                 onLogIn,
                 onLogOut,
-                doChangePassword,
                 passwordReset
             }}>
             {children}

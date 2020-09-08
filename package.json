@@ -35,7 +35,6 @@
     "react-hook-form": "^6.2.0",
     "reactstrap": "^8.5.1",
     "recharts": "^1.8.5",
-    "redux-form": "^8.3.6",
     "shortid": "^2.2.15"
   },
   "devDependencies": {

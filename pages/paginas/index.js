@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
-
+import withAdmin from '../../HOC/withAdmin';
 import DocumentsForm from '../../forms/DocumentsForm';
 import DocumentsTable from '../../containers/DocumentsTable';
 import AlertContext from '../../contexts/alert';
@@ -86,4 +86,4 @@ const Page = () => {
     );
 };
 
-export default Page;
+export default withAdmin(Page);

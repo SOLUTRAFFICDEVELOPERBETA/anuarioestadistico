@@ -73,7 +73,6 @@ const Layout = ({ children }) => {
                 />
             </Head>
             <Header />
-
             {children}
         </MuiThemeProvider>
     );

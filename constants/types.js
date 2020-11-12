@@ -18,3 +18,11 @@ export const GET_PAGES_ERROR = 'GET_PAGES_ERROR';
 
 export const GET_DATA_CSV = 'GET_DATA_CSV';
 export const GET_DATA_CSV_ERROR = 'GET_DATA_CSV_ERROR';
+
+// theme
+
+export const GET_PALETTE = 'GET_PALETTE'
+export const THEME_ERROR = 'THEME_ERROR'
+export const EDIT_PALETTE = 'EDIT_PALETTE'
+export const GET_THEME = 'GET_THEME'
+export const EDIT_BG = 'EDIT_BG'

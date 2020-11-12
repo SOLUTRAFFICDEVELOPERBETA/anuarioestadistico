@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@material-ui/core';
+import withAuth from '../HOC/withAuth'
 import usePages from '../hooks/usePages';
 import Spinner from '../components/Spinner';
 
@@ -22,4 +23,4 @@ const Nosotros = () => {
     );
 };
 
-export default Nosotros;
+export default withAuth(Nosotros);

@@ -52,21 +52,26 @@ const Navegacion = () => {
             <Link href={'/'}>
                 <NavLink>Inicio</NavLink>
             </Link>
-            {auth ? (
-                <Link href={'/paginas'}>
-                    <NavLink>Páginas</NavLink>
-                </Link>
-            ) : null}
             <Link href={'/nosotros'}>
                 <NavLink>Nosotros</NavLink>
             </Link>
+            {auth && (
+                <Link href={'/paginas'}>
+                    <NavLink>Páginas</NavLink>
+                </Link>
+            )}
+            {auth &&  user && user.role === 'admin' && (
+                <Link href={'/config'}>
+                    <NavLink>Configuración</NavLink>
+                </Link>
+            ) }
             {auth ? (
                 <LogoOut onClick={() => onLogOut()} src={'/static/icons/salida.svg'} />
             ) : (
-                <Link href={'/auth'}>
-                    <LogoOut src={'/static/icons/login.svg'} />
-                </Link>
-            )}
+                    <Link href={'/auth'}>
+                        <LogoOut src={'/static/icons/login.svg'} />
+                    </Link>
+                )}
         </Nav>
     );
 };

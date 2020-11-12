@@ -217,9 +217,6 @@ const LogInForm = () => {
                     Iniciar Sesión
                 </button>
 
-                {/* <Link href={'#!'}>
-                    <a className="createAccount">Crear Cuenta</a>
-                </Link> */}
             </Form>
         </AccountCard>
     );

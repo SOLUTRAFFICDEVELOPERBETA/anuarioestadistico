@@ -24,6 +24,15 @@ export const AUTH_ITEM = 'WISE_AUTH';
 // Fecha
 export const INPUT_DATE = 'YYYY-MM-DD';
 
+
+export const CutText = (text, length = 100) => {
+    if (text.length >= length) {
+        return `${text.substr(0, length)}...`
+    }
+    return text
+}
+
+
 export const LinksMenu = [
     {
         label: 'Movilidad Terrestre',

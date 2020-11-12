@@ -6,20 +6,19 @@ import Layout from '../Layout'
 import AlertProvider from '../contexts/alert/provider'
 import AuthProvider from '../contexts/auth/provider'
 import PagesProvider from '../contexts/pagess/provider'
+import ThemeProvider from '../contexts/theme/provider'
 
 
 const MyApp = ({ Component, pageProps }) => {
     return (
         <AlertProvider>
-            <AuthProvider>
-                <PagesProvider>
-
-                    <Layout>
-                        <Component {...pageProps} />
-                    </Layout>
-
-                </PagesProvider>
-            </AuthProvider>
+            <ThemeProvider>
+                <AuthProvider>
+                    <PagesProvider>
+                            <Component {...pageProps} />
+                    </PagesProvider>
+                </AuthProvider>
+            </ThemeProvider>
         </AlertProvider>
 
 

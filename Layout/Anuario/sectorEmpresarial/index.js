@@ -6,7 +6,8 @@ import { Box } from '@material-ui/core';
 import SectionGeneric from '../../../components/section';
 
 /**
- * layout que permite visualizar la información del módulo de Sector Empresarial.
+ * @description layout que permite visualizar la información del módulo de Sector Empresarial.
+ * @see AnuarioEstadistico
  */
 const SectorEmpresarial = () => {
     const dataEmpresarial = usePages('SectorEmpresarial');

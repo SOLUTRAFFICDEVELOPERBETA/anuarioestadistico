@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 /**
- * Hook que permite visualizar el texto de cualquier componente de tipo texto que tenga como hijo.
+ * @description Hook que permite visualizar el texto de cualquier componente de tipo texto que tenga como hijo.
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 const usePopover = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);

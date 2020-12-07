@@ -6,7 +6,8 @@ import { Box } from '@material-ui/core';
 import SectionGeneric from '../../../components/section';
 
 /**
- * layout que permite visualizar la información del módulo de Servicios Públicos.
+ * @description layout que permite visualizar la información del módulo de Servicios Públicos.
+ * @see AnuarioEstadistico
  */
 const ServiciosPublicos = () => {
     const dataServicios = usePages('serviciosPublicos');

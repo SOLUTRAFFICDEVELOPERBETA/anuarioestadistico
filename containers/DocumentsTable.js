@@ -54,8 +54,12 @@ const headCells = [
 ];
 
 /**
- * Componente que permite visualizar una lista en forma de tabla.
- * @param {classes: {}, order: string, orderBy: string, onRequestSort: () => void} Props Propiedades del componente.
+ * @description Componente que permite visualizar una lista en forma de tabla.
+ * @param {Object {}} classes
+ * @param {String} order
+ * @param {String} orderBy
+ * @param {func: ()=> void} onRequestSort
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 function DocumentTableHead({ classes, order, orderBy, onRequestSort }) {
     const createSortHandler = (property) => (event) => {
@@ -95,6 +99,7 @@ DocumentTableHead.propTypes = {
     orderBy: PropTypes.string.isRequired
 };
 
+// Estilos del componente de DocumentTableToolbar
 const useToolbarStyles = makeStyles((theme) => ({
     root: {
         paddingLeft: theme.spacing(2),
@@ -105,6 +110,10 @@ const useToolbarStyles = makeStyles((theme) => ({
     }
 }));
 
+/**
+ * @description componente para realizar una busqueda en una lista
+ * @param {func: ()=> void} onSearch 
+ */
 const DocumentTableToolbar = ({ onSearch }) => {
     const classes = useToolbarStyles();
 
@@ -121,6 +130,7 @@ DocumentTableToolbar.propTypes = {
     onSearch: PropTypes.func.isRequired
 };
 
+ // Estilos del componente
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%'
@@ -162,6 +172,12 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+/**
+ * @description Componente que permite visualizar una lista de documentos en una tabla
+ * @param {Array []} documents 
+ * @param {func: ()=> void} onDelete 
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
+ */
 const DocumentsTable = ({ documents, onDelete }) => {
     const classes = useStyles();
     const router = useRouter();

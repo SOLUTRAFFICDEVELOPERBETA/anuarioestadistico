@@ -12,6 +12,7 @@ import PageTitle from '../../components/PageTitle'
 import ThemeSelector from '../../containers/themes'
 import ConfigFooter from '../../components/ConfigFooter'
 
+// Datos temporales
 const config = {
     bg: {
         name: '',
@@ -37,6 +38,7 @@ const config = {
     }
 }
 
+// Estilos de la página
 const useStyles = makeStyles(theme => ({
     image: {
         width: '100%',
@@ -44,6 +46,16 @@ const useStyles = makeStyles(theme => ({
         objectFit: 'cover'
     }
 }))
+
+/**
+ * @description Página que permite realizar la configuración de la plataforma
+ * @see ConfigFooter
+ * @see ThemeSelector
+ * @see PageTitle
+ * @see Subtitle
+ * @see ColorPicker
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
+ */
 const ConfigPage = () => {
     const classes = useStyles()
     const [data, setData] = React.useState(config)

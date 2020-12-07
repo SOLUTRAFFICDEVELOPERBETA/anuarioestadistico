@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <Navegacion/> Debe mostrarse correctamente 1`] = `
+<nav
+  className="css-1wt3c2j-Nav e19ybrxq1"
+>
+  <a
+    className="css-6sh57k-NavLink e19ybrxq2"
+  >
+    Jose manuel Prueba
+  </a>
+  <a
+    className="css-6sh57k-NavLink e19ybrxq2"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+  >
+    Inicio
+  </a>
+  <a
+    className="css-6sh57k-NavLink e19ybrxq2"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+  >
+    Nosotros
+  </a>
+  <a
+    className="css-6sh57k-NavLink e19ybrxq2"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+  >
+    Páginas
+  </a>
+  <a
+    className="css-6sh57k-NavLink e19ybrxq2"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+  >
+    Configuración
+  </a>
+  <img
+    className="css-10vqwh5-LogoOut e19ybrxq0"
+    onClick={[Function]}
+    src="/static/icons/salida.svg"
+  />
+</nav>
+`;

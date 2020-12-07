@@ -5,8 +5,11 @@ import { AppBar, Tabs, Tab, Box, useTheme } from '@material-ui/core';
 import { css } from '@emotion/core';
 
 /**
- * Componente que permite visualizar cada tab.
- * @param {children: any, value: string, index: any} props del componente.
+ * @description Componente que permite visualizar cada tab.
+ * @param {any} children
+ * @param {String} value
+ * @param {any} index
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -47,8 +50,9 @@ function a11yProps(index) {
     };
 }
 /**
- * Componente que permite visualizar los panel de la plataforma.
- * @param {data: {}} props del componente.
+ * @param Componente que permite visualizar los panel de la plataforma.
+ * @param {object {}} data del componente.
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 const MenuTabsMain = ({ data }) => {
     const [value, setValue] = React.useState(0);
@@ -82,14 +86,14 @@ const MenuTabsMain = ({ data }) => {
                     scrollButtons="auto"
                     aria-label="scrollable auto tabs example">
                     {data.map((value, index) => (
-                        <Tab label={value.label} {...a11yProps(index)} />
+                        <Tab key={index} label={value.label} {...a11yProps(index)} />
                     ))}
                 </Tabs>
             </AppBar>
             {data.map((item, index) => {
                 const { Component } = item;
                 return (
-                    <TabPanel value={value} index={index}>
+                    <TabPanel key={index} value={value} index={index}>
                         <div>
                             <Component />
                         </div>

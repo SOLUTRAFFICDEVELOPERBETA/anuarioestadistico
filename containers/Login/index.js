@@ -7,6 +7,8 @@ import AlertContext from '../../contexts/alert';
 import AuthContext from '../../contexts/auth';
 import Link from 'next/link';
 import { css } from '@emotion/core';
+import { ButtonGroup, Button } from '@material-ui/core';
+import { useRouter } from 'next/router';
 
 // Estilos del Formulario
 const Form = styled.form`
@@ -118,7 +120,10 @@ const FormGroup = styled.div`
 `;
 
 /**
- * Componente que permite el inicio de sesión al usuario.
+ * @param Componente que permite el inicio de sesión al usuario.
+ * @see Link
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
+ * consulte los estilos del componente en {@link https://emotion.sh/docs/styled | Emotion}
  */
 const LogInForm = () => {
     const { showMessage } = React.useContext(AlertContext);
@@ -128,7 +133,7 @@ const LogInForm = () => {
         password: '',
         email: ''
     });
-
+    const Router = useRouter()
     // Método para mostrar la contraseña.
     const fshowPassword = (e) => {
         e.preventDefault();
@@ -212,10 +217,24 @@ const LogInForm = () => {
                         </a>
                     </Link>
                 </FormGroup>
+                <ButtonGroup
 
-                <button type="submit" className="signIn">
-                    Iniciar Sesión
-                </button>
+                    orientation="vertical"
+                    size="large"
+                    fullWidth
+                    style={{ margin: '10px 0' }}>
+                    <Button
+                        color="primary"
+                        type="submit"
+                        variant="contained">
+                        Iniciar Sesión
+                </Button>
+                    {/* <Button
+                        onClick={() => Router.push('/auth/register')}
+                        variant="text">
+                        Registrarme
+                </Button> */}
+                </ButtonGroup>
 
             </Form>
         </AccountCard>

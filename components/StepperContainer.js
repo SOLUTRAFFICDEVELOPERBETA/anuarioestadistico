@@ -17,8 +17,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Componente que permite utilizar un Stepper con configuración sencilla
- * @param {{ id: string, children: any, StepperConfig: any, onOver: () => func }} props Propiedades del componente
+ * @description Componente que permite utilizar un Stepper con configuración sencilla
+ * @param {String} id
+ * @param {any} children
+ * @param {any} StepperConfig
+ * @param {func: ()=> void} onOver
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 const StepperContainer = ({ id, children, StepperConfig, onOver }) => {
     const classes = useStyles();
@@ -30,6 +34,7 @@ const StepperContainer = ({ id, children, StepperConfig, onOver }) => {
             onOver();
         } else {
             setActiveStep((prevActiveStep) => prevActiveStep + 1);
+
         }
     };
 

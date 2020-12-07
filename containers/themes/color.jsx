@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { IconButton, SvgIcon, Popover, makeStyles } from '@material-ui/core'
 
+// Estilos del coponente parar divivir los colores en 7 columnas
 const useStyles = makeStyles({
   colorPalette: {
     display: 'grid',
@@ -9,6 +10,11 @@ const useStyles = makeStyles({
   }
 });
 
+/**
+ * @description Componente que permite visualizar los colores de la paleta
+ * @param {Object} palette
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
+ */
 const ColorPalette = ({ palette }) => {
   const classes = useStyles()
   const [anchorEL, setAnchorEL] = React.useState(null)

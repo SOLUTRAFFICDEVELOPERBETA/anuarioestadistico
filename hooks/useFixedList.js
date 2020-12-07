@@ -54,8 +54,8 @@ const useFixedList = (step = 5) => {
     };
 
     /**
-     * Componente a mostrar de la lista limitado
-     * @param {{ itemRender }} props Propiedades del componente
+     * @description Componente a mostrar de la lista limitado
+     * @param {any} itemRender Propiedades del componente
      */
     const Container = ({ itemRender }) => (
         <>

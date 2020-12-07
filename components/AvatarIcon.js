@@ -33,8 +33,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Componente que se encarga de mostrar la img del usuario y permite un despliegue de métodos.
- * para cerrar sesión, e iniciar sesión y visualizar el perfil del usuario.
+ * @description Componente que se encarga de mostrar la img del usuario y permite un despliegue de métodos. para cerrar sesión, e iniciar sesión y visualizar el perfil del usuario.
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 const AvatarIcon = () => {
     const router = useRouter();
@@ -95,7 +95,7 @@ const AvatarIcon = () => {
                         horizontal: 'right'
                     }}>
                     <List>
-                        <ListItem dense button onClick={() => router.push('/')}>
+                        <ListItem  dense button onClick={() => router.push('/')}>
                             <ListItemIcon>
                                 <AccountBoxTwoTone color="primary" />
                             </ListItemIcon>

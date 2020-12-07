@@ -7,6 +7,10 @@ import LoadingContainer from '../../containers/loading'
 import { useRouter } from 'next/router'
 import AlertContext from '../../contexts/alert'
 
+/**
+ * @description Metodo para veridicar si el usuario esta auteticado y es admin y así poderle mostrar la página
+ * @param {Any} Page 
+ */
 export default function withAdmin(Page) {
   return () => {
     const router = useRouter()

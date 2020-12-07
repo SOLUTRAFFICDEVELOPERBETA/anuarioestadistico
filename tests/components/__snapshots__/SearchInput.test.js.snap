@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en el componente <SearchInput/> debe mostrarse correctamente 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <WithStyles(ForwardRef(TextField))
+    InputProps={
+      Object {
+        "endAdornment": <WithStyles(ForwardRef(InputAdornment))
+          position="end"
+        >
+          <Memo(SearchIcon)
+            color="primary"
+          />
+        </WithStyles(ForwardRef(InputAdornment))>,
+      }
+    }
+    autoComplete="search-input"
+    fullWidth={true}
+    inputRef={[Function]}
+    margin="dense"
+    name="search"
+    placeholder="Buscar..."
+    variant="outlined"
+  />
+</form>
+`;

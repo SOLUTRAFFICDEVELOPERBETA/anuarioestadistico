@@ -31,24 +31,22 @@ const useStyles = makeStyles((theme) => ({
     },
     success: {
         backgroundColor: green[500],
-        // border: `2px solid ${theme.palette.success.main}`,
         color: theme.palette.getContrastText(green[500])
     },
     error: {
         backgroundColor: red[500],
-        // border: `2px solid ${theme.palette.success.main}`,
         color: theme.palette.getContrastText(red[500])
     },
     warning: {
         backgroundColor: deepOrange[500],
-        // border: `2px solid ${theme.palette.success.main}`,
         color: theme.palette.getContrastText(deepOrange[500])
     }
 }));
 
 /**
- * Componente que se encarga de mostrar el mensaje de cualquier notificación de la plataforma.
- *
+ * @description Componente que se encarga de mostrar el mensaje de cualquier notificación de la plataforma.
+ * @see AlertContext
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 const AlertMessage = () => {
     const classes = useStyles();

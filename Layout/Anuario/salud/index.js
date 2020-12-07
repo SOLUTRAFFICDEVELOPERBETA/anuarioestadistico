@@ -6,7 +6,8 @@ import { Box } from '@material-ui/core';
 import SectionGeneric from '../../../components/section';
 
 /**
- * layout que permite visualizar la información del módulo de Salud.
+ * @description layout que permite visualizar la información del módulo de Salud.
+ * @see AnuarioEstadistico
  */
 const Salud = () => {
     const dataSalud = usePages('Salud');

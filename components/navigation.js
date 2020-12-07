@@ -23,8 +23,10 @@ const Nav = styled('nav')`
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        align-content:center;
         display: flex;
     }
+
 `;
 const NavLink = styled.a`
     color: #fff;
@@ -42,7 +44,9 @@ const NavLink = styled.a`
 `;
 
 /**
- * Componente que permite la navegación en la plataforma.
+ * @description Componente que permite la navegación en la plataforma.
+ * @see Link
+ * Consulte los Estilos utilizados en {@link https://emotion.sh/docs/styled | Emotion}
  */
 const Navegacion = () => {
     const { user, auth, onLogOut } = React.useContext(AuthContext);

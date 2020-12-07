@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en el componente <StepperContainer/> debe mostrarse correctamente 1`] = `
+<Fragment>
+  <div
+    className="makeStyles-root-1"
+  >
+    <WithStyles(ForwardRef(Stepper))
+      activeStep={0}
+      orientation="vertical"
+    >
+      <WithStyles(ForwardRef(Step))
+        key="step-guide-help-pruebas-0/.0"
+      >
+        <WithStyles(ForwardRef(StepLabel))
+          onClick={[Function]}
+        >
+          Datos
+        </WithStyles(ForwardRef(StepLabel))>
+        <WithStyles(ForwardRef(StepContent))>
+          <Styled(MuiBox)>
+            <WithStyles(ForwardRef(Typography))>
+              Datos
+            </WithStyles(ForwardRef(Typography))>
+          </Styled(MuiBox)>
+          <div
+            className="makeStyles-actionsContainer-3"
+          >
+            <div>
+              <WithStyles(ForwardRef(Button))
+                className="makeStyles-button-2"
+                disabled={true}
+                onClick={[Function]}
+              >
+                Volver
+              </WithStyles(ForwardRef(Button))>
+              <WithStyles(ForwardRef(Button))
+                className="makeStyles-button-2"
+                color="primary"
+                onClick={[Function]}
+                variant="contained"
+              >
+                Terminar
+              </WithStyles(ForwardRef(Button))>
+            </div>
+          </div>
+        </WithStyles(ForwardRef(StepContent))>
+      </WithStyles(ForwardRef(Step))>
+    </WithStyles(ForwardRef(Stepper))>
+  </div>
+</Fragment>
+`;

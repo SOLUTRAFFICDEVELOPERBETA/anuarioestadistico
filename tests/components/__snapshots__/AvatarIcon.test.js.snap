@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <AvatarIcon/> debe mostrarse correctamente 1`] = `
+<button
+  className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-2 MuiButton-containedPrimary"
+  disabled={false}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onDragLeave={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  tabIndex={0}
+  type="button"
+>
+  <span
+    className="MuiButton-label"
+  >
+    Nov 30, 2020
+    <span
+      className="MuiButton-endIcon MuiButton-iconSizeMedium"
+    >
+      <div
+        className="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-1"
+      >
+        <img
+          alt="img-user"
+          className="MuiAvatar-img"
+          src="https://firebasestorage.googleapis.com/v0/b/wise-365ab.appspot.com/o/assets%2Fprofile_default.jpg?alt=media&token=9779b4ee-2ee5-49c1-b24b-720e5854867b"
+        />
+      </div>
+    </span>
+  </span>
+  <span
+    className="MuiTouchRipple-root"
+  />
+</button>
+`;

@@ -3,7 +3,9 @@ import AuthLayout from '../../Layout/authLayout';
 import LogInForm from '../../containers/Login';
 
 /**
- * Página de autenticación
+ * @description Página de autenticación
+ * @see AuthLayout
+ * @see LogInForm
  */
 const AuthLogin = () => {
     return (

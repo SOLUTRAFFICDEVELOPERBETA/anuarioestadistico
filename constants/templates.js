@@ -1,3 +1,4 @@
+
 import {
     PARAGRAPH,
     TITLE,
@@ -12,6 +13,7 @@ import {
     CARD,
     SUBTITLE
 } from './documents';
+// plantilla para crear una página
 export const DOCUMENT_TEMPLATE = {
     title: 'Documento sin Nombre',
     fields: [
@@ -28,6 +30,7 @@ export const DOCUMENT_TEMPLATE = {
     ]
 };
 
+// Tipos de field en el momento de crear una página en la plataforma
 export const FIELDS = {
     [TITLE]: {
         type: TITLE,
@@ -158,6 +161,7 @@ export const FIELDS = {
     }
 };
 
+// Ejemplos de documentos para una página creada
 export const documents = [
     {
         id: 'WgPns4dbIvwlqUCJQ2tX ',

@@ -7,7 +7,7 @@ import { Facebook, Instagram, Room, Twitter } from '@material-ui/icons'
 import ThemeContext from '../contexts/theme'
 import { CutText } from '../constants'
 
-// Estilos del componente
+// Estilos del componente con Emotion
 const Footer = styled.footer`
         background-color:  var(--primary-light);
         background-image: url(${props => props.url});
@@ -21,7 +21,8 @@ const Footer = styled.footer`
 `
 
 /**
- * Componente: permite visualizar la información del footer.
+ * @description Componente: permite visualizar la información del footer.
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 const MainFooter = () => {
     const { infoFooter: data } = React.useContext(ThemeContext)

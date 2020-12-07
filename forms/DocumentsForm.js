@@ -24,6 +24,7 @@ import useFixedList from '../hooks/useFixedList';
 import SearchInput from '../components/SearchInput';
 import { documents } from '../constants/templates';
 
+// Estilos del componente
 const useStyles = makeStyles((theme) => ({
     appbar: {
         marginY: theme.spacing(5)
@@ -33,8 +34,9 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 /**
- * Componente que permite al usuario selección el tipo de formato en el momento de crear la páginal.
- * @param {onSubmit: () => void} Props Propiedades del componente.
+ * @description Componente que permite al usuario selección el tipo de formato en el momento de crear la páginal.
+ * @param {func: () => void} onSubmit Propiedades del componente.
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 const DocumentsForm = ({ onSubmit }) => {
     const classes = useStyles();

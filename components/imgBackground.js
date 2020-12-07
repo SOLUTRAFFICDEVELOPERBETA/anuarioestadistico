@@ -17,31 +17,16 @@ const ContainerImagen = styled.div`
         align-content: center;
         align-items: center;
     }
+
     .titulo {
         position: absolute;
         top: 50%;
         color: #fff;
         font-size: 2.5rem;
         line-height: 1px;
-
         @media (max-width: 768px) {
-            top: 50%;
-            left: 15%;
             font-size: 1.5rem;
-        }
-    }
-
-    .r {
-        position: absolute;
-        top: 55%;
-        background-color: red;
-        height: 2px;
-        width: 24rem;
-
-        @media (max-width: 768px) {
-            top: 55%;
-            left: 10%;
-            width: 20rem;
+            left: 25%;
         }
     }
 
@@ -50,10 +35,9 @@ const ContainerImagen = styled.div`
         top: 55%;
         color: #fff;
         font-size: 2rem;
-
         @media (max-width: 768px) {
-            top: 55%;
             font-size: 1.5rem;
+            left: 12%;
         }
     }
     img {
@@ -63,8 +47,11 @@ const ContainerImagen = styled.div`
 `;
 
 /**
- * Componente, permite visualizar la imagen principal de la plataforma.
- * @param {imgSrc: string, title: string, subTitle: string} Props del componente.
+ * @description Componente, permite visualizar la imagen principal de la plataforma.
+ * @param {String} imgSrc
+ * @param {String} title
+ * @param {String} subTitle
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 const ImagBackground = ({ imgSrc, title, subTitle }) => {
     return (
@@ -73,7 +60,6 @@ const ImagBackground = ({ imgSrc, title, subTitle }) => {
             <Typography align="center" className="titulo">
                 {title}
             </Typography>
-            <div className="r" />
             <Typography component="p" align="center" className="subTitile">
                 {subTitle}
             </Typography>

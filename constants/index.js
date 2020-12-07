@@ -33,6 +33,7 @@ export const CutText = (text, length = 100) => {
 }
 
 
+// LInk para renderizar los módulos de la plataforma
 export const LinksMenu = [
     {
         label: 'Movilidad Terrestre',

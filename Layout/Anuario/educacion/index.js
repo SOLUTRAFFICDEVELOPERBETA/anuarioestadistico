@@ -6,7 +6,8 @@ import { Box } from '@material-ui/core';
 import SectionGeneric from '../../../components/section';
 
 /**
- * layout que permite visualizar la información del módulo de Educación.
+ * @description layout que permite visualizar la información del módulo de Educación.
+ * @see AnuarioEstadistico
  */
 const Educacion = () => {
     const dataEducacion = usePages('Educacion');

@@ -7,7 +7,7 @@ import Header from '../components/header';
 import theme from '../config/theme';
 
 /**
- * Layout que permite configurar el tema la app y estilos, globales.
+ * @description Layout que permite configurar el tema la app y estilos, globales.
  * @param {children: any} Props Propiedades del Layout.
  */
 const Layout = ({ children }) => {

@@ -14,7 +14,7 @@ const AlertProvider = ({ children }) => {
     const [state, dispatch] = React.useReducer(AlertReducer, initial);
 
     /**
-     * Función para mostrar una alerta
+     * @description Función para mostrar una alerta
      * @param {string} text Mensaje a mostrar en la alerta
      * @param {"success" | "warning" | "error"} category Tipo del error
      * @param {number} time Tiempo de visualización de la alerta
@@ -26,6 +26,9 @@ const AlertProvider = ({ children }) => {
         });
     };
 
+    /**
+     * @description metodo para cerrar el mensaje
+     */
     const closeMessage = () => {
         dispatch({
             type: CLOSE_ALERT

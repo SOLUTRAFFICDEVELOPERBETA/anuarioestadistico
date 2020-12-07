@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <PageTitle/> debe mostrarse correctamente 1`] = `
+<Styled(MuiBox)
+  marginBottom={2}
+>
+  <WithStyles(ForwardRef(Grid))
+    alignItems="center"
+    container={true}
+    justify="space-between"
+    spacing={1}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      sm={12}
+      xs={12}
+    >
+      <WithStyles(ForwardRef(Typography))
+        color="primary"
+        variant="h4"
+      >
+        Titulo de prueba
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        color="secondary"
+        variant="subtitle1"
+      >
+        subtitulo de prueba
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      sm={12}
+      xs={12}
+    >
+      <button>
+        Acciones de prueba
+      </button>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Divider))
+    variant="middle"
+  />
+  <div
+    className="makeStyles-divider-1"
+  />
+  <WithStyles(ForwardRef(Typography))
+    variant="body1"
+  >
+    <p>
+      esto es un children
+    </p>
+  </WithStyles(ForwardRef(Typography))>
+</Styled(MuiBox)>
+`;

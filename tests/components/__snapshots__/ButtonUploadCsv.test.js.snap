@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <ButtonUploadCsv/> debe mostrarse correctamente 1`] = `
+<Styled(MuiBox)>
+  <input
+    id={123}
+    multiple={false}
+    name="img-pruebas"
+    onChange={[Function]}
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    type="file"
+  />
+  <label
+    htmlFor="mg-pruebas"
+  >
+    <WithStyles(ForwardRef(Button))
+      color="secondary"
+      component="div"
+      endIcon={<Memo(CloudUploadIcon) />}
+      fullWidth={true}
+      size="small"
+      variant="contained"
+    >
+      Titulo de prueba
+    </WithStyles(ForwardRef(Button))>
+  </label>
+</Styled(MuiBox)>
+`;

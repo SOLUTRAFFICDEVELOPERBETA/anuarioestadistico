@@ -4,6 +4,12 @@ import { List, ListSubheader, ListItem, ListItemText, ListItemSecondaryAction } 
 import ColorPalette from './color'
 import { THEMES } from '../../constants/options'
 
+/**
+ * @description Componente que se encarga de mostrar los temas de la plataforma
+ * @param {Array []} themes 
+ * @param {func: ()=> void} onSelect 
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
+ */
 const ThemeSelector = ({ themes, onSelect }) => {
   return (
     <List dense subheader={<ListSubheader>Temas de la Plataforma</ListSubheader>}>

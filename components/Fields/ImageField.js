@@ -152,8 +152,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Componente para mostrar una imagen en el documento
- * @param {{ id: string, value: any, size: number | string, child: boolean, disableGrid: boolean, onChange: () => void, onDelete: () => void }} props Propiedades del componete
+ * @description Componente para mostrar una imagen en el documento
+ * @param {String} id
+ * @param {any} value
+ * @param {Number} size
+ * @param {Boolean} child
+ * @param {Boolean} disableGrid
+ * @param {func:() => void} onChange
+ * @param {func:() => void} onDelete
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
+ * consulte los elementos DragPreviewImage, useDrag en {@link https://react-dnd.github.io/react-dnd/docs/overview | React DnD Drag and Drop for React}
  */
 const ImageField = ({ id, value, size, child, disableGrid, onChange, onDelete }) => {
     const classes = useStyles();
@@ -166,7 +174,6 @@ const ImageField = ({ id, value, size, child, disableGrid, onChange, onDelete })
             isDragging: !!monitor.isDragging()
         })
     });
-    // const { onChangeField, onDeleteField } = React.useContext(EditorContext)
 
     /**
      * Método para abrir el popover
@@ -256,7 +263,7 @@ const ImageField = ({ id, value, size, child, disableGrid, onChange, onDelete })
                                     name="size"
                                     style={{ minWidth: '160px' }}
                                     onChange={({ target: { value } }) => onChange({ size: value })}
-                                    // className={classes.option}
+                                // className={classes.option}
                                 >
                                     {GRID_SIZES.map(($size) => (
                                         <MenuItem

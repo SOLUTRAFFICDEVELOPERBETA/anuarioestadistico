@@ -5,8 +5,10 @@ import { Search } from '@material-ui/icons';
 import { useForm } from 'react-hook-form';
 
 /**
- *  Componente que permite la busqueda de un elemento de una lista.
- * @param {onSearch: () => void, placeholder: string} props propiedades del componente.
+ * @description Componente que permite la busqueda de un elemento de una lista.
+ * @param {func: ()=> void} onSearch
+ * @param {String} placeholder 
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 const SearchInput = ({ onSearch, placeholder }) => {
     const { register, handleSubmit } = useForm();

@@ -239,8 +239,10 @@ CustomTooltip.propTypes = {
 };
 
 /**
- * Componente para el elemento de los Gráficos de los documentos
- * @param {{ id: string, value: { data: {}, type: string }
+ * @description Componente para el elemento de los Gráficos de los documentos
+ * @param {String} id
+ * @param { data: {}, type: string } value
+ * Consulte los elementos utilizados para las gráfica en {@link https://recharts.org/en-US/blog | <Rechart />}
  */
 
 const ChartGraphic = ({ id, value }) => {
@@ -349,8 +351,8 @@ const ChartGraphic = ({ id, value }) => {
                                                 stackId === '' ? (
                                                     <ChartBarLabel stroke={color} />
                                                 ) : (
-                                                    <ChartBarLabelSimple stroke={color} />
-                                                )
+                                                        <ChartBarLabelSimple stroke={color} />
+                                                    )
                                             }
                                         />
                                     );
@@ -615,14 +617,8 @@ const ChartGraphic = ({ id, value }) => {
 };
 
 ChartGraphic.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     value: PropTypes.object,
-    size: PropTypes.number,
-    description: PropTypes.string,
-    title: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
-    onDelete: PropTypes.func.isRequired,
-    typeGraphic: PropTypes.string.isRequired
 };
 
 export default ChartGraphic;

@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { Box, Typography, Grid } from '@material-ui/core';
 
 /**
- * Componente que permite visualizar la información del inicio de la plataforma.
- * @param {fields: array[]} Props Propiedades del componente.
+ * @description Componente que permite visualizar la información del inicio de la plataforma.
+ * @param { array[]} fields
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 const PageInicio = ({ fields }) => {
     return (

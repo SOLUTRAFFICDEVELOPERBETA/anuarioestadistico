@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import AuthContext from '.';
 import AuthReducer from './reducer';
 import AlertContext from '../alert';
+import moment from 'moment'
 import fb from '../../config/firebase';
 import { useRouter } from 'next/router';
-import { LOG_IN, AUTH_ERROR, AUTH_STATE, GET_USER, LOG_OUT } from '../../constants/types';
+import { LOG_IN, AUTH_ERROR, AUTH_STATE, GET_USER, LOG_OUT, REGISTER_USER_EXIT } from '../../constants/types';
 
 const AuthProvider = ({ children }) => {
     const initial = {
@@ -17,6 +18,33 @@ const AuthProvider = ({ children }) => {
     const [state, dispatch] = React.useReducer(AuthReducer, initial);
     const { showMessage } = React.useContext(AlertContext);
 
+    /**
+     *  Función que permite realizar el registro de un usuario
+     * @param {data: any} props Propiedades del componente
+     */
+    const registerUser = async (data) => {
+
+        const body = {
+            name: data.name,
+            nameUser: data.nameUser,
+            email: data.email,
+            role: 'admin',
+            dateCreate: moment().valueOf()
+        }
+        try {
+            const userCreate = await fb.auth.createUserWithEmailAndPassword(data.email, data.password)
+            userCreate.user.updateProfile({ displayName: data.name })
+            await fb.db.collection('users').doc(userCreate.user.uid).set(body).then(() => {
+                dispatch({
+                    type: REGISTER_USER_EXIT
+                })
+                showMessage('Usuario registrado exitosamente', 'success')
+                router.push('/')
+            })
+        } catch (error) {
+            showMessage(error.message, 'error')
+        }
+    }
     /**
      * Método de inicio de sesión
      * @param {string} email Correo del usuario
@@ -46,7 +74,11 @@ const AuthProvider = ({ children }) => {
         }
     };
 
-    // Método para cambiar recuperar la contraseña
+    /**
+     * @description Método para cambiar recuperar la contraseña
+     * @param {String} email 
+     */
+
 
     const passwordReset = async (email) => {
         try {
@@ -61,7 +93,11 @@ const AuthProvider = ({ children }) => {
             showMessage(error.message, 'error');
         }
     };
-    // Método para cerrar sesión
+
+    /**
+     * @description Método para cerrar sesión
+     */
+
     const onLogOut = async () => {
         try {
             await fb.auth
@@ -142,7 +178,7 @@ const AuthProvider = ({ children }) => {
         };
         getUserInfo();
         // eslint-disable-next-line
-  }, [state.auth])
+    }, [state.auth])
 
     return (
         <AuthContext.Provider
@@ -151,7 +187,8 @@ const AuthProvider = ({ children }) => {
                 user: state.user,
                 onLogIn,
                 onLogOut,
-                passwordReset
+                passwordReset,
+                registerUser
             }}>
             {children}
         </AuthContext.Provider>

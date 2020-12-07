@@ -4,8 +4,15 @@ import { ChevronLeft, ChevronRight, SkipPrevious, SkipNext } from '@material-ui/
 import PropTypes from 'prop-types';
 
 /**
- * Barra de pagina para la lista limitada
- * @param {*} props Propiedades del componente
+ * @description Barra de pagina para la lista limitada
+ * @param {func: ()=> void} onNext
+ * @param {func: ()=> void} onSkipNext
+ * @param {Boolean} showNext
+ * @param {func: ()=> void} onBack
+ * @param {func: ()=> void} onSkipBack
+ * @param {Boolean} showBack
+ * @param {String} label
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 const PaginationBar = ({ onNext, onSkipNext, showNext, onBack, onSkipBack, showBack, label }) => (
     <Box>

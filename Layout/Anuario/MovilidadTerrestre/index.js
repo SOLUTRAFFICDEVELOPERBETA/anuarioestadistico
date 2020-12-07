@@ -6,7 +6,8 @@ import { Box } from '@material-ui/core';
 import SectionGeneric from '../../../components/section';
 
 /**
- * layout que permite visualizar la información del módulo de Movilidad Terrestre.
+ * @description layout que permite visualizar la información del módulo de Movilidad Terrestre.
+ * @see AnuarioEstadistico
  */
 const TerrestrialMobility = () => {
     const dataMovilidad = usePages('Movilidad');

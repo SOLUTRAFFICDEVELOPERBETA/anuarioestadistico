@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <TextInput/> debe mostrar el popover 1`] = `
+Array [
+  "",
+  <div
+    className=" css-o15u39-InputContainer e11fp7a60"
+    color="#000000"
+    fontSize={14}
+    id="id-1-Text-input"
+    onContextMenu={[Function]}
+  >
+    <span
+      className="dragger"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root"
+        focusable="false"
+        style={
+          Object {
+            "fill": "#9e9e9e",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"
+        />
+      </svg>
+    </span>
+    <span
+      className="text-field"
+      contentEditable={true}
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "contendido de prueba",
+        }
+      }
+      data-type="paragraph"
+      onBlur={[Function]}
+    />
+  </div>,
+]
+`;
+
+exports[`Pruebas en <TextInput/> debe mostrarse correctamente 1`] = `
+Array [
+  "",
+  <div
+    className=" css-o15u39-InputContainer e11fp7a60"
+    color="#000000"
+    fontSize={14}
+    id="id-1-Text-input"
+    onContextMenu={[Function]}
+  >
+    <span
+      className="dragger"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root"
+        focusable="false"
+        style={
+          Object {
+            "fill": "#9e9e9e",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"
+        />
+      </svg>
+    </span>
+    <span
+      className="text-field"
+      contentEditable={true}
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "contendido de prueba",
+        }
+      }
+      data-type="paragraph"
+      onBlur={[Function]}
+    />
+  </div>,
+]
+`;

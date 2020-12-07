@@ -6,7 +6,8 @@ import SectionGeneric from '../../../components/section';
 import AnuarioEstadistico from '..';
 
 /**
- * layout que permite visualizar la información del módulo de Historicos y Demográficos.
+ * @description layout que permite visualizar la información del módulo de Historicos y Demográficos.
+ * @see AnuarioEstadistico
  */
 const HistoricosGeograficos = () => {
     const dataHistoricoGeograficos = usePages('HistoricosGeograficos');

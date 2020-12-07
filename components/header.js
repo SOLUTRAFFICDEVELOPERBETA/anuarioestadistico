@@ -11,7 +11,9 @@ const LogoLink = styled('a')`
 `;
 
 /**
- * Componente que muestra en menú de navegación de la plataforma.
+ * @description Componente que muestra en menú de navegación de la plataforma.
+ * Consulte los estilos  en {@link https://emotion.sh/docs/styled | Emotion}
+ * @see Navigation
  */
 const Header = () => {
     return (
@@ -21,12 +23,11 @@ const Header = () => {
             `}>
             <div
                 css={css`
-                    max-width: 75rem;
-                    margin: 0 auto;
+                    margin: 0 10px;
                     text-align: center;
                     line-height: 3;
 
-                    @media (min-width: 720px) {
+                    @media (min-width: 768px) {
                         display: flex;
                         align-items: center;
                         justify-content: space-between;

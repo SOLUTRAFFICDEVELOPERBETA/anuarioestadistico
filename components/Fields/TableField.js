@@ -41,32 +41,6 @@ import { DragPreviewImage, useDrag } from 'react-dnd';
 import clsx from 'clsx';
 import EmojiPicker from '../EmojiPicker';
 
-/*
-const CellInput = styled.div`
-  width: 100%;
-  min-width: 50px;
-  min-height: 1rem;
-  word-break: break-all;
-  display:inline-block;
-  font-style: ${props => props.italic ? 'italic' : 'normal'};
-  font-weight: ${props => props.bold ? 'bold' : 'normal'} !important;
-  font-family: 'Open Sans', sans-serif;
-  color: ${props => props.textColor};
-  font-size: ${props => props.textSize}px;
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: 0.00938em;
-
-  :hover {
-    background-color: rgb(245,245,245, 0.5);
-  }
-
-  :focus {
-    margin: 0;
-    background-color: rgb(245,245,245, 0.5);
-  }
-`
-*/
 
 // Contenedor de la celda
 const CellContainer = styled(TableCell)`
@@ -142,6 +116,7 @@ const CellField = ({
      * @param {string} value Valor a colocar
      */
     const handleTextChange = (key, value) => {
+        console.log('handleTextChange: click');
         onChange({ [key]: value });
     };
 
@@ -175,22 +150,7 @@ const CellField = ({
                     onContextMenu={handleClick}
                 />
             </Tooltip>
-            {/*
-          <CellInput
-            bold={bold}
-            italic={italic}
-            textSize={textSize}
-            textColor={textColor}
-            contentEditable
-            id={id}
-            dangerouslySetInnerHTML={{ __html: content }}
-            onBlur={event => handleTextChange('content', event.target.textContent)}
-          />
-          </CellContainer>
-          */}
-            {/* <IconButton className="options" size="small" onClick={handleClick}>
-        <ExpandMore fontSize="small" />
-        </IconButton> */}
+            
             {open && (
                 <Popover
                     id={`popover-open-${id}`}
@@ -323,7 +283,7 @@ const RowField = ({ id, row, onChange, onDelete }) => {
 };
 
 RowField.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
     row: PropTypes.array,
     onChange: PropTypes.func.isRequired,
     onDelete: PropTypes.func.isRequired
@@ -358,8 +318,13 @@ const useTableFieldStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Componente para mostrar el campo de las tablas
- * @param {{ id: string, value: any, onChange: () => void, onDelete: () => void }} props Propiedades del componente
+ * @description Componente para mostrar el campo de las tablas
+ * @param {String} id
+ * @param {any} value
+ * @param {func:() => void} onChange
+ * @param {func:() => void} onDelete
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
+ * consulte los elementos DragPreviewImage, useDrag en {@link https://react-dnd.github.io/react-dnd/docs/overview | React DnD Drag and Drop for React}
  */
 const TableField = ({ id, value, onChange, onDelete }) => {
     const classes = useTableFieldStyles();
@@ -376,6 +341,7 @@ const TableField = ({ id, value, onChange, onDelete }) => {
      * @param {Event} event Evento de click del objeto
      */
     const handleClick = (event) => {
+        console.log('CLICK');
         setAnchorEl(event.currentTarget);
     };
 
@@ -453,6 +419,7 @@ const TableField = ({ id, value, onChange, onDelete }) => {
      * @param {*} data Información del cambio
      */
     const handleChange = (row, cell, data) => {
+        console.log('handleChange: click');
         const table = { ...value };
         const _row = table[row].map((_cell, index) =>
             index === cell ? { ..._cell, ...data } : _cell
@@ -544,7 +511,7 @@ const TableField = ({ id, value, onChange, onDelete }) => {
 
 TableField.propTypes = {
     id: PropTypes.string.isRequired,
-    value: PropTypes.obj,
+    value: PropTypes.object,
     onChange: PropTypes.func.isRequired,
     onDelete: PropTypes.func.isRequired
 };

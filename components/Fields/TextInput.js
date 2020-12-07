@@ -174,8 +174,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Componente para mostrar un campo de texto
- * @param {{ id: string, value: string, type: string, color: string, size: number | string, align: string, fontSize: string | number, child: boolean, disableGrid: boolean, onChange: () => void, onDelete: () => void }} props Propiedades del componente
+ * @description Componente para mostrar un campo de texto
+ * @param {String} id
+ * @param {any} value
+ * @param {String} type
+ * @param {String} color
+ * @param {Number} size
+ * @param {String} align
+ * @param {String} fontSize
+ * @param {Boolean} child
+ * @param {Boolean} disableGrid
+ * @param {func:() => void} onChange
+ * @param {func:() => void} onDelete
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
+ * consulte los elementos DragPreviewImage, useDrag en {@link https://react-dnd.github.io/react-dnd/docs/overview | React DnD Drag and Drop for React}
  */
 const TextInput = ({
     id,
@@ -222,8 +234,7 @@ const TextInput = ({
         const {
             currentTarget: { innerText }
         } = event;
-        // console.log({ currentTarget }, currentTarget.innerText)
-        // console.log({ innerText })
+
         onChange({ value: innerText });
     };
 
@@ -261,8 +272,6 @@ const TextInput = ({
                     className="text-field"
                     onBlur={handleChange}
                     dangerouslySetInnerHTML={{ __html: value }}
-                    // value={value}
-                    // onChange={handleChange}
                 />
             </InputContainer>
             {open && (

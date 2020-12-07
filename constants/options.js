@@ -1,3 +1,4 @@
+// Colores de la plataforma
 export const COLORS = [
     '#1976d2',
     '#0d47a1',
@@ -19,6 +20,7 @@ export const COLORS = [
     '#212121'
 ]
 
+// Temas de la plataforma
 export const THEMES = [
     {
         name: 'Por defecto',

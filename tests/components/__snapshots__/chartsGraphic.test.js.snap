@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <ChartGraphic/> debe mostrarse correctamente 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-1"
+>
+  <div
+    style={
+      Object {
+        "width": "95%",
+      }
+    }
+  />
+</div>
+`;

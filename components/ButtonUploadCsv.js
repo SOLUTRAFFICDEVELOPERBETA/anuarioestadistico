@@ -4,12 +4,13 @@ import { Box, Button } from '@material-ui/core';
 import { CloudUpload } from '@material-ui/icons';
 
 /**
- *
- * @param {title} string titulo del componente,
- * @param {handleFilesAnnex} fn función para subir el archivo,
- * @param {name} string Nombre deñ archivo,
- * @param {id} string identifdicador  del campo,
- * @param {htmlFor} string Identificador del Label,
+ * @description Componente que permite la descarga de un csv
+ * @param {String}  title titulo del componente,
+ * @param {func: ()=> void} handleFilesAnnex función para subir el archivo,
+ * @param {String} name Nombre deñ archivo,
+ * @param {string} id  string identificador  del campo,
+ * @param {String} htmlFor Identificador del Label,
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 const ButtonUploadCsv = ({ title, handleFilesAnnex, name, id, htmlFor }) => {
     return (

@@ -27,6 +27,7 @@ import DividerLine from './DividerLine';
 import ChartField from './ChartField';
 import IFrameField from './IFrameField';
 
+// Estilos del componente
 const usePlacementStyles = makeStyles((theme) => ({
     root: {
         height: theme.spacing(0.5),
@@ -41,8 +42,8 @@ const usePlacementStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Componente para recibir el evento de Drop para el Drag and Drop de los componente
- * @param {{ onDrop: () => void }} props Propiedades del componente
+ * @description Componente para recibir el evento de Drop para el Drag and Drop de los componente
+ * @param {func: () => void } onDrop Propiedades del componente
  */
 const DropPlacement = ({ onDrop }) => {
     const classes = usePlacementStyles();
@@ -63,8 +64,22 @@ DropPlacement.propTypes = {
 };
 
 /**
- * Componente que contiene y decide que campo renderizar dependiendo del tipo
- * @param {{ id: string, value: any, type: string, size: number | string, onDrop: () => void }} props Propiedades del componente
+ * @description Componente que contiene y decide que campo renderizar dependiendo del tipo
+ * @param {String} id
+ * @param {any} value
+ * @param {String} type
+ * @param {Number} size
+ * @param {func: () => void } onDrop
+ * @see TextInput
+ * @see SectionField
+ * @see DividerLine
+ * @see ImageField
+ * @see ListField
+ * @see TableField
+ * @see ChartField
+ * @see IFrameField
+ * Consulte los elementos utilizados grid  {@link https://material-ui.com/ | Material-ui}
+ * consulte los elementos DropPlacement, useDrop en {@link https://react-dnd.github.io/react-dnd/docs/overview | React DnD Drag and Drop for React}
  */
 const DocumentField = ({ id, value, type, size, onDrop, ...others }) => {
     const { onChangeField, onDeleteField } = React.useContext(EditorContext);

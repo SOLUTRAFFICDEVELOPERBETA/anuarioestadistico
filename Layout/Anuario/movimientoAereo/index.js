@@ -6,7 +6,8 @@ import { Box } from '@material-ui/core';
 import SectionGeneric from '../../../components/section';
 
 /**
- * layout que permite visualizar la información del módulo de Movimiento áereo.
+ * @description layout que permite visualizar la información del módulo de Movimiento áereo.
+ * @see AnuarioEstadistico
  */
 const MovimientoAereo = () => {
     const dataAereo = usePages('MovimientoAereo');

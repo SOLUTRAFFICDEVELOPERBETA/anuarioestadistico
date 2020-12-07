@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <IFrameField/> debe mostrarse correctamente 1`] = `
+Array [
+  "",
+  <div
+    className="css-12ru47l-IFrameContainer e7iy8zi0"
+    onContextMenu={[Function]}
+  >
+    <span
+      className="dragger"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+        focusable="false"
+        style={
+          Object {
+            "fill": "#9e9e9e",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"
+        />
+      </svg>
+    </span>
+    <div
+      className="iframe-ref"
+      data-ref={
+        Object {
+          "ref": "https://app.powerbi.com/view?r=eyJrIjoiNmQ3ODYwOTUtZTBiMC00NWQxLWJjYTYtMGQ5ZjI4MDkwOGJlIiwidCI6IjMzZmE2OTA3LTIxYzYtNDEyNi1hYTY2LWJjYmVkOTUzNjFiYiIsImMiOjR9",
+        }
+      }
+      data-validate={
+        Object {
+          "ref": "https://app.powerbi.com/view?r=eyJrIjoiNmQ3ODYwOTUtZTBiMC00NWQxLWJjYTYtMGQ5ZjI4MDkwOGJlIiwidCI6IjMzZmE2OTA3LTIxYzYtNDEyNi1hYTY2LWJjYmVkOTUzNjFiYiIsImMiOjR9",
+        }
+      }
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="MuiInputBase-root MuiInputBase-fullWidth MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiInputBase-marginDense"
+          onClick={[Function]}
+          required={true}
+          size="small"
+        >
+          <div
+            className="MuiInputAdornment-root MuiInputAdornment-positionStart"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M4.5 11h-2V9H1v6h1.5v-2.5h2V15H6V9H4.5v2zm2.5-.5h1.5V15H10v-4.5h1.5V9H7v1.5zm5.5 0H14V15h1.5v-4.5H17V9h-4.5v1.5zm9-1.5H18v6h1.5v-2h2c.8 0 1.5-.7 1.5-1.5v-1c0-.8-.7-1.5-1.5-1.5zm0 2.5h-2v-1h2v1z"
+              />
+            </svg>
+          </div>
+          <input
+            className="MuiInputBase-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiInputBase-inputMarginDense"
+            name="url"
+            onAnimationStart={[Function]}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Introduce la dirección del documento"
+            required={true}
+            type="url"
+            value={
+              Object {
+                "ref": "https://app.powerbi.com/view?r=eyJrIjoiNmQ3ODYwOTUtZTBiMC00NWQxLWJjYTYtMGQ5ZjI4MDkwOGJlIiwidCI6IjMzZmE2OTA3LTIxYzYtNDEyNi1hYTY2LWJjYmVkOTUzNjFiYiIsImMiOjR9",
+              }
+            }
+          />
+          <div
+            className="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+          >
+            Array [
+              <button
+                aria-describedby={null}
+                className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+                disabled={false}
+                onBlur={[Function]}
+                onDragLeave={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOver={[Function]}
+                onMouseUp={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                tabIndex={0}
+                title="Cambiar"
+                type="submit"
+              >
+                <span
+                  className="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden={true}
+                    className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  className="MuiTouchRipple-root"
+                />
+              </button>,
+              "",
+            ]
+          </div>
+        </div>
+      </form>
+      <div
+        className="MuiCollapse-container MuiCollapse-entered"
+        style={
+          Object {
+            "minHeight": "0px",
+          }
+        }
+      >
+        <div
+          className="MuiCollapse-wrapper"
+        >
+          <div
+            className="MuiCollapse-wrapperInner"
+          >
+            <iframe
+              id="iframe-view-iframent-id"
+              src={
+                Object {
+                  "ref": "https://app.powerbi.com/view?r=eyJrIjoiNmQ3ODYwOTUtZTBiMC00NWQxLWJjYTYtMGQ5ZjI4MDkwOGJlIiwidCI6IjMzZmE2OTA3LTIxYzYtNDEyNi1hYTY2LWJjYmVkOTUzNjFiYiIsImMiOjR9",
+                }
+              }
+              title="iframent-id"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;

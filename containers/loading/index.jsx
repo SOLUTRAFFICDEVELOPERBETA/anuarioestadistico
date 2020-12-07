@@ -11,6 +11,11 @@ const Container = styled.div`
     margin: auto;
 `
 
+/**
+ * @description Componente que permite mostrar un mensaje cuando la plataforma este cargado
+ * @param {Strng} message 
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
+ */
 const LoadingContainer = ({ message }) => (
   <Container>
     <Typography

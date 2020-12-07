@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <LoadingContainer/> debe mostrarse correctamente 1`] = `
+<Container>
+  <WithStyles(ForwardRef(Typography))
+    align="center"
+    color="primary"
+    display="block"
+    variant="h5"
+  >
+    Cargando...
+  </WithStyles(ForwardRef(Typography))>
+  <Spinner />
+</Container>
+`;

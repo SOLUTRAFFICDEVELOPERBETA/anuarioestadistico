@@ -9,8 +9,9 @@ module.exports = {
         projectId: 'anuario-estadistico',
         storageBucket: 'anuario-estadistico.appspot.com',
         messagingSenderId: '180604864462',
-        appId: '1:180604864462:web:4fef89e887cbfc6ac20d9f',
-        measurementId: 'G-WFRZ9NEGGD'
+        // appId: '1:180604864462:web:4fef89e887cbfc6ac20d9f',
+        // measurementId: 'G-WFRZ9NEGGD'
+        
     },
     webpack(config) {
         config.module.rules.push({

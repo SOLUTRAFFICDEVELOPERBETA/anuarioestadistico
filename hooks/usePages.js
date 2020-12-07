@@ -2,7 +2,7 @@ import React from 'react';
 import PagesContext from '../contexts/pagess';
 
 /**
- *  Hook que permite realizar un filtro a la paginas creadas.
+ * @description Hook que permite realizar un filtro a la paginas creadas.
  * pasándola como argumento la pagina a buscar.
  * @param {string} source path de la pagina a buscar.
  */

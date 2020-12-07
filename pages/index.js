@@ -9,6 +9,10 @@ import { LinksMenu } from '../constants';
 import { Tooltip, IconButton } from '@material-ui/core';
 import { ArrowUpward } from '@material-ui/icons'
 
+/**
+ * @description Página principal de la plataforma
+ * @see {@link https://material-ui.com/ | Material-ui}
+ */
 const Home = () => {
   const data = usePages('Inicio');
 

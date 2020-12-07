@@ -28,7 +28,9 @@ const Container = styled(Box)`
         /*padding: 1rem 1rem;*/
     }
 `;
-// Pagina para editar el contenido de un documento
+/**
+ * @description Pagina para editar el contenido de un documento
+ */
 const Page = () => {
     const router = useRouter();
     const {
@@ -107,7 +109,7 @@ const Page = () => {
      * Método para alterar el orden de los campos con DnD
      * @param {string} key Posición de destino
      * @param {*} item Información del objeto
-     * @see {@link https://react-dnd.github.io/react-dnd/about DnD}
+     * @see {@link https://react-dnd.github.io/react-dnd/about | DnD}
      */
     const handleDragAndDrop = (key, item) => {
         const $fields = [...document.fields];

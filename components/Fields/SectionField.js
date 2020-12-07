@@ -138,8 +138,14 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 /**
- * Campo contenedor de la sección
- * @param {{ id: String, value: Array, size: Number, onChange: () => {}, onDelete: () => {} }} props Propiedades del elemento
+ * @description Campo contenedor de la sección field
+ * @param {String} id
+ * @param {any} value
+ * @param {Number} size
+ * @param {func:() => void} onChange
+ * @param {func:() => void} onDelete
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
+ * consulte los elementos DragPreviewImage, useDrag en {@link https://react-dnd.github.io/react-dnd/docs/overview | React DnD Drag and Drop for React}
  */
 const SectionField = ({ id, value, size, onChange, onDelete }) => {
     const classes = useStyles();

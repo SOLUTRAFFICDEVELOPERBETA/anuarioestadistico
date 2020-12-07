@@ -7,9 +7,10 @@ import { GET_PAGES, GET_PAGES_ERROR } from '../../constants/types';
 import AlertContext from '../alert';
 
 const NAME_COLLECTION = 'pages';
+
 /**
- * Context que permite cargar todo la información de las páginas creadas.
- * @param {children: any} Props Propiedades del componente.
+ * @description Context que permite cargar todo la información de las páginas creadas.
+ * @param {any} children Propiedades del componente.
  */
 const PagesProvider = ({ children }) => {
     const initialState = {
@@ -20,7 +21,7 @@ const PagesProvider = ({ children }) => {
     const [state, dispatch] = React.useReducer(PagesReducer, initialState);
 
     /**
-     * Método que permite obtener todas las paginas creadas,
+     * @description Método que permite obtener todas las paginas creadas,
      * en el momento que la pagina se este cargando.
      */
     React.useEffect(() => {

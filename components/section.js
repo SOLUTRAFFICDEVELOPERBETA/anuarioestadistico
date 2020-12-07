@@ -28,8 +28,11 @@ const ImageContainer = styled.div`
 `;
 
 /**
- * Componente que permite renderizar diferentes campos dependiendo del type.
- * @param {type: string, value: any, id:any} Props Propiedades del componente.
+ * @description Componente que permite renderizar diferentes campos dependiendo del type.
+ * @param {String} type
+ * @param {any} value
+ * @param {any} id
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 const SectionGeneric = ({ type, value, id }) => {
     const getField = () => {

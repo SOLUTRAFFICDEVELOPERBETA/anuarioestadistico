@@ -76,8 +76,15 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-// Componente de selección de colores
-const ColorPick = ({ color, colors, onChange, icon }) => {
+/**
+ * @description Componente de selección de colores de la paleta
+ * @param {String} color 
+ * @param {Array []} colors 
+ * @param {func: ()=> void} onChange 
+ * @param {any} icon 
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
+ */
+const ColorPick = (color, colors, onChange, icon) => {
     const theme = useTheme();
     const classes = useStyles({ color });
     const [_red, _green, _blue] = hexToRgb(color);
@@ -234,7 +241,7 @@ const ColorPick = ({ color, colors, onChange, icon }) => {
                                                 fill={
                                                     isSelected
                                                         ? theme.palette.augmentColor({ main: rgb })
-                                                              .dark
+                                                            .dark
                                                         : rgb
                                                 }
                                                 cx="12"
@@ -265,7 +272,7 @@ ColorPick.propTypes = {
     color: PropTypes.string,
     colors: PropTypes.array,
     onChange: PropTypes.func,
-    icon: PropTypes.node
+    icon: PropTypes.any
 };
 
 ColorPick.defaultProps = {

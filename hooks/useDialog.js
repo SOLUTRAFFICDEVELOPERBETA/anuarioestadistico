@@ -10,8 +10,11 @@ const useDialog = () => {
     const handleToggle = () => setOpen(!open);
 
     /**
-     * Componente contenedor del Dialogo
-     * @param {{ title: string, children: any, actions: any }} props Propiedades del componente
+     * @description Componente contenedor del Dialogo
+     * @param {String} title
+     * @param {Any} children
+     * @param {Any} actions
+     * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui} 
      */
     const DialogContainer = ({ title, children, actions }) =>
         open ? (

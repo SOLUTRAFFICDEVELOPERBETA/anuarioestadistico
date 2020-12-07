@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en el componente <Subtitle/> debe mostrarse correctamente 1`] = `
+<Styled(MuiBox)
+  marginBottom={2}
+>
+  <WithStyles(ForwardRef(Typography))
+    color="primary"
+    style={
+      Object {
+        "textTransform": "uppercase",
+      }
+    }
+    variant="h6"
+  >
+    Texto primario de prueba
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(Typography))
+    color="secondary"
+    variant="body2"
+  >
+    <em>
+      Texto secundario de prueba
+    </em>
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(Divider))
+    variant="inset"
+  />
+</Styled(MuiBox)>
+`;

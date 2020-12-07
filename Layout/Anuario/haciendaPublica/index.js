@@ -6,7 +6,8 @@ import { Box } from '@material-ui/core';
 import SectionGeneric from '../../../components/section';
 
 /**
- * layout que permite visualizar la información del módulo de Hacienda Publica.
+ * @description layout que permite visualizar la información del módulo de Hacienda Publica.
+ * @see AnuarioEstadistico
  */
 const HaciendaPublica = () => {
     const dataSalud = usePages('HaciendaPublica');

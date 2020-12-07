@@ -134,7 +134,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Método para obtener la información del Chart desde un CSV
+ * @description Método para obtener la información del Chart desde un CSV
  * @param {Array} csv Documento a revisar
  */
 function getChartData(csv) {
@@ -163,7 +163,7 @@ function getChartData(csv) {
 }
 
 /**
- * Método para obtener el radio interno y externo para los charts de pastel
+ * @description Método para obtener el radio interno y externo para los charts de pastel
  * @param {number} size Numero de elementos en el chart de pastel
  * @param {number} index Posición del grupo dentro del arreglo
  */
@@ -184,8 +184,8 @@ const useAttributeFormStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Componente para cambiar los atributos del formulario
- * @param {{ id: string, open: boolean, onClose: () => void, type: string, data: any, onSubmit: () => void }} props Propiedades del componente
+ * @description Componente para cambiar los atributos del formulario
+ * @param {{ id: string, open: boolean, onClose: () => void, type: string, data: any,   onSubmit: () => void }} props Propiedades del componente
  */
 const AttributesForm = ({ id, open, onClose, type, data, onSubmit }) => {
     if (!open) return null;
@@ -200,6 +200,7 @@ const AttributesForm = ({ id, open, onClose, type, data, onSubmit }) => {
     const [info, setInfo] = React.useState([...keys]);
 
     /**
+     * @description
      * Método para cambiar las propiedades del formulario
      * @param {string} key Identificador de la propiedad
      * @param {*} data Información a ingresar
@@ -216,6 +217,7 @@ const AttributesForm = ({ id, open, onClose, type, data, onSubmit }) => {
     };
 
     /**
+     * @description
      * Método para subir o actualizar los iconos para los puntos de la gráfica lineal
      * @param {string} key Identificador de la propiedad
      * @param {FileList} files Archivos a subir
@@ -441,7 +443,7 @@ AttributesForm.propTypes = {
 };
 
 /**
- * Componente para mostrar la etiqueta de calor para los Gráficos lineares
+ * @description Componente para mostrar la etiqueta de calor para los Gráficos lineares
  * @param {{ x: number, y: number, stroke: string, value: any }} props Propiedades del componente
  */
 const ChartLineLabel = ({ x, y, stroke, value }) => {
@@ -486,7 +488,7 @@ ChartLineLabel.propTypes = {
 };
 
 /**
- * Componente para mostrar el valor de las etiquetas para los gráficos de barras
+ * @description Componente para mostrar el valor de las etiquetas para los gráficos de barras
  * @param {{ x: number, y: number, width: number, value: any, stroke: string }} props Propiedades del componente
  */
 const ChartBarLabel = ({ x, y, width, value, stroke }) => {
@@ -522,7 +524,7 @@ ChartBarLabel.propTypes = {
 };
 
 /**
- * Componente para mostrar la etiqueta del valor simple para los gráficos de barras
+ * @description Componente para mostrar la etiqueta del valor simple para los gráficos de barras
  * @param {{ x: number, y: number, width: number, height: number, value: any, stroke: string }} props Propiedades del componente
  */
 const ChartBarLabelSimple = ({ x, y, width, height, value, stroke }) => {
@@ -550,7 +552,7 @@ ChartBarLabelSimple.propTypes = {
 };
 
 /**
- * Tooltip para los gráficos de Pie
+ * @description Tooltip para los gráficos de Pie
  * @param {{ payload: Array }} props Propiedades del componente
  */
 const ChartPieTooltip = ({ payload = [] }) => (
@@ -598,7 +600,7 @@ ChartPieTooltip.propTypes = {
 };
 
 /**
- * Tooltip personalizado para los gráficos
+ * @description Tooltip personalizado para los gráficos
  * @param {{ active: boolean, payload: Array, label: string }} props Propiedades del componente
  */
 const CustomTooltip = ({ active, payload, label }) =>
@@ -651,7 +653,7 @@ CustomTooltip.propTypes = {
 };
 
 /**
- * Componente para mostrar una imagen en los puntos de un gráfico de linea
+ * @description Componente para mostrar una imagen en los puntos de un gráfico de linea
  * @param {{ cx: number, cy: number, id: string, stroke: string, href: string }} props Propiedades del componente
  */
 const ImageDot = ({ cx, cy, id, stroke, href }) => {
@@ -684,8 +686,14 @@ ImageDot.propTypes = {
 };
 
 /**
- * Componente para el elemento de los Gráficos de los documentos
- * @param {{ id: string, value: { data: {}, type: string }, size: number | string, onChange: () => void, onDelete: () => void }} props Propiedades del componente
+ * @description Componente para el elemento de los Gráficos de los documentos
+ * @param {String} id
+ * @param {{ data: {}, type: string }} value
+ * @param {Number} size
+ * @param {func: () => void} onChange
+ * @param {func: () => void} onDelete
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
+ * consulte los elementos DragPreviewImage, useDrag en {@link https://react-dnd.github.io/react-dnd/docs/overview | React DnD Drag and Drop for React}
  */
 const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
     const classes = useStyles();
@@ -775,7 +783,9 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
         onChange({ value: { ...value, data } });
     };
 
-    // Método para obtener el Gráfico
+    /**
+     * @description Método para obtener el Gráfico
+     */
     const getChart = () => {
         const { keys = [], fields = [] } = data;
         if (keys.length !== 0) {

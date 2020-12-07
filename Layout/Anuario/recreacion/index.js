@@ -6,7 +6,8 @@ import SectionGeneric from '../../../components/section';
 import { Box } from '@material-ui/core';
 
 /**
- * layout que permite visualizar la información del módulo de Recreación y Zonas Verdes.
+ * @description layout que permite visualizar la información del módulo de Recreación y Zonas Verdes.
+ * @see AnuarioEstadistico
  */
 const Reacreacion = () => {
     const dataRecreacion = usePages('Recreacion');

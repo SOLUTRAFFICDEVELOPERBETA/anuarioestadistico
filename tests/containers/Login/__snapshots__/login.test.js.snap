@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <Login/> debe mostrarse correctamente 1`] = `
+<div
+  className="css-1m18txs-AccountCard e6b47nl1"
+>
+  <div
+    className="css-1pw56y9-AccountHead e6b47nl2"
+  >
+    <h3>
+      Bienvenido a
+      <span
+        className="accountlogo"
+      >
+        Anuario-
+      </span>
+      <span
+        className="accountlogoaccent"
+      >
+        Estadístico
+      </span>
+    </h3>
+    <h4>
+      Región Ordenada, Conectada y Sostenible
+    </h4>
+  </div>
+  <form
+    className="css-1tpjg3z-Form e6b47nl0"
+    onSubmit={[Function]}
+  >
+    <div
+      className="css-1my2ixp-FormGroup e6b47nl3"
+    >
+      <span>
+        Nombre del usuario
+      </span>
+      <div
+        className="formformgroupfield"
+      >
+        <div
+          className="formformgroupicon"
+        >
+          <svg
+            className="mdi-icon "
+            fill="currentColor"
+            height={24}
+            viewBox="0 0 24 24"
+            width={24}
+          >
+            <path
+              d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M12,13C14.67,13 20,14.33 20,17V20H4V17C4,14.33 9.33,13 12,13M12,14.9C9.03,14.9 5.9,16.36 5.9,17V18.1H18.1V17C18.1,16.36 14.97,14.9 12,14.9Z"
+            />
+          </svg>
+        </div>
+        <input
+          name="email"
+          onChange={[Function]}
+          placeholder="Correo..."
+          type="text"
+        />
+      </div>
+    </div>
+    <div
+      className="css-1my2ixp-FormGroup e6b47nl3"
+    >
+      <span
+        className="formformgrouplabel"
+      >
+        Contraseña
+      </span>
+      <div
+        className="formformgroupfield"
+      >
+        <div
+          className="formformgroupicon"
+        >
+          <svg
+            className="mdi-icon "
+            fill="currentColor"
+            height={24}
+            viewBox="0 0 24 24"
+            width={24}
+          >
+            <path
+              d="M22,18V22H18V19H15V16H12L9.74,13.74C9.19,13.91 8.61,14 8,14A6,6 0 0,1 2,8A6,6 0 0,1 8,2A6,6 0 0,1 14,8C14,8.61 13.91,9.19 13.74,9.74L22,18M7,5A2,2 0 0,0 5,7A2,2 0 0,0 7,9A2,2 0 0,0 9,7A2,2 0 0,0 7,5Z"
+            />
+          </svg>
+        </div>
+        <input
+          name="password"
+          onChange={[Function]}
+          placeholder="Contraseña..."
+          type="password"
+        />
+        <button
+          className="formgroupbutton"
+          onClick={[Function]}
+          type="button"
+        >
+          <svg
+            className="mdi-icon "
+            fill="currentColor"
+            height={24}
+            viewBox="0 0 24 24"
+            width={24}
+          >
+            <path
+              d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"
+            />
+          </svg>
+        </button>
+      </div>
+      <a
+        className="css-16ubog-LogInForm"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        Olvidaste tu contraseña?
+      </a>
+    </div>
+    <button
+      className="signIn"
+      type="submit"
+    >
+      Iniciar Sesión
+    </button>
+  </form>
+</div>
+`;

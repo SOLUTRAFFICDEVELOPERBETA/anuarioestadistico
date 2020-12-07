@@ -9,8 +9,16 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(1)
   }
 }))
-
-const PageTitle = ({ title, subtitle, children, actions, disableDivider }) => {
+/**
+ * @description Componente que permite integrar un titulo en una pagina
+ * @param {String} title 
+ * @param {String} subtitle 
+ * @param {any} children 
+ * @param {Object {}} actions 
+ * @param {Boolean} disableDivider 
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
+ */
+const PageTitle = ( {title, subtitle, children, actions, disableDivider} ) => {
   const classes = useStyles()
   const theme = useTheme()
   const responsive = useMediaQuery(theme.breakpoints.up('md'))

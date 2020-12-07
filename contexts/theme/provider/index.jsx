@@ -29,12 +29,20 @@ const ThemeProvider = ({ children }) => {
   const { showMessage } = React.useContext(AlertContext)
   const [state, dispatch] = React.useReducer(ThemeReducer, initial)
 
+  /**
+   * @description Función que permite guardar los cambios realizados en la págiande configuración
+   * @param {Object {}} data 
+   */
   function SaveChange(data) {
     fb.db.collection('configuration').doc('theme').set(data).then(() => {
       showMessage('Los cambios se guardaron correctamente', 'success')
     })
   }
 
+  /**
+   * @description Función que permite guardar los cambios realizandos en la paleta de la plataforma 
+   * @param {Object} palette 
+   */
   function EditPalette(palette) {
     dispatch({
       type: EDIT_PALETTE,

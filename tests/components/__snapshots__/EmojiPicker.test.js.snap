@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <EmojiPicker/> debe mostrarse correctamente testing pendiende  1`] = `
+<Fragment>
+  <WithStyles(ForwardRef(Button))
+    color="primary"
+    onClick={[Function]}
+    size="small"
+  >
+    <InsertEmoticonTwoToneIcon />
+  </WithStyles(ForwardRef(Button))>
+  <PopoverComponent
+    id="popover-emoji-idEmojiPiker"
+  >
+    <ForwardRef(LoadableComponent)
+      onEmojiClick={[Function]}
+    />
+  </PopoverComponent>
+</Fragment>
+`;

@@ -6,7 +6,8 @@ import SectionGeneric from '../../../components/section';
 import { Box } from '@material-ui/core';
 
 /**
- * layout que permite visualizar la información del módulo de Seguridad y Convivencia.
+ * @description layout que permite visualizar la información del módulo de Seguridad y Convivencia.
+ * @see AnuarioEstadistico
  */
 const SeguridadConvivencia = () => {
     const dataSeguridad = usePages('SeguridadConvivencia');

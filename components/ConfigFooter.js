@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { Box, Typography, Dialog, DialogTitle, DialogContent, TextField, DialogActions, Button, Grid, Container, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@material-ui/core'
+import { Box, Typography, Dialog, DialogTitle, DialogContent, TextField, DialogActions, Button, Grid, Container, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles'
 import { UploadFile } from '../constants/files'
 import shortid from 'shortid'
@@ -28,9 +28,10 @@ const useStyles = makeStyles({
 });
 
 /**
- * Componente: permite obtener la información diligenciada del footer.
+ * @description Componente: permite obtener la información diligenciada del footer.
  * @param {Object} inforFooter Contiene la información del componente.
  * @param {func: () => void} onSubmit Función permite obtener todos los datos diligenciados en el formulario.
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  *  
  */
 const ConfigFooter = ({ inforFooter, onSubmit }) => {
@@ -47,9 +48,8 @@ const ConfigFooter = ({ inforFooter, onSubmit }) => {
     })
 
     const classes = useStyles()
-    const handleSubmit = event => {
+    const handleSubmit = (event) => {
         event.preventDefault()
-
         onSubmit(data)
         setOpen(false)
     }

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <ImageInput/> Debe mostrarse correctamente 1`] = `
+<div>
+  <label
+    htmlFor="annex"
+  >
+    <WithStyles(ForwardRef(Grid))
+      alignContent="center"
+      alignItems="center"
+      container={true}
+      justify="center"
+    >
+      <WithStyles(ForwardRef(Grid))
+        alignContent="center"
+        alignItems="center"
+        className="makeStyles-imageContainer-2"
+        container={true}
+        direction="column"
+        item={true}
+        justify="center"
+        lg={12}
+        md={12}
+        sm={12}
+        xl={12}
+        xs={12}
+      >
+        <img
+          className="makeStyles-image-1"
+          src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png"
+        />
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+  </label>
+  <input
+    id="annex"
+    multiple={false}
+    name="annex"
+    onChange={[Function]}
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    type="file"
+  />
+</div>
+`;

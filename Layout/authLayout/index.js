@@ -16,9 +16,9 @@ const ContainerDiv = styled.div`
 `;
 
 /**
- * Layout que permite abrazar los componentes hijos,
+ * @description Layout que permite abrazar los componentes hijos,
  * para que se pueda visualizar los estilos definidos
- * @param {children: any} Props Propiedades del componente.
+ * @param {any} children Propiedades del componente.
  */
 const AuthLayout = ({ children }) => {
     const { bg } = React.useContext(ThemeContext)

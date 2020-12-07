@@ -6,9 +6,19 @@ import DocumentsTable from '../../containers/DocumentsTable';
 import AlertContext from '../../contexts/alert';
 import fb from '../../config/firebase';
 import moment from 'moment';
+import styled from '@emotion/styled'
+import { spacing, palette, compose } from '@material-ui/system';
 
+const BoxContainer = styled(Box)`
+ ${compose(
+    spacing,
+    palette
+ )}
+`
 /**
- * Page que permite crear una nueva página o en listar las páginas creadas.
+ * @description Page que permite crear una nueva página o en listar las páginas creadas.
+ * @see DocumentsTable
+ * @see DocumentsForm
  */
 const Page = () => {
     const [documents, setDocuments] = React.useState([]);
@@ -79,10 +89,10 @@ const Page = () => {
     }, []);
 
     return (
-        <Box padding={3}>
+        <BoxContainer padding={{xs: 1, sm: 1, md: 2, xl: 3}}>
             <DocumentsForm onSubmit={handleCreateDocument} />
             <DocumentsTable documents={documents} onDelete={handleDelete} />
-        </Box>
+        </BoxContainer>
     );
 };
 

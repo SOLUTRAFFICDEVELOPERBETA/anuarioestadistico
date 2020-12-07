@@ -6,7 +6,8 @@ import Spinner from '../../../components/Spinner';
 import SectionGeneric from '../../../components/section';
 
 /**
- * layout que permite visualizar la información del módulo de Demografía.
+ * @description layout que permite visualizar la información del módulo de Demografía.
+ * @see AnuarioEstadistico
  */
 const Demografia = () => {
     const dataDemografia = usePages('Demografia');

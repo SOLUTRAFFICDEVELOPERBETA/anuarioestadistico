@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <ImagBackground/> Debe mostrarse correctamente 1`] = `
+<ContainerImagen>
+  <img
+    alt=""
+    src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png"
+  />
+  <WithStyles(ForwardRef(Typography))
+    align="center"
+    className="titulo"
+  >
+    Titulo de prueba
+  </WithStyles(ForwardRef(Typography))>
+  <div
+    className="r"
+  />
+  <WithStyles(ForwardRef(Typography))
+    align="center"
+    className="subTitile"
+    component="p"
+  >
+    Subtitle de prueba
+  </WithStyles(ForwardRef(Typography))>
+</ContainerImagen>
+`;

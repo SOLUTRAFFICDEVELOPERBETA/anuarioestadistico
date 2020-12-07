@@ -4,11 +4,16 @@ import { makeStyles } from '@material-ui/core';
 import Header from '../../components/header';
 import MainFooter from '../../components/Footer';
 
+// Estilos del layout
 const useSTyles = makeStyles(({
     root: {
         display: 'flex',
     }
 }))
+/**
+ * @description Layout que permite renderizar eñ header y footer y el componente hijo que lo abrace
+ * @param {any} children 
+ */
 const Navigator = ({ children }) => {
     const classes = useSTyles()
     return (

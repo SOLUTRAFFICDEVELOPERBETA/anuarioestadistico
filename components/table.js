@@ -36,8 +36,9 @@ const CellContainer = styled(TableCell)`
 `;
 
 /**
- * Componente que permite visualizar cualquier información que se le mande por los props.
- * @param {{data: [{}]}} Props Propiedades del componente.
+ * @description Componente que permite visualizar cualquier información que se le mande por los props.
+ * @param { Object: { [{}]}} data Propiedades del componente.
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 const TableGeneric = ({ data }) => {
     const classes = useStyles();
@@ -80,6 +81,6 @@ const TableGeneric = ({ data }) => {
 };
 
 TableGeneric.propTypes = {
-    data: PropTypes.array.isRequired
+    data: PropTypes.object.isRequired
 };
 export default TableGeneric;

@@ -80,14 +80,19 @@ const IFrameContainer = styled.div`
 `;
 
 /**
- * Método para validar el link de powerbi
+ * @description Método para validar el link de powerbi
  * @param {String} link Link a revisar
  */
 const validateLink = (link) => link.includes('https://app.powerbi.com/');
 
 /**
- * Componente para visualizar un IFrame de PowerBI
- * @param {{ id: string, value: string, onChange: () => void, onDelete: () => void }} props Propiedades del componente
+ * @description Componente para visualizar un IFrame de PowerBI
+ * @param {String} id
+ * @param {String} value
+ * @param {func: () => void} onChange
+ * @param {func: () => void} onDelete
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
+ * consulte los elementos DragPreviewImage, useDrag en {@link https://react-dnd.github.io/react-dnd/docs/overview | React DnD Drag and Drop for React}
  */
 const IFrameField = ({ id, value, onChange, onDelete }) => {
     const [ref, setRef] = React.useState(value);
@@ -105,6 +110,7 @@ const IFrameField = ({ id, value, onChange, onDelete }) => {
      * @param {Event} event Evento de click de la celda
      */
     const handleClick = (event) => {
+        console.log('click');
         event.preventDefault();
         setAnchorEl(event.currentTarget);
     };
@@ -145,7 +151,6 @@ const IFrameField = ({ id, value, onChange, onDelete }) => {
                 <div className="iframe-ref" data-ref={value} data-validate={ref}>
                     <form onSubmit={handleSetUrl}>
                         <InputBase
-                            defaultValue={value}
                             value={ref}
                             name="url"
                             type="url"

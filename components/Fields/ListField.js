@@ -109,8 +109,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Componente que muestra una lista de elementos
- * @param {{ id: string, value: any, size: number | string, onChange: () => void, onDelete: () => void }} props Propiedades del componente
+ * @description Componente que muestra una lista de elementos
+ * @param {String} id
+ * @param {any} value
+ * @param {Number} size
+ * @param {Boolean} child
+ * @param {Boolean} disableGrid
+ * @param {func:() => void} onChange
+ * @param {func:() => void} onDelete
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
+ * consulte los elementos DragPreviewImage, useDrag en {@link https://react-dnd.github.io/react-dnd/docs/overview | React DnD Drag and Drop for React}
  */
 const ListField = ({ id, value, size, onChange, onDelete }) => {
     const classes = useStyles();
@@ -129,6 +137,8 @@ const ListField = ({ id, value, size, onChange, onDelete }) => {
      * @param {Event} event Evento de click de la celda
      */
     const handleClick = (event) => {
+
+        console.log(event.currentTarget);
         event.preventDefault();
         setAnchorEl(event.currentTarget);
     };

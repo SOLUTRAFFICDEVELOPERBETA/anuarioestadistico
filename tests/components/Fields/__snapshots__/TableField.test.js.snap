@@ -1,0 +1,483 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <TableField/> debe llamar abrir en popover() 1`] = `
+Array [
+  "",
+  <div
+    className="MuiBox-root MuiBox-root-6"
+    id="table-field-id-TableField"
+  >
+    <div
+      className="MuiPaper-root MuiPaper-outlined"
+    >
+      <div
+        className="MuiToolbar-root MuiToolbar-dense makeStyles-toolbar-1 MuiToolbar-gutters"
+      >
+        Array [
+          <button
+            aria-describedby={null}
+            className="MuiButtonBase-root MuiIconButton-root makeStyles-drag-2 MuiIconButton-colorPrimary MuiIconButton-sizeSmall"
+            disabled={false}
+            onBlur={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOver={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            title="Mover"
+            type="button"
+          >
+            <span
+              className="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"
+                />
+              </svg>
+            </span>
+            <span
+              className="MuiTouchRipple-root"
+            />
+          </button>,
+          "",
+        ]
+        Array [
+          <button
+            aria-describedby={null}
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOver={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            title="Opciones"
+            type="button"
+          >
+            <span
+              className="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                />
+              </svg>
+            </span>
+            <span
+              className="MuiTouchRipple-root"
+            />
+          </button>,
+          "",
+        ]
+      </div>
+      <hr
+        className="MuiDivider-root"
+      />
+      <div
+        className="MuiTableContainer-root"
+      >
+        <table
+          className="MuiTable-root"
+          role={null}
+        >
+          <tbody
+            className="MuiTableBody-root"
+            role={null}
+          >
+            <tr
+              className="MuiTableRow-root css-dlved1-RowContainer e18ycjjm1"
+              role={null}
+            >
+              Array [
+                <td
+                  aria-describedby={null}
+                  aria-sort={null}
+                  bold={true}
+                  cellColor="#fff"
+                  className="MuiTableCell-root MuiTableCell-body  css-1isf55x-CellContainer e18ycjjm0"
+                  contentEditable={true}
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "Nombre",
+                    }
+                  }
+                  id={1}
+                  italic={false}
+                  onBlur={[Function]}
+                  onContextMenu={[Function]}
+                  onFocus={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseOver={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                  textColor="#000"
+                  textSize="20"
+                  title="Click para editar el contenido"
+                />,
+                "",
+              ]
+              Array [
+                <td
+                  aria-describedby={null}
+                  aria-sort={null}
+                  bold={true}
+                  cellColor="#fff"
+                  className="MuiTableCell-root MuiTableCell-body  css-1isf55x-CellContainer e18ycjjm0"
+                  contentEditable={true}
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "apellido",
+                    }
+                  }
+                  id="0-1"
+                  italic={false}
+                  onBlur={[Function]}
+                  onContextMenu={[Function]}
+                  onFocus={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseOver={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                  textColor="#000"
+                  textSize="20"
+                  title="Click para editar el contenido"
+                />,
+                "",
+              ]
+            </tr>
+            <tr
+              className="MuiTableRow-root css-dlved1-RowContainer e18ycjjm1"
+              role={null}
+            >
+              Array [
+                <td
+                  aria-describedby={null}
+                  aria-sort={null}
+                  bold={true}
+                  cellColor="#fff"
+                  className="MuiTableCell-root MuiTableCell-body  css-1cuxe2l-CellContainer e18ycjjm0"
+                  contentEditable={true}
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "edad",
+                    }
+                  }
+                  id="1-0"
+                  italic={true}
+                  onBlur={[Function]}
+                  onContextMenu={[Function]}
+                  onFocus={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseOver={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                  textColor="#000"
+                  textSize="20"
+                  title="Click para editar el contenido"
+                />,
+                "",
+              ]
+              Array [
+                <td
+                  aria-describedby={null}
+                  aria-sort={null}
+                  bold={true}
+                  cellColor="#fff"
+                  className="MuiTableCell-root MuiTableCell-body  css-1cuxe2l-CellContainer e18ycjjm0"
+                  contentEditable={true}
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "direccion",
+                    }
+                  }
+                  id={2}
+                  italic={true}
+                  onBlur={[Function]}
+                  onContextMenu={[Function]}
+                  onFocus={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseOver={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                  textColor="#000"
+                  textSize="20"
+                  title="Click para editar el contenido"
+                />,
+                "",
+              ]
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Pruebas en <TableField/> debe mostrarse correctamente 1`] = `
+Array [
+  "",
+  <div
+    className="MuiBox-root MuiBox-root-6"
+    id="table-field-id-TableField"
+  >
+    <div
+      className="MuiPaper-root MuiPaper-outlined"
+    >
+      <div
+        className="MuiToolbar-root MuiToolbar-dense makeStyles-toolbar-1 MuiToolbar-gutters"
+      >
+        Array [
+          <button
+            aria-describedby={null}
+            className="MuiButtonBase-root MuiIconButton-root makeStyles-drag-2 MuiIconButton-colorPrimary MuiIconButton-sizeSmall"
+            disabled={false}
+            onBlur={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOver={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            title="Mover"
+            type="button"
+          >
+            <span
+              className="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"
+                />
+              </svg>
+            </span>
+            <span
+              className="MuiTouchRipple-root"
+            />
+          </button>,
+          "",
+        ]
+        Array [
+          <button
+            aria-describedby={null}
+            className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOver={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            title="Opciones"
+            type="button"
+          >
+            <span
+              className="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                />
+              </svg>
+            </span>
+            <span
+              className="MuiTouchRipple-root"
+            />
+          </button>,
+          "",
+        ]
+      </div>
+      <hr
+        className="MuiDivider-root"
+      />
+      <div
+        className="MuiTableContainer-root"
+      >
+        <table
+          className="MuiTable-root"
+          role={null}
+        >
+          <tbody
+            className="MuiTableBody-root"
+            role={null}
+          >
+            <tr
+              className="MuiTableRow-root css-dlved1-RowContainer e18ycjjm1"
+              role={null}
+            >
+              Array [
+                <td
+                  aria-describedby={null}
+                  aria-sort={null}
+                  bold={true}
+                  cellColor="#fff"
+                  className="MuiTableCell-root MuiTableCell-body  css-1isf55x-CellContainer e18ycjjm0"
+                  contentEditable={true}
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "Nombre",
+                    }
+                  }
+                  id={1}
+                  italic={false}
+                  onBlur={[Function]}
+                  onContextMenu={[Function]}
+                  onFocus={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseOver={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                  textColor="#000"
+                  textSize="20"
+                  title="Click para editar el contenido"
+                />,
+                "",
+              ]
+              Array [
+                <td
+                  aria-describedby={null}
+                  aria-sort={null}
+                  bold={true}
+                  cellColor="#fff"
+                  className="MuiTableCell-root MuiTableCell-body  css-1isf55x-CellContainer e18ycjjm0"
+                  contentEditable={true}
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "apellido",
+                    }
+                  }
+                  id="0-1"
+                  italic={false}
+                  onBlur={[Function]}
+                  onContextMenu={[Function]}
+                  onFocus={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseOver={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                  textColor="#000"
+                  textSize="20"
+                  title="Click para editar el contenido"
+                />,
+                "",
+              ]
+            </tr>
+            <tr
+              className="MuiTableRow-root css-dlved1-RowContainer e18ycjjm1"
+              role={null}
+            >
+              Array [
+                <td
+                  aria-describedby={null}
+                  aria-sort={null}
+                  bold={true}
+                  cellColor="#fff"
+                  className="MuiTableCell-root MuiTableCell-body  css-1cuxe2l-CellContainer e18ycjjm0"
+                  contentEditable={true}
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "edad",
+                    }
+                  }
+                  id="1-0"
+                  italic={true}
+                  onBlur={[Function]}
+                  onContextMenu={[Function]}
+                  onFocus={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseOver={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                  textColor="#000"
+                  textSize="20"
+                  title="Click para editar el contenido"
+                />,
+                "",
+              ]
+              Array [
+                <td
+                  aria-describedby={null}
+                  aria-sort={null}
+                  bold={true}
+                  cellColor="#fff"
+                  className="MuiTableCell-root MuiTableCell-body  css-1cuxe2l-CellContainer e18ycjjm0"
+                  contentEditable={true}
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "direccion",
+                    }
+                  }
+                  id={2}
+                  italic={true}
+                  onBlur={[Function]}
+                  onContextMenu={[Function]}
+                  onFocus={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseOver={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                  textColor="#000"
+                  textSize="20"
+                  title="Click para editar el contenido"
+                />,
+                "",
+              ]
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>,
+]
+`;

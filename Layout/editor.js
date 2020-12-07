@@ -90,7 +90,7 @@ const useLayoutStyles = makeStyles((theme) => ({
     content: {
         flexGrow: 1,
         width: '100%',
-        padding: theme.spacing(3),
+        padding: theme.spacing(1),
         [theme.breakpoints.up('md')]: {
             maxWidth: `calc(100% - ${drawerWidth}px)`
         }
@@ -101,9 +101,11 @@ const useLayoutStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Componente Editor que permite la edición de un documento seleccionado.
- * @param {{children: any, onsave: () => void, onChangeTitle: () => void}} Props Propiedades del componente.
- *
+ * @description Componente Editor que permite la edición de un documento seleccionado.
+ * @param {any} children
+ * @param {func: () => void} onsave
+ * @param {func: () => void} onChangeTitle
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 const EditorLayout = ({ children, onSave, onChangeTitle }) => {
     const classes = useLayoutStyles();

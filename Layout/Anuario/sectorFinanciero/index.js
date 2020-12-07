@@ -6,7 +6,8 @@ import { Box } from '@material-ui/core';
 import SectionGeneric from '../../../components/section';
 
 /**
- * layout que permite visualizar la información del módulo de Sector Financiero.
+ * @description layout que permite visualizar la información del módulo de Sector Financiero.
+ * @see AnuarioEstadistico
  */
 const SectorFinanciero = () => {
     const dataSector = usePages('SectorFinanciero');

@@ -4,6 +4,7 @@ export const LOG_OUT = 'LOG_OUT';
 export const AUTH_STATE = 'AUTH_STATE';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const GET_USER = 'GET_USER';
+export const REGISTER_USER_EXIT = 'REGISTER_USER_EXIT'
 
 // alert
 export const SHOW_ALERT = 'SHOW_ALERT';

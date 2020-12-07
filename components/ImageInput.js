@@ -21,8 +21,10 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 /**
- * Componente que permite la subida de una imagen
- * @param {{ value: any, onChange: () => void }} props Propiedades del componente
+ * @description Componente que permite la subida de una imagen
+ * @param {any} value
+ * @param {func: () => void } onChange
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
 const ImageInput = ({ label, value, onChange }) => {
   const classes = useStyles()

@@ -6,7 +6,8 @@ import { Box } from '@material-ui/core';
 import SectionGeneric from '../../../components/section';
 
 /**
- * layout que permite visualizar la información del módulo de Sector Agropecuario.
+ * @description layout que permite visualizar la información del módulo de Sector Agropecuario.
+ * @see AnuarioEstadistico
  */
 const SectorAgropecuario = () => {
     const dataAgropecuario = usePages('SectorAgropecuario');

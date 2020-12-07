@@ -67,8 +67,8 @@ const Container = styled.div`
 `;
 
 /**
- * Componente, sirve para realizar la espera,
- * cuando otros componente esta carga información requerida.
+ * @description Componente, sirve para realizar la espera, cuando otros componente esta carga información requerida.
+ * Consulte los los Estilos utilizados en {@link https://tobiasahlin.com/spinkit/ | spinkit}
  */
 const Spinner = () => (
     <Container>

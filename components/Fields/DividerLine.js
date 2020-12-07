@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Divider, Tooltip } from '@material-ui/core';
 import styled from '@emotion/styled';
-import { DragPreviewImage, useDrag } from 'react-dnd';
+import { DragPreviewImage, useDrag, } from 'react-dnd';
 import { DragHandle } from '@material-ui/icons';
 import { grey } from '@material-ui/core/colors';
-// import clsx from 'clsx'
 
 // Componente con estilos para obtener un divider con color
 const ColorDivider = styled.div`
@@ -49,8 +48,12 @@ const ColorDivider = styled.div`
 `;
 
 /**
- * Componente del divisor para los documentos
- * @param {{ id: string, child: boolean, onDelete: () => void }} props Propiedades del componente
+ * @description Componente del divisor para los documentos
+ * @param {String} id
+ * @param {Boolean} child
+ * @param {func: () => void } onDelete
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
+ * consulte los elementos DragPreviewImage, useDrag en {@link https://react-dnd.github.io/react-dnd/docs/overview | React DnD Drag and Drop for React}
  */
 const DividerLine = ({ id, child, onDelete }) => {
     const [{ isDragging }, drag, preview] = useDrag({

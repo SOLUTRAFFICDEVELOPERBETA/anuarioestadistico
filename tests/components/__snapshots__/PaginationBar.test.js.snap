@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <PaginationBar/> debe Mostrarse correctamente 1`] = `
+<Styled(MuiBox)>
+  <WithStyles(ForwardRef(Grid))
+    alignContent="center"
+    alignItems="center"
+    container={true}
+    justify="flex-end"
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      lg={3}
+      md={3}
+      sm={6}
+      xl={3}
+      xs="auto"
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        color="primary"
+        display="block"
+        variant="caption"
+      >
+        Pagina 1 de 4
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      lg={2}
+      md={2}
+      sm={6}
+      xl={2}
+      xs="auto"
+    >
+      <WithStyles(ForwardRef(IconButton))
+        color="primary"
+        disabled={true}
+        onClick={[MockFunction]}
+        size="small"
+      >
+        <SkipPreviousIcon />
+      </WithStyles(ForwardRef(IconButton))>
+      <WithStyles(ForwardRef(IconButton))
+        color="primary"
+        disabled={true}
+        onClick={[MockFunction]}
+        size="small"
+      >
+        <ChevronLeftIcon />
+      </WithStyles(ForwardRef(IconButton))>
+      <WithStyles(ForwardRef(IconButton))
+        color="primary"
+        disabled={true}
+        onClick={[MockFunction]}
+        size="small"
+      >
+        <ChevronRightIcon />
+      </WithStyles(ForwardRef(IconButton))>
+      <WithStyles(ForwardRef(IconButton))
+        color="primary"
+        disabled={true}
+        onClick={[MockFunction]}
+        size="small"
+      >
+        <SkipNextIcon />
+      </WithStyles(ForwardRef(IconButton))>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+</Styled(MuiBox)>
+`;

@@ -12,6 +12,7 @@ import {
 import { COLORS } from '../../constants/options'
 import PropTypes from 'prop-types'
 
+// Estilos del componente para ceparar por cuatro colunas los colores
 const useStyles = makeStyles(theme => ({
   colorPalette: {
     display: 'grid',
@@ -19,6 +20,13 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+/**
+ * @description Componente que permite el cambio de colores de la paleta
+ * @param {String} color 
+ * @param {String} palette 
+ * @param {func: ()=> void} onChange 
+ * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
+ */
 const ColorPicker = ({ color, palette, onChange }) => {
   const classes = useStyles()
   const [anchorEL, setAnchorEL] = React.useState(null)

@@ -6,7 +6,8 @@ import { Box } from '@material-ui/core';
 import SectionGeneric from '../../../components/section';
 
 /**
- * layout que permite visualizar la información del módulo de comercio Exterior.
+ * @description layout que permite visualizar la información del módulo de comercio Exterior.
+ * @see AnuarioEstadistico
  */
 const ComercioExterior = () => {
     const dataExterior = usePages('ComercioExterior');

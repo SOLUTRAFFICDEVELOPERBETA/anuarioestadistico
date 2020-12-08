@@ -122,7 +122,6 @@ const AuthProvider = ({ children }) => {
             try {
                 fb.auth.onAuthStateChanged(
                     (user) => {
-                        console.log('esta es al data del user', user);
                         if (user) {
                             dispatch({
                                 type: AUTH_STATE,

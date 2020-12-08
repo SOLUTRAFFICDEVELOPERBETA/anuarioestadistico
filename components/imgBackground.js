@@ -25,8 +25,10 @@ const ContainerImagen = styled.div`
         font-size: 2.5rem;
         line-height: 1px;
         @media (max-width: 768px) {
-            font-size: 1.5rem;
-            left: 25%;
+            font-size: 1.5rem;   
+        }
+        @media (max-width: 600px) {
+            left: 11%
         }
     }
 
@@ -37,7 +39,7 @@ const ContainerImagen = styled.div`
         font-size: 2rem;
         @media (max-width: 768px) {
             font-size: 1.5rem;
-            left: 12%;
+           
         }
     }
     img {

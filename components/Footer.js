@@ -9,15 +9,12 @@ import { CutText } from '../constants'
 
 // Estilos del componente con Emotion
 const Footer = styled.footer`
-        background-color:  var(--primary-light);
+        background-color:  var(--primary-dark);
         background-image: url(${props => props.url});
         background-repeat: no-repeat;
         background-size: cover;
         color: #FFF;
-        @media(max-width: 48em){
-                background-image: none!important;
-                background-color: var(--secondary-dark);
-            }
+        
 `
 
 /**
@@ -29,7 +26,7 @@ const MainFooter = () => {
     const theme = useTheme()
 
     return (
-        <Footer url={'/static/img/fondofooter.png'} >
+        <Footer>
             <Box padding={2}>
                 <Box paddingBottom={1}>
                     <Grid container spacing={2}>
@@ -78,7 +75,7 @@ const MainFooter = () => {
                                     </ListItem>
                                     <ListItem>
                                         <ListItemIcon>
-                                            <Facebook />
+                                            <Facebook color="primary" />
                                         </ListItemIcon>
                                         <ListItemText
                                             itemID={`url${data.urlFacebook}`}
@@ -138,8 +135,17 @@ const MainFooter = () => {
                     <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
                         <Container
                             maxWidth="xs"
-                            style={{ margin: '2rem auto', display: 'flex', justifyContent: "center" }}>
-                            <img alt="Logo de la app" width="50%" height="50%" src={data.logo} />
+                            style={{
+                                margin: '2rem auto',
+                                display: 'flex',
+                                justifyContent: "center",
+                            }}>
+                            <img
+                                alt="Logo de la app"
+                                width="50%"
+                                height="50%"
+                                style={{borderRadius: '50%'}}
+                                src={data.logo} />
                         </Container>
                     </Grid>
 

@@ -254,7 +254,7 @@ const ChartGraphic = ({ id, value }) => {
 
     const { data, type } = valueChart;
     const getChart = () => {
-        const { keys = [], fields = [] } = data;
+        const { keys = [], fields = [], legend = true } = data;
         if (keys.length !== 0) {
             switch (type) {
                 case CHART_LINE:
@@ -271,7 +271,7 @@ const ChartGraphic = ({ id, value }) => {
                                 <Recharts.CartesianGrid strokeDasharray="3 3" />
                                 <Recharts.XAxis dataKey="name" padding={{ left: 20, right: 20 }} />
                                 <Recharts.YAxis padding={{ top: 20 }} domain={[0, 'dataMax']} />
-                                <Recharts.Legend />
+                                {legend && <Recharts.Legend />}
                                 <Recharts.Tooltip content={<CustomTooltip />} />
                                 <Recharts.Brush
                                     dataKey="name"
@@ -319,7 +319,7 @@ const ChartGraphic = ({ id, value }) => {
                                 <Recharts.CartesianGrid strokeDasharray="3 3" />
                                 <Recharts.XAxis dataKey="name" padding={{ left: 20, right: 20 }} />
                                 <Recharts.YAxis padding={{ top: 20 }} domain={[0, 'dataMax']} />
-                                <Recharts.Legend />
+                                {legend && <Recharts.Legend />}
                                 <Recharts.Tooltip content={<CustomTooltip />} />
                                 <Recharts.Brush
                                     dataKey="name"
@@ -374,7 +374,7 @@ const ChartGraphic = ({ id, value }) => {
                                 <Recharts.CartesianGrid strokeDasharray="3 3" />
                                 <Recharts.XAxis dataKey="name" padding={{ left: 20, right: 20 }} />
                                 <Recharts.YAxis padding={{ top: 20 }} domain={[0, 'dataMax']} />
-                                <Recharts.Legend />
+                                {legend && <Recharts.Legend />}
                                 <Recharts.Tooltip content={<CustomTooltip />} />
                                 <Recharts.Brush
                                     dataKey="name"
@@ -509,7 +509,9 @@ const ChartGraphic = ({ id, value }) => {
                                     );
                                 })}
                                 <Recharts.Tooltip />
-                                <Recharts.Legend iconSize={10} />
+
+                                {legend && <Recharts.Legend iconSize={10} />}
+
                             </Recharts.RadarChart>
                         </Recharts.ResponsiveContainer>
                     );
@@ -527,7 +529,7 @@ const ChartGraphic = ({ id, value }) => {
                                 <Recharts.CartesianGrid strokeDasharray="3 3" />
                                 <Recharts.XAxis dataKey="name" padding={{ left: 20, right: 20 }} />
                                 <Recharts.YAxis padding={{ top: 20 }} domain={[0, 'dataMax']} />
-                                <Recharts.Legend />
+                                {legend && <Recharts.Legend />}
                                 <Recharts.Tooltip content={<CustomTooltip />} />
                                 <Recharts.Brush
                                     dataKey="name"

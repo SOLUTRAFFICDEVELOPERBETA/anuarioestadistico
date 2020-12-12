@@ -89,6 +89,7 @@ const DocumentField = ({ id, value, type, size, onDrop, ...others }) => {
      * @param {*} data Información a guardar
      */
     const handleChange = (data) => {
+        console.log("data:", data)
         onChangeField(id, data);
     };
 

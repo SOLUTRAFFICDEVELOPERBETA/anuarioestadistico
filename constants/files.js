@@ -13,12 +13,13 @@ import moment from 'moment';
  */
 export function UploadFile(
     file,
-    path = '/anuarioEstadistico',
+    path = '/anuarioestadistico',
     name = '',
     onSnap = (progress) => console.log('Progress', progress),
     onError = (error) => console.error('Upload Error:', error)
 ) {
     return new Promise((resolve, reject) => {
+        console.log("path:", path)
         const upload = new File([file], name || file.name);
         const ref = fb.storage.ref(`${path}/${upload.name}`);
         const task = ref.put(file);

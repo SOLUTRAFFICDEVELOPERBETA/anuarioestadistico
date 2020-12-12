@@ -195,9 +195,11 @@ const AttributesForm = ({ id, open, onClose, type, data, onSubmit }) => {
     const { showMessage } = React.useContext(AlertContext);
     const { query } = useRouter();
 
-    const { keys = [] } = data;
-
+    const { keys = [], legend = true } = data;
+    const [legendV, setLegendV] = React.useState(legend);
     const [info, setInfo] = React.useState([...keys]);
+
+
 
     /**
      * @description
@@ -210,9 +212,10 @@ const AttributesForm = ({ id, open, onClose, type, data, onSubmit }) => {
         setInfo($info);
     };
 
+
     // Método para efectuar los cambios
     const handleSubmit = () => {
-        onSubmit({ ...data, keys: info });
+        onSubmit({ ...data, keys: info, legend: legendV });
         onClose();
     };
 
@@ -228,13 +231,12 @@ const AttributesForm = ({ id, open, onClose, type, data, onSubmit }) => {
             const [file] = files;
             UploadFile(
                 file,
-                `anuario/charts/${query.id}/charts/${id}/lines/icon`,
+                `/charts/${query.id}/charts/${id}/lines/icon`,
                 `${key}.png`
             ).then((url) => {
                 const $info = info.map(($key) =>
-                    $key.key === key ? { ...$key, icon: url } : $key
+                    $key.key === key ? ({ ...$key, icon: url }) : $key
                 );
-
                 setInfo($info);
                 setUploading(false);
             });
@@ -247,6 +249,39 @@ const AttributesForm = ({ id, open, onClose, type, data, onSubmit }) => {
         <Dialog fullWidth maxWidth="md" scroll="paper" open={open} onClose={onClose}>
             <DialogTitle>Editar atributos de la gráfica</DialogTitle>
             <DialogContent>
+                <Collapse in={[
+                    CHART_LINE,
+                    CHART_BAR,
+                    CHART_AREA,
+                    CHART_COMPOSE,
+                    CHART_RADAR
+                ].includes(type)}>
+                    <Box
+                        p={2}
+                        marginBottom={1}
+                        component={Paper}
+                        variant="outlined"
+
+                    >
+                        <List dense>
+                            <ListItem>
+                                <ListItemText
+                                    primary="Visibilidad de la leyenda"
+                                    secondary="Habilite o inhabilite  la leyenda. (La leyenda no se mostrará en la gráfica)"
+                                />
+                                <ListItemSecondaryAction>
+                                    <Switch
+                                        checked={legendV}
+                                        color="primary"
+                                        onChange={({ target: { checked } }) =>
+                                            setLegendV(checked)
+                                        }
+                                    />
+                                </ListItemSecondaryAction>
+                            </ListItem>
+                        </List>
+                    </Box>
+                </Collapse>
                 {info.map(($key) => {
                     const {
                         key,
@@ -703,6 +738,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
     const [attributes, setAttributes] = React.useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [openHelp, HelpContainer] = useDialog();
+
     const theme = useTheme();
     const { data = {}, type = CHART_LINE } = value;
     const [{ isDragging }, drag, preview] = useDrag({
@@ -711,6 +747,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
             isDragging: !!monitor.isDragging()
         })
     });
+
 
     /**
      * Método para abrir el popover
@@ -759,7 +796,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                 `${id}.csv`
             ).then((url) => url);
 
-            // console.log({ path })
+
 
             const readCSV = fb.functions.httpsCallable('onReadCSV');
 
@@ -768,7 +805,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                     setLoading(false);
                     onChange({ value: { ...value, data } });
                 });
-                // console.log(res.data)
+
             });
         } catch (error) {
             showMessage(error.message, 'error');
@@ -787,7 +824,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
      * @description Método para obtener el Gráfico
      */
     const getChart = () => {
-        const { keys = [], fields = [] } = data;
+        const { keys = [], fields = [], legend = true } = data;
         if (keys.length !== 0) {
             switch (type) {
                 case CHART_LINE:
@@ -804,13 +841,13 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                 <Recharts.CartesianGrid strokeDasharray="3 3" />
                                 <Recharts.XAxis dataKey="name" padding={{ left: 20, right: 20 }} />
                                 <Recharts.YAxis padding={{ top: 40 }} domain={[0, 'dataMax']} />
-                                <Recharts.Legend />
-                                <Recharts.Tooltip content={<CustomTooltip />} />
+                                {legend && <Recharts.Legend />}
                                 <Recharts.Brush
                                     dataKey="name"
-                                    height={30}
+                                    height={25}
                                     stroke={theme.palette.primary.main}
                                 />
+                                <Recharts.Scatter legendType="rect" />
                                 {keys.map(($key) => {
                                     const {
                                         key,
@@ -857,11 +894,11 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                 <Recharts.CartesianGrid strokeDasharray="3 3" />
                                 <Recharts.XAxis dataKey="name" padding={{ left: 20, right: 20 }} />
                                 <Recharts.YAxis padding={{ top: 20 }} domain={[0, 'dataMax']} />
-                                <Recharts.Legend />
+                                {legend && <Recharts.Legend />}
                                 <Recharts.Tooltip content={<CustomTooltip />} />
                                 <Recharts.Brush
                                     dataKey="name"
-                                    height={30}
+                                    height={25}
                                     stroke={theme.palette.primary.main}
                                 />
                                 {keys.map(($key) => {
@@ -891,8 +928,8 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                                 (stackId === '' ? (
                                                     <ChartBarLabel stroke={color} />
                                                 ) : (
-                                                    <ChartBarLabelSimple stroke={color} />
-                                                ))
+                                                        <ChartBarLabelSimple stroke={color} />
+                                                    ))
                                             }
                                         />
                                     );
@@ -914,11 +951,11 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                 <Recharts.CartesianGrid strokeDasharray="3 3" />
                                 <Recharts.XAxis dataKey="name" padding={{ left: 20, right: 20 }} />
                                 <Recharts.YAxis padding={{ top: 20 }} domain={[0, 'dataMax']} />
-                                <Recharts.Legend />
+                                {legend && <Recharts.Legend />}
                                 <Recharts.Tooltip content={<CustomTooltip />} />
                                 <Recharts.Brush
                                     dataKey="name"
-                                    height={30}
+                                    height={25}
                                     stroke={theme.palette.primary.main}
                                 />
                                 {keys.map(($key) => {
@@ -1049,7 +1086,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                     );
                                 })}
                                 <Recharts.Tooltip />
-                                <Recharts.Legend iconSize={10} />
+                                {legend && <Recharts.Legend iconSize={10} />}
                             </Recharts.RadarChart>
                         </Recharts.ResponsiveContainer>
                     );
@@ -1067,11 +1104,12 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                 <Recharts.CartesianGrid strokeDasharray="3 3" />
                                 <Recharts.XAxis dataKey="name" padding={{ left: 20, right: 20 }} />
                                 <Recharts.YAxis padding={{ top: 20 }} domain={[0, 'dataMax']} />
-                                <Recharts.Legend />
+                                {legend && <Recharts.Legend />}
                                 <Recharts.Tooltip content={<CustomTooltip />} />
+                                <Recharts.Scatter legendTypes="fitting"/>
                                 <Recharts.Brush
                                     dataKey="name"
-                                    height={30}
+                                    height={25}
                                     stroke={theme.palette.primary.main}
                                 />
                                 {keys.map(($key) => {
@@ -1211,10 +1249,10 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                             <CircularProgress />
                         </div>
                     ) : (
-                        <div data-uploading={loading} style={{ width: '95%' }}>
-                            {getChart()}
-                        </div>
-                    )}
+                            <div data-uploading={loading} style={{ width: '95%' }}>
+                                {getChart()}
+                            </div>
+                        )}
                 </div>
             </ChartContainer>
             <AttributesForm

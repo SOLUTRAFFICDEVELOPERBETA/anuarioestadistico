@@ -33,12 +33,17 @@ function rgbToHex(rgb) {
     return hex;
 }
 
-const hexToRgb = (hex) =>
-    hex
-        .replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (m, r, g, b) => '#' + r + r + g + g + b + b)
-        .substring(1)
-        .match(/.{2}/g)
-        .map((x) => parseInt(x, 16));
+/**
+ * Método para convertir un color en Hex a RGB
+ * @param {string} hex Código de color Hex
+ */
+const hexToRgb = hex => {
+    return hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i
+        , (m, r, g, b) => '#' + r + r + g + g + b + b)
+        .substring(1).match(/.{2}/g)
+        .map(x => parseInt(x, 16))
+}
+
 
 // Estilos del componente
 const useStyles = makeStyles((theme) => ({
@@ -84,9 +89,9 @@ const useStyles = makeStyles((theme) => ({
  * @param {any} icon 
  * Consulte los elementos utilizados en {@link https://material-ui.com/ | Material-ui}
  */
-const ColorPick = (color, colors, onChange, icon) => {
+const ColorPick = ({color, colors, onChange, icon}) => {
     const theme = useTheme();
-    const classes = useStyles({ color });
+    const classes = useStyles({color});
     const [_red, _green, _blue] = hexToRgb(color);
     const RGBForm = useForm({
         defaultValues: {

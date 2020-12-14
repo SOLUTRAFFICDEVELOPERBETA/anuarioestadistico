@@ -88,7 +88,6 @@ const ConfigFooter = ({ inforFooter, onSubmit }) => {
             <Grid container spacing={3} >
                 <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
                     <Container>
-
                         <Box component="div">
                             <List subheader={
                                 <ListSubheader component="div" id="nested-list-subheader">
@@ -155,67 +154,87 @@ const ConfigFooter = ({ inforFooter, onSubmit }) => {
                 <DialogTitle className={classes.containerDialogTitle}>Información del Footer</DialogTitle>
                 <form onSubmit={handleSubmit}>
                     <DialogContent className={classes.containerDialogContent}>
-                        <Box marginTop={1}>
-                            <TextField
-                                fullWidth
-                                label="Dirección de residencia"
-                                type="text"
-                                name="direction"
-                                variant="outlined"
-                                onChange={handleChange}
-                                margin="dense"
-                                value={data.direction}
-                            />
-                            <TextField
-                                fullWidth
-                                placeholder="Url de Facebook para redireccionar al usuario"
-                                label="url de Facebook"
-                                inputMode="url"
-                                name="urlFacebook"
-                                variant="outlined"
-                                onChange={handleChange}
-                                margin="dense"
-                                value={data.urlFacebook}
-                            />
-                            <TextField
-                                fullWidth
-                                label="url de Instagram"
-                                inputMode="url"
-                                placeholder="Url de Instagram para redireccionar al usuario"
-                                name="urlInstagram"
-                                variant="outlined"
-                                onChange={handleChange}
-                                margin="dense"
-                                value={data.urlInstagram}
-                            />
-                            <TextField
-                                style={{ paddingBottom: '.5rem' }}
-                                fullWidth
-                                label="url de Twitter"
-                                inputMode="url"
-                                placeholder="Url de Twitter para redireccionar al usuario"
-                                name="urlTwitter"
-                                variant="outlined"
-                                onChange={handleChange}
-                                margin="dense"
-                                value={data.urlTwitter}
-                            />
-                            {loading ? <Spinner /> : <ImageInput value={data.logo} label="SUBIR LOGO DE LA APP" onChange={handleUploadImage} />}
-                            <TextField
-                                fullWidth
-                                label="Acerca deNosotros"
-                                type="text"
-                                placeholder="Escribe una breve descripción"
-                                name="aboutus"
-                                value={data.aboutus}
-                                onChange={handleChange}
-                                multiline
-                                rows={3}
-                                variant="outlined"
-                                margin="dense"
+                        <Grid container spacing={2}>
+                            <Grid
+                                item
+                                xl={6}
+                                lg={6}
+                                md={6}
+                                sm={12}
+                                xs={12}
+                            >
+                                <TextField
+                                    fullWidth
+                                    label="Dirección de residencia"
+                                    type="text"
+                                    name="direction"
+                                    variant="outlined"
+                                    onChange={handleChange}
+                                    margin="dense"
+                                    value={data.direction}
+                                />
+                                <TextField
+                                    fullWidth
+                                    placeholder="Url de Facebook para redireccionar al usuario"
+                                    label="url de Facebook"
+                                    inputMode="url"
+                                    name="urlFacebook"
+                                    variant="outlined"
+                                    onChange={handleChange}
+                                    margin="dense"
+                                    value={data.urlFacebook}
+                                />
+                                <TextField
+                                    fullWidth
+                                    label="Acerca de nosotros"
+                                    type="text"
+                                    placeholder="Escribe una breve descripción"
+                                    name="aboutus"
+                                    value={data.aboutus}
+                                    onChange={handleChange}
+                                    multiline
+                                    rows={13}
+                                    variant="outlined"
+                                    margin="dense"
 
-                            />
-                        </Box>
+                                />
+
+                            </Grid>
+                            <Grid
+                                item
+                                xl={6}
+                                lg={6}
+                                md={6}
+                                sm={12}
+                                xs={12}>
+
+                                <TextField
+                                    style={{ paddingBottom: '.5rem' }}
+                                    fullWidth
+                                    label="url de Twitter"
+                                    inputMode="url"
+                                    placeholder="Url de Twitter para redireccionar al usuario"
+                                    name="urlTwitter"
+                                    variant="outlined"
+                                    onChange={handleChange}
+                                    margin="dense"
+                                    value={data.urlTwitter}
+                                />
+                                <TextField
+                                    fullWidth
+                                    label="url de Instagram"
+                                    inputMode="url"
+                                    placeholder="Url de Instagram para redireccionar al usuario"
+                                    name="urlInstagram"
+                                    variant="outlined"
+                                    onChange={handleChange}
+                                    margin="dense"
+                                    value={data.urlInstagram}
+                                />
+
+                                {loading ? <Spinner /> : <ImageInput value={data.logo} label="SUBIR LOGO DE LA APP" onChange={handleUploadImage} />}
+                            </Grid>
+                        </Grid>
                     </DialogContent>
                     <DialogActions>
                         <Button

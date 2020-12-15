@@ -4,9 +4,9 @@ const firebaseConfig = {
     authDomain: process.env.authDomain,
     databaseURL: process.env.databaseURL,
     projectId: process.env.projectId,
-    storageBucket: process.env.storageBucket
-    // messagingSenderId: "1085099241149",
-    // appId: "1:1085099241149:web:381c83a9fdd5f72a1451d4",
+    storageBucket: process.env.storageBucket,
+    messagingSenderId: process.env.messagingSenderId,
+    appId: process.env.appId,
 };
 
 export default firebaseConfig;

@@ -100,11 +100,11 @@ const ChartBarLabel = ({ x, y, width, value, stroke }) => {
 };
 
 ChartBarLabel.propTypes = {
-    x: PropTypes.number.isRequired,
-    y: PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    stroke: PropTypes.number.isRequired
+    x: PropTypes.number,
+    y: PropTypes.number,
+    width: PropTypes.number,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    stroke: PropTypes.number
 };
 
 /**
@@ -128,12 +128,12 @@ const ChartBarLabelSimple = ({ x, y, width, height, value, stroke }) => {
 };
 
 ChartBarLabelSimple.propTypes = {
-    x: PropTypes.number.isRequired,
-    y: PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
-    value: PropTypes.number.isRequired,
-    stroke: PropTypes.string.isRequired
+    x: PropTypes.number,
+    y: PropTypes.number,
+    width: PropTypes.number,
+    height: PropTypes.number,
+    value: PropTypes.number,
+    stroke: PropTypes.string
 };
 
 /**

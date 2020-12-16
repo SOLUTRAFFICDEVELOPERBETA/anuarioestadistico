@@ -130,6 +130,11 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
         color: theme.palette.primary.light
+    },
+    payload: {
+        display: 'grid',
+        width: 500,
+        gridTemplateColumns: '1fr 1fr'
     }
 }));
 
@@ -590,45 +595,51 @@ ChartBarLabelSimple.propTypes = {
  * @description Tooltip para los gráficos de Pie
  * @param {{ payload: Array }} props Propiedades del componente
  */
-const ChartPieTooltip = ({ payload = [] }) => (
-    <React.Fragment>
-        <Box paddingY={1} paddingX={2} component={Paper} variant="outlined">
-            {payload.map((section, index) => {
-                const { name, value, payload, dataKey } = section;
+const ChartPieTooltip = ({ payload = [] }) => {
+    const classes = useStyles()
+    return (
+        <React.Fragment>
+            <Box paddingY={1} paddingX={2} component={Paper} variant="outlined">
+                <Box className={classes.payload}>
+                    {payload.map((section, index) => {
 
-                const { fill } = payload;
+                        const { name, value, payload, dataKey } = section;
 
-                return (
-                    <div key={`tooltip-pie-${name}-${index}`} style={{ marginBottom: 4 }}>
-                        <Typography variant="h5" color="primary" gutterBottom>
-                            {name}
-                        </Typography>
-                        <Typography
-                            variant="caption"
-                            display="block"
-                            style={{
-                                color: grey[600],
-                                fontWeight: 500,
-                                textTransform: 'uppercase',
-                                fontSize: 10
-                            }}>
-                            {dataKey}
-                        </Typography>
-                        <Typography
-                            variant="h6"
-                            display="block"
-                            gutterBottom
-                            style={{
-                                color: fill
-                            }}>
-                            {value}
-                        </Typography>
-                    </div>
-                );
-            })}
-        </Box>
-    </React.Fragment>
-);
+                        const { fill } = payload;
+
+                        return (
+                            <div key={`tooltip-pie-${name}-${index}`} style={{ marginBottom: 4 }}>
+                                <Typography variant="h5" color="primary" gutterBottom>
+                                    {name}
+                                </Typography>
+                                <Typography
+                                    variant="caption"
+                                    display="block"
+                                    style={{
+                                        color: grey[600],
+                                        fontWeight: 500,
+                                        textTransform: 'uppercase',
+                                        fontSize: 10
+                                    }}>
+                                    {dataKey}
+                                </Typography>
+                                <Typography
+                                    variant="h6"
+                                    display="block"
+                                    gutterBottom
+                                    style={{
+                                        color: fill
+                                    }}>
+                                    {value}
+                                </Typography>
+                            </div>
+                        );
+                    })}
+                </Box>
+            </Box>
+        </React.Fragment>
+    )
+};
 
 ChartPieTooltip.propTypes = {
     payload: PropTypes.array.isRequired
@@ -638,48 +649,65 @@ ChartPieTooltip.propTypes = {
  * @description Tooltip personalizado para los gráficos
  * @param {{ active: boolean, payload: Array, label: string }} props Propiedades del componente
  */
-const CustomTooltip = ({ active, payload, label }) =>
-    active ? (
-        <Box paddingY={1} paddingX={2} component={Paper} variant="outlined">
+const CustomTooltip = ({ active, payload, label }) => {
+    const classes = useStyles()
+    return active ? (
+        <Box
+            paddingY={1}
+            paddingX={2}
+            component={Paper}
+            variant="outlined">
             <Typography variant="h5" color="primary" gutterBottom>
                 {label}
             </Typography>
-            {payload.map((section, key) => {
-                const { color, name, unit, value } = section;
-                return (
-                    <div key={key} style={{ color, marginBottom: 4 }}>
-                        <Typography
-                            variant="caption"
-                            display="block"
+
+            <Box className={classes.payload}>
+                {payload.map((section, key) => {
+                    const { color, name, unit, value } = section;
+                    return (
+                        <div
+                            key={key}
                             style={{
-                                color: grey[600],
-                                fontWeight: 500,
-                                textTransform: 'uppercase',
-                                fontSize: 10
+                                color,
+                                marginBottom: 4,
                             }}>
-                            {name}
-                        </Typography>
-                        <Typography
-                            variant="h6"
-                            color="inherit"
-                            display="inline"
-                            style={{
-                                marginRight: 4
-                            }}>
-                            {value}
-                        </Typography>
-                        <Typography
-                            variant="caption"
-                            color="inherit"
-                            display="inline"
-                            style={{ fontStyle: 'italic' }}>
-                            {unit}
-                        </Typography>
-                    </div>
-                );
-            })}
+                            <Typography
+                                align="left"
+                                variant="caption"
+                                display="block"
+                                style={{
+                                    color: grey[600],
+                                    fontWeight: 500,
+                                    textTransform: 'uppercase',
+                                    fontSize: 10
+                                }}>
+                                {name}
+                            </Typography>
+                            <Typography
+                                align="right"
+                                variant="h6"
+                                color="inherit"
+                                display="inline"
+                                style={{
+                                    marginRight: 4
+                                }}>
+                                {value}
+                            </Typography>
+                            <Typography
+                                variant="caption"
+                                color="inherit"
+                                display="inline"
+                                style={{ fontStyle: 'italic' }}>
+                                {unit}
+                            </Typography>
+                        </div>
+                    );
+                })}
+            </Box>
         </Box>
-    ) : null;
+    ) : null
+}
+
 
 CustomTooltip.propTypes = {
     active: PropTypes.bool.isRequired,
@@ -719,6 +747,7 @@ ImageDot.propTypes = {
     stroke: PropTypes.string.isRequired,
     href: PropTypes.any
 };
+
 
 /**
  * @description Componente para el elemento de los Gráficos de los documentos
@@ -829,7 +858,10 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
             switch (type) {
                 case CHART_LINE:
                     return (
-                        <Recharts.ResponsiveContainer debounce={1} width="100%" height={300}>
+                        <Recharts.ResponsiveContainer
+                            debounce={1}
+                            width="100%"
+                            height={300}>
                             <Recharts.LineChart
                                 data={fields}
                                 margin={{
@@ -839,15 +871,28 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                     bottom: 5
                                 }}>
                                 <Recharts.CartesianGrid strokeDasharray="3 3" />
-                                <Recharts.XAxis dataKey="name" padding={{ left: 20, right: 20 }} />
+                                <Recharts.XAxis
+                                    dataKey="name"
+                                    padding={{ left: 20, right: 20 }} />
                                 <Recharts.YAxis padding={{ top: 40 }} domain={[0, 'dataMax']} />
-                                {legend && <Recharts.Legend />}
+
                                 <Recharts.Brush
                                     dataKey="name"
-                                    height={25}
+                                    height={30}
+                                    width="50%"
                                     stroke={theme.palette.primary.main}
                                 />
-                                <Recharts.Scatter legendType="rect" />
+
+                                {legend && <Recharts.Legend
+                                    width="100%"
+                                    wrapperStyle={{
+                                        backgroundColor: '#f5f5f5',
+                                        border: `2px dashed ${theme.palette.secondary.light}`,
+                                        borderRadius: 5,
+                                        lineHeight: '25px'
+                                    }}
+                                />
+                                }
                                 {keys.map(($key) => {
                                     const {
                                         key,
@@ -868,11 +913,13 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                             type={type}
                                             dataKey={key}
                                             stroke={color}
+                                            strokeDasharray="3 4 5 2"
                                             unit={unit}
+                                            legendType="triangle"
                                             dot={
                                                 <ImageDot id={`line-icon-${key}`} href={icon.url} />
                                             }
-                                            activeDot={{ r: 6 }}
+                                            activeDot={{ r: 8 }}
                                             label={label && <ChartLineLabel stroke={color} />}
                                         />
                                     );
@@ -885,6 +932,9 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                         <Recharts.ResponsiveContainer debounce={1} width="100%" height={300}>
                             <Recharts.BarChart
                                 data={fields}
+                                padding={{
+                                    bottom: 4
+                                }}
                                 margin={{
                                     top: 5,
                                     right: 30,
@@ -894,11 +944,18 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                 <Recharts.CartesianGrid strokeDasharray="3 3" />
                                 <Recharts.XAxis dataKey="name" padding={{ left: 20, right: 20 }} />
                                 <Recharts.YAxis padding={{ top: 20 }} domain={[0, 'dataMax']} />
-                                {legend && <Recharts.Legend />}
+                                {legend && <Recharts.Legend
+                                    width="100%"
+                                    wrapperStyle={{
+                                        border: `2px dashed ${theme.palette.secondary.light}`,
+                                        borderRadius: 5,
+                                        lineHeight: '25px'
+                                    }}
+                                />}
                                 <Recharts.Tooltip content={<CustomTooltip />} />
                                 <Recharts.Brush
                                     dataKey="name"
-                                    height={25}
+                                    height={30}
                                     stroke={theme.palette.primary.main}
                                 />
                                 {keys.map(($key) => {
@@ -917,6 +974,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
 
                                     return (
                                         <Recharts.Bar
+                                            legendType="square"
                                             key={key}
                                             id={`bar-chart-${key}`}
                                             dataKey={key}
@@ -932,6 +990,8 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                                     ))
                                             }
                                         />
+
+
                                     );
                                 })}
                             </Recharts.BarChart>
@@ -951,11 +1011,20 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                 <Recharts.CartesianGrid strokeDasharray="3 3" />
                                 <Recharts.XAxis dataKey="name" padding={{ left: 20, right: 20 }} />
                                 <Recharts.YAxis padding={{ top: 20 }} domain={[0, 'dataMax']} />
-                                {legend && <Recharts.Legend />}
+                                {legend && (
+                                    <Recharts.Legend
+                                        width="100%"
+                                        wrapperStyle={{
+                                            backgroundColor: '#f5f5f5',
+                                            border: `2px dashed ${theme.palette.secondary.light}`,
+                                            borderRadius: 5,
+                                            lineHeight: '25px'
+                                        }}
+                                    />)}
                                 <Recharts.Tooltip content={<CustomTooltip />} />
                                 <Recharts.Brush
                                     dataKey="name"
-                                    height={25}
+                                    height={30}
                                     stroke={theme.palette.primary.main}
                                 />
                                 {keys.map(($key) => {
@@ -975,6 +1044,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
 
                                     return (
                                         <Recharts.Area
+                                            legendType="circle"
                                             key={key}
                                             type={type}
                                             id={`bar-chart-${key}`}
@@ -1013,6 +1083,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
 
                                         return (
                                             <Recharts.Pie
+                                                legendType="circle"
                                                 key={key}
                                                 data={fields}
                                                 innerRadius={inner}
@@ -1038,98 +1109,80 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                         <Recharts.ResponsiveContainer width="100%" debounce={1} height={300}>
                             <Recharts.RadialBarChart innerRadius={20} data={fields}>
                                 <Recharts.RadialBar
-                                    minAngle={20}
+                                    legendType="circle"
+                                    minAngle={15}
                                     fill={main}
-                                    label={{ position: 'end', fill: contrastText }}
+                                    label={{ position: 'insideStart', fill: contrastText }}
                                     background={{ fill: light }}
                                     clockWise
                                     dataKey={key}
                                 />
+                                <Recharts.Legend
+                                    iconSize={20}
+                                    width={120}
+                                    height={140}
+                                    layout="horizontal"
+                                    verticalAlign="middle"
+                                    wrapperStyle={{
+                                        top: 0,
+                                        left: 650,
+                                        lineHeight: '24px',
+                                        border: `2px dashed ${theme.palette.secondary.light}`,
+                                        borderRadius: 5,
+                                    }} />
                             </Recharts.RadialBarChart>
                         </Recharts.ResponsiveContainer>
                     );
                 }
-                case CHART_RADAR: 
-                //     const data01 = [
-                //         { x: 100, y: 200, z: 200 },
-                //         { x: 120, y: 100, z: 260 },
-                //         { x: 170, y: 300, z: 400 },
-                //         { x: 140, y: 250, z: 280 },
-                //         { x: 150, y: 400, z: 500 },
-                //         { x: 110, y: 280, z: 200 },
-                //     ];
-                //     const data02 = [
-                //         { x: 300, y: 300, z: 200 },
-                //         { x: 400, y: 500, z: 260 },
-                //         { x: 200, y: 700, z: 400 },
-                //         { x: 340, y: 350, z: 280 },
-                //         { x: 560, y: 500, z: 500 },
-                //         { x: 230, y: 780, z: 200 },
-                //         { x: 500, y: 400, z: 200 },
-                //         { x: 300, y: 500, z: 260 },
-                //         { x: 240, y: 300, z: 400 },
-                //         { x: 320, y: 550, z: 280 },
-                //         { x: 500, y: 400, z: 500 },
-                //         { x: 420, y: 280, z: 200 },
-                //     ];
-                //     return (
-                //         <Recharts.ScatterChart
-                //             width={500}
-                //             height={400}
-                //             margin={{
-                //                 top: 20, right: 20, bottom: 20, left: 20,
-                //             }}
-                //         >
-                //             <Recharts.CartesianGrid />
-                            
-                //             <Recharts.XAxis type="number" dataKey="x" name="stature" unit="cm" />
-                //             <Recharts.YAxis yAxisId="left" type="number" dataKey="y" name="weight" unit="kg" stroke="#8884d8" />
-                //             <Recharts.YAxis yAxisId="right" type="number" dataKey="y" name="weight" unit="kg" orientation="right" stroke="#82ca9d" />
-                //             <Recharts.Tooltip cursor={{ strokeDasharray: '3 3' }} />
-                //             <Recharts.Scatter yAxisId="left" shape="triangle" name="A school" data={data01} fill="#8884d8" />
-                //         </Recharts.ScatterChart>
-                //     );
-                // }
+                case CHART_RADAR:
+                    return (
+                        <Recharts.ResponsiveContainer width="100%" debounce={1} height={300}>
+                            <Recharts.RadarChart data={fields}>
+                                <Recharts.PolarGrid />
+                                <Recharts.PolarAngleAxis dataKey="name" />
+                                <Recharts.PolarRadiusAxis />
+                                <Recharts.Tooltip content={<CustomTooltip />} />
+                                {keys.map(($key) => {
+                                    const {
+                                        key,
+                                        unit = '',
+                                        disabled = false,
+                                        color = randomHexColorCode()
+                                    } = $key;
 
-                return (
-                    <Recharts.ResponsiveContainer width="100%" debounce={1} height={300}>
-                        <Recharts.RadarChart data={fields}>
-                            <Recharts.PolarGrid />
-                            <Recharts.PolarAngleAxis dataKey="name" />
-                            <Recharts.PolarRadiusAxis />
-                            <Recharts.Tooltip content={<CustomTooltip />} />
-                            {keys.map(($key) => {
-                                const {
-                                    key,
-                                    unit = '',
-                                    disabled = false,
-                                    color = randomHexColorCode()
-                                } = $key;
+                                    const { main, light } = theme.palette.augmentColor({
+                                        main: color
+                                    });
 
-                                const { main, light } = theme.palette.augmentColor({
-                                    main: color
-                                });
+                                    if (disabled) return null;
 
-                                if (disabled) return null;
-
-                                return (
-                                    <Recharts.Radar
-                                        key={key}
-                                        type={type}
-                                        id={`bar-chart-${key}`}
-                                        fillOpacity={0.6}
-                                        dataKey={key}
-                                        fill={light}
-                                        stroke={main}
-                                        unit={unit}
-                                    />
-                                );
-                            })}
-                            <Recharts.Tooltip />
-                            {legend && <Recharts.Legend iconSize={10} />}
-                        </Recharts.RadarChart>
-                    </Recharts.ResponsiveContainer>
-                );
+                                    return (
+                                        <Recharts.Radar
+                                            legendType="circle"
+                                            key={key}
+                                            type={type}
+                                            id={`bar-chart-${key}`}
+                                            fillOpacity={0.6}
+                                            dataKey={key}
+                                            fill={light}
+                                            stroke={main}
+                                            unit={unit}
+                                        />
+                                    );
+                                })}
+                                <Recharts.Tooltip />
+                                {legend && <Recharts.Legend iconSize={10}
+                                    width="100%"
+                                    wrapperStyle={{
+                                        backgroundColor: '#f5f5f5',
+                                        border: `2px dashed ${theme.palette.secondary.light}`,
+                                        borderRadius: 5,
+                                        lineHeight: '25px'
+                                    }}
+                                />}
+                            </Recharts.RadarChart>
+                        </Recharts.ResponsiveContainer>
+                    );
                 case CHART_COMPOSE:
                     return (
                         <Recharts.ResponsiveContainer debounce={1} width="100%" height={300}>
@@ -1144,12 +1197,19 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                 <Recharts.CartesianGrid strokeDasharray="3 3" />
                                 <Recharts.XAxis dataKey="name" padding={{ left: 20, right: 20 }} />
                                 <Recharts.YAxis padding={{ top: 20 }} domain={[0, 'dataMax']} />
-                                {legend && <Recharts.Legend />}
+                                {legend && <Recharts.Legend
+                                    width="100%"
+                                    wrapperStyle={{
+                                        backgroundColor: '#f5f5f5',
+                                        border: `2px dashed ${theme.palette.secondary.light}`,
+                                        borderRadius: 5,
+                                        lineHeight: '25px'
+                                    }}
+                                />}
                                 <Recharts.Tooltip content={<CustomTooltip />} />
-                                <Recharts.Scatter legendTypes="fitting" />
                                 <Recharts.Brush
                                     dataKey="name"
-                                    height={25}
+                                    height={30}
                                     stroke={theme.palette.primary.main}
                                 />
                                 {keys.map(($key) => {
@@ -1175,6 +1235,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                                     stroke={color}
                                                     unit={unit}
                                                     activeDot={{ r: 6 }}
+                                                    legendType="circle"
                                                 />
                                             );
                                         case CHART_BAR: {
@@ -1184,6 +1245,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                             });
                                             return (
                                                 <Recharts.Bar
+                                                    legendType="circle"
                                                     key={key}
                                                     id={`bar-chart-${key}`}
                                                     dataKey={key}
@@ -1201,6 +1263,7 @@ const ChartField = ({ id, value, size = 6, onChange, onDelete }) => {
                                             });
                                             return (
                                                 <Recharts.Area
+                                                    legendType="circle"
                                                     key={key}
                                                     type={type}
                                                     id={`area-chart-${key}`}

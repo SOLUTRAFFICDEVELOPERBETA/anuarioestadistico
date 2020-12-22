@@ -127,7 +127,6 @@ const ConfigPage = () => {
         if (loading) {
             setData({ ...data, palette, bg, themes, infoFooter });
             setLoading(false);
-
         }
         // eslint-disable-next-line
     }, [palette, bg, themes, infoFooter]);

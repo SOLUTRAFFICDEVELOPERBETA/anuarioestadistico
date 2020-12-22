@@ -13,7 +13,8 @@ export default function  PagesReducer (state, action) {
 
         case GET_PAGES_ERROR:
             return {
-                error: null
+                ...state,
+                error: false
             }
 
         default:

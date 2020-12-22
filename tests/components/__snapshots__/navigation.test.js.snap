@@ -2,7 +2,7 @@
 
 exports[`Pruebas en <Navegacion/> Debe mostrarse correctamente 1`] = `
 <nav
-  className="css-1wt3c2j-Nav e19ybrxq1"
+  className="css-p5r1ul-Nav e19ybrxq1"
 >
   <a
     className="css-6sh57k-NavLink e19ybrxq2"

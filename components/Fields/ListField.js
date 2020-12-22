@@ -21,8 +21,6 @@ import { DragPreviewImage, useDrag } from 'react-dnd';
 import clsx from 'clsx';
 import { grey } from '@material-ui/core/colors';
 import { GRID_SIZES } from '../../constants/documents';
-// import { useForm } from 'react-hook-form'
-// import EditorContext from '../../contexts/editor'
 
 // Componente contenedor de la lista
 const ListContainer = styled(Box)`
@@ -123,7 +121,6 @@ const useStyles = makeStyles((theme) => ({
 const ListField = ({ id, value, size, onChange, onDelete }) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
-    // const { onChangeField, onDeleteField } = React.useContext(EditorContext)
     const [element, setElement] = React.useState('');
     const [{ isDragging }, drag, preview] = useDrag({
         item: { type: 'ITEM', id },
@@ -137,8 +134,6 @@ const ListField = ({ id, value, size, onChange, onDelete }) => {
      * @param {Event} event Evento de click de la celda
      */
     const handleClick = (event) => {
-
-        console.log(event.currentTarget);
         event.preventDefault();
         setAnchorEl(event.currentTarget);
     };

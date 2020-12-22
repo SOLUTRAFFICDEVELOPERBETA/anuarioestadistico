@@ -22,7 +22,7 @@ exports[`Pruebas en <AvatarIcon/> debe mostrarse correctamente 1`] = `
   <span
     className="MuiButton-label"
   >
-    Nov 30, 2020
+    Dec 22, 2020
     <span
       className="MuiButton-endIcon MuiButton-iconSizeMedium"
     >

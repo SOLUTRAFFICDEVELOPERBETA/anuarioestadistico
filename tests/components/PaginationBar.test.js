@@ -24,7 +24,7 @@ describe('Pruebas en <PaginationBar/>', () => {
         expect(wrapper).toMatchSnapshot();
     })
 
-    test('debe retorar el testo correctamemnte', () => {
+    test('debe retornar el testo correctamente', () => {
 
         expect(wrapper.find('WithStyles(ForwardRef(Typography))').text().trim()).toBe('Pagina 1 de 4')
     })

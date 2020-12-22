@@ -15,7 +15,7 @@ import { ArrowUpward } from '@material-ui/icons'
  */
 const Home = () => {
   const data = usePages('Inicio');
-
+console.log('data:', data);
   if (!data) return <Loading />;
   const { fields } = data[0];
 

@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <DocumentsForm/> debe mostrarse correctamente 1`] = `
+<Fragment>
+  <WithStyles(ForwardRef(AppBar))
+    className="makeStyles-appbar-1"
+    color="transparent"
+    elevation={0}
+    position="static"
+  >
+    <WithStyles(ForwardRef(Toolbar))
+      className="makeStyles-toolbar-2"
+      variant="dense"
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="left"
+        color="primary"
+        style={
+          Object {
+            "flexGrow": 1,
+          }
+        }
+        variant="h4"
+      >
+        Administración de Páginas
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Tooltip))
+        title="Opciones"
+      >
+        <WithStyles(ForwardRef(IconButton))
+          color="primary"
+          onClick={[Function]}
+          size="medium"
+        >
+          <MoreVertIcon />
+        </WithStyles(ForwardRef(IconButton))>
+      </WithStyles(ForwardRef(Tooltip))>
+    </WithStyles(ForwardRef(Toolbar))>
+  </WithStyles(ForwardRef(AppBar))>
+</Fragment>
+`;

@@ -27,8 +27,6 @@ describe('Pruebas en <MainFooter/>', () => {
 
     test('Debe mostrar la información correctamente', () => {
 
-        
-
         expect(wrapper.find('a').at(0).prop('href').trim()).toBe('/calle23');
         expect(wrapper.find('a').at(1).prop('href').trim()).toBe(demoData.urlFacebook);
         expect(wrapper.find('a').at(2).prop('href').trim()).toBe(demoData.urlInstagram);

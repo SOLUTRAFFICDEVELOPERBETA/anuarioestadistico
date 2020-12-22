@@ -4,8 +4,7 @@ exports[`Pruebas en <TextInput/> debe mostrar el popover 1`] = `
 Array [
   "",
   <div
-    className=" css-o15u39-InputContainer e11fp7a60"
-    color="#000000"
+    className=" css-1oyt5bq-InputContainer e11fp7a60"
     fontSize={14}
     id="id-1-Text-input"
     onContextMenu={[Function]}
@@ -48,8 +47,7 @@ exports[`Pruebas en <TextInput/> debe mostrarse correctamente 1`] = `
 Array [
   "",
   <div
-    className=" css-o15u39-InputContainer e11fp7a60"
-    color="#000000"
+    className=" css-1oyt5bq-InputContainer e11fp7a60"
     fontSize={14}
     id="id-1-Text-input"
     onContextMenu={[Function]}

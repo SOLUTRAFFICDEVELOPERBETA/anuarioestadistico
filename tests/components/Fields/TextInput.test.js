@@ -20,12 +20,10 @@ describe('Pruebas en <TextInput/>', () => {
                     id={`id-${1}-Text-input`}
                     value={"contendido de prueba"}
                     type={"paragraph"}
-                    color={"#000000"}
                     size={12}
                     align='start'
                     fontSize={14}
                     child={false}
-                    disableGrid={false}
                     onChange={onChange}
                     onDelete={onDelete}
                 />

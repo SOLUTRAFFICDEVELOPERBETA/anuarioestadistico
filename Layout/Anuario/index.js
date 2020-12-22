@@ -6,17 +6,15 @@ import PropTypes from 'prop-types';
  * @param {Any} children 
  */
 const AnuarioEstadistico = ({ children }) => {
-   
-    
+
     return (
         <div>
-           
             <div>{children}</div>
         </div>
     );
 };
 
 AnuarioEstadistico.propTypes = {
-    children: PropTypes.any
+    children: PropTypes.node
 };
 export default AnuarioEstadistico;

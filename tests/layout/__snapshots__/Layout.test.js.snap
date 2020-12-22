@@ -1,0 +1,321 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <Layout/> debe mostrarse correctamente 1`] = `
+<ThemeProvider
+  theme={
+    Object {
+      "breakpoints": Object {
+        "between": [Function],
+        "down": [Function],
+        "keys": Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ],
+        "only": [Function],
+        "up": [Function],
+        "values": Object {
+          "lg": 1280,
+          "md": 960,
+          "sm": 600,
+          "xl": 1920,
+          "xs": 0,
+        },
+        "width": [Function],
+      },
+      "direction": "ltr",
+      "mixins": Object {
+        "gutters": [Function],
+        "toolbar": Object {
+          "@media (min-width:0px) and (orientation: landscape)": Object {
+            "minHeight": 48,
+          },
+          "@media (min-width:600px)": Object {
+            "minHeight": 64,
+          },
+          "minHeight": 56,
+        },
+      },
+      "overrides": Object {},
+      "palette": Object {
+        "action": Object {
+          "activatedOpacity": 0.12,
+          "active": "rgba(0, 0, 0, 0.54)",
+          "disabled": "rgba(0, 0, 0, 0.26)",
+          "disabledBackground": "rgba(0, 0, 0, 0.12)",
+          "disabledOpacity": 0.38,
+          "focus": "rgba(0, 0, 0, 0.12)",
+          "focusOpacity": 0.12,
+          "hover": "rgba(0, 0, 0, 0.04)",
+          "hoverOpacity": 0.04,
+          "selected": "rgba(0, 0, 0, 0.08)",
+          "selectedOpacity": 0.08,
+        },
+        "augmentColor": [Function],
+        "background": Object {
+          "default": "#fafafa",
+          "paper": "#fff",
+        },
+        "common": Object {
+          "black": "#000",
+          "main": "#01579b",
+          "white": "#fff",
+        },
+        "contrastThreshold": 3,
+        "divider": "rgba(0, 0, 0, 0.12)",
+        "error": Object {
+          "contrastText": "#ffffff",
+          "dark": "#9b0000",
+          "light": "#ff5131",
+          "main": "#d50000",
+        },
+        "getContrastText": [Function],
+        "grey": Object {
+          "100": "#f5f5f5",
+          "200": "#eeeeee",
+          "300": "#e0e0e0",
+          "400": "#bdbdbd",
+          "50": "#fafafa",
+          "500": "#9e9e9e",
+          "600": "#757575",
+          "700": "#616161",
+          "800": "#424242",
+          "900": "#212121",
+          "A100": "#d5d5d5",
+          "A200": "#aaaaaa",
+          "A400": "#303030",
+          "A700": "#616161",
+        },
+        "info": Object {
+          "contrastText": "#fff",
+          "dark": "#1976d2",
+          "light": "#64b5f6",
+          "main": "#2196f3",
+        },
+        "paper": "#fff",
+        "primary": Object {
+          "contrastText": "#ffffff",
+          "dark": "#000018",
+          "light": "#395068",
+          "main": "#0d283d",
+        },
+        "secondary": Object {
+          "contrastText": "#ffffff",
+          "dark": "#001e4f",
+          "light": "#496fac",
+          "main": "#0c447c",
+        },
+        "success": Object {
+          "contrastText": "#fff",
+          "dark": "rgb(32, 87, 35)",
+          "light": "rgb(87, 151, 91)",
+          "main": "#2e7d32",
+        },
+        "text": Object {
+          "disabled": "rgba(0, 0, 0, 0.38)",
+          "hint": "rgba(0, 0, 0, 0.38)",
+          "primary": "rgba(0, 0, 0, 0.87)",
+          "secondary": "rgba(0, 0, 0, 0.54)",
+        },
+        "tonalOffset": 0.2,
+        "type": "light",
+        "warning": Object {
+          "contrastText": "rgba(0, 0, 0, 0.87)",
+          "dark": "#f57c00",
+          "light": "#ffb74d",
+          "main": "#ff9800",
+        },
+      },
+      "props": Object {},
+      "shadows": Array [
+        "none",
+        "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
+        "0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)",
+        "0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)",
+        "0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)",
+        "0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12)",
+        "0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12)",
+        "0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12)",
+        "0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)",
+        "0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12)",
+        "0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12)",
+        "0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12)",
+        "0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12)",
+        "0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12)",
+        "0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12)",
+        "0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12)",
+        "0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12)",
+        "0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12)",
+        "0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12)",
+        "0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12)",
+        "0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12)",
+        "0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12)",
+        "0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12)",
+        "0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12)",
+        "0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12)",
+      ],
+      "shape": Object {
+        "borderRadius": 4,
+      },
+      "spacing": [Function],
+      "transitions": Object {
+        "create": [Function],
+        "duration": Object {
+          "complex": 375,
+          "enteringScreen": 225,
+          "leavingScreen": 195,
+          "short": 250,
+          "shorter": 200,
+          "shortest": 150,
+          "standard": 300,
+        },
+        "easing": Object {
+          "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+          "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)",
+          "easeOut": "cubic-bezier(0.0, 0, 0.2, 1)",
+          "sharp": "cubic-bezier(0.4, 0, 0.6, 1)",
+        },
+        "getAutoHeightDuration": [Function],
+      },
+      "typography": Object {
+        "body1": Object {
+          "fontFamily": "Roboto",
+          "fontSize": "1rem",
+          "fontWeight": 400,
+          "lineHeight": 1.5,
+        },
+        "body2": Object {
+          "fontFamily": "Roboto",
+          "fontSize": "0.875rem",
+          "fontWeight": 400,
+          "lineHeight": 1.43,
+        },
+        "button": Object {
+          "fontFamily": "Roboto",
+          "fontSize": "0.875rem",
+          "fontWeight": 500,
+          "lineHeight": 1.75,
+          "textTransform": "uppercase",
+        },
+        "caption": Object {
+          "fontFamily": "Roboto",
+          "fontSize": "0.75rem",
+          "fontWeight": 400,
+          "lineHeight": 1.66,
+        },
+        "fontFamily": "Roboto",
+        "fontSize": 14,
+        "fontWeightBold": 700,
+        "fontWeightLight": 300,
+        "fontWeightMedium": 500,
+        "fontWeightRegular": 400,
+        "h1": Object {
+          "fontFamily": "Roboto",
+          "fontSize": "6rem",
+          "fontWeight": 300,
+          "lineHeight": 1.167,
+        },
+        "h2": Object {
+          "fontFamily": "Roboto",
+          "fontSize": "3.75rem",
+          "fontWeight": 300,
+          "lineHeight": 1.2,
+        },
+        "h3": Object {
+          "fontFamily": "Roboto",
+          "fontSize": "3rem",
+          "fontWeight": 400,
+          "lineHeight": 1.167,
+        },
+        "h4": Object {
+          "fontFamily": "Roboto",
+          "fontSize": "2.125rem",
+          "fontWeight": 400,
+          "lineHeight": 1.235,
+        },
+        "h5": Object {
+          "fontFamily": "Roboto",
+          "fontSize": "1.5rem",
+          "fontWeight": 400,
+          "lineHeight": 1.334,
+        },
+        "h6": Object {
+          "fontFamily": "Roboto",
+          "fontSize": "1.25rem",
+          "fontWeight": 500,
+          "lineHeight": 1.6,
+        },
+        "htmlFontSize": 16,
+        "overline": Object {
+          "fontFamily": "Roboto",
+          "fontSize": "0.75rem",
+          "fontWeight": 400,
+          "lineHeight": 2.66,
+          "textTransform": "uppercase",
+        },
+        "pxToRem": [Function],
+        "round": [Function],
+        "subtitle1": Object {
+          "fontFamily": "Roboto",
+          "fontSize": "1rem",
+          "fontWeight": 400,
+          "lineHeight": 1.75,
+        },
+        "subtitle2": Object {
+          "fontFamily": "Roboto",
+          "fontSize": "0.875rem",
+          "fontWeight": 500,
+          "lineHeight": 1.57,
+        },
+      },
+      "zIndex": Object {
+        "appBar": 1100,
+        "drawer": 1200,
+        "mobileStepper": 1000,
+        "modal": 1300,
+        "snackbar": 1400,
+        "speedDial": 1050,
+        "tooltip": 1500,
+      },
+    }
+  }
+>
+  <WithStyles(CssBaseline) />
+  <ForwardRef(render)
+    styles={
+      Object {
+        "map": "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQWtCMkIiLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IEhlYWQgZnJvbSAnbmV4dC9oZWFkJztcbmltcG9ydCBQcm9wVHlwZXMgZnJvbSAncHJvcC10eXBlcyc7XG5pbXBvcnQgeyBDc3NCYXNlbGluZSwgTXVpVGhlbWVQcm92aWRlciB9IGZyb20gJ0BtYXRlcmlhbC11aS9jb3JlJztcbmltcG9ydCB7IEdsb2JhbCwgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5pbXBvcnQgSGVhZGVyIGZyb20gJy4uL2NvbXBvbmVudHMvaGVhZGVyJztcbmltcG9ydCB0aGVtZSBmcm9tICcuLi9jb25maWcvdGhlbWUnO1xuXG4vKipcbiAqIEBkZXNjcmlwdGlvbiBMYXlvdXQgcXVlIHBlcm1pdGUgY29uZmlndXJhciBlbCB0ZW1hIGxhIGFwcCB5IGVzdGlsb3MsIGdsb2JhbGVzLlxuICogQHBhcmFtIHtjaGlsZHJlbjogYW55fSBQcm9wcyBQcm9waWVkYWRlcyBkZWwgTGF5b3V0LlxuICovXG5jb25zdCBMYXlvdXQgPSAoeyBjaGlsZHJlbiB9KSA9PiB7XG4gICAgY29uc3Qgc3RhdGUgPSB0aGVtZTtcbiAgICByZXR1cm4gKFxuICAgICAgICA8TXVpVGhlbWVQcm92aWRlciB0aGVtZT17dGhlbWV9PlxuICAgICAgICAgICAgPENzc0Jhc2VsaW5lIC8+XG4gICAgICAgICAgICA8R2xvYmFsXG4gICAgICAgICAgICAgICAgc3R5bGVzPXtjc3NgXG4gICAgICAgICAgICAgICAgICAgIDpyb290IHtcbiAgICAgICAgICAgICAgICAgICAgICAgIC0tcHJpbWFyeTogJHtzdGF0ZS5wYWxldHRlLnByaW1hcnkubWFpbn07XG4gICAgICAgICAgICAgICAgICAgICAgICAtLXByaW1hcnktZGFyazogJHtzdGF0ZS5wYWxldHRlLnByaW1hcnkuZGFya307XG4gICAgICAgICAgICAgICAgICAgICAgICAtLXByaW1hcnktbGlnaHQ6ICR7c3RhdGUucGFsZXR0ZS5wcmltYXJ5LmxpZ2h0fTtcbiAgICAgICAgICAgICAgICAgICAgICAgIC0tY29udHJhc3RUZXh0OiAke3N0YXRlLnBhbGV0dGUucHJpbWFyeS5jb250cmFzdFRleHR9O1xuICAgICAgICAgICAgICAgICAgICAgICAgLS1zZWNvbmRhcnk6ICR7c3RhdGUucGFsZXR0ZS5zZWNvbmRhcnkubWFpbn07XG4gICAgICAgICAgICAgICAgICAgICAgICAtLWVycm9yOiAke3N0YXRlLnBhbGV0dGUuZXJyb3IubWFpbn07XG4gICAgICAgICAgICAgICAgICAgICAgICAtLXdhcm5pbmc6ICR7c3RhdGUucGFsZXR0ZS53YXJuaW5nLm1haW59O1xuICAgICAgICAgICAgICAgICAgICAgICAgLS1zdWNjZXNzOiAke3N0YXRlLnBhbGV0dGUuc3VjY2Vzcy5tYWlufTtcbiAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgICAgICBodG1sIHtcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTAwJTtcbiAgICAgICAgICAgICAgICAgICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICAgICAgKixcbiAgICAgICAgICAgICAgICAgICAgKjpiZWZvcmUsXG4gICAgICAgICAgICAgICAgICAgICo6YWZ0ZXIge1xuICAgICAgICAgICAgICAgICAgICAgICAgYm94LXNpemluZzogaW5oZXJpdDtcbiAgICAgICAgICAgICAgICAgICAgfVxuXG4gICAgICAgICAgICAgICAgICAgIGJvZHkge1xuICAgICAgICAgICAgICAgICAgICAgICAgZm9udC1zaXplOiAxcmVtICFpbXBvcnRhbnQ7XG4gICAgICAgICAgICAgICAgICAgICAgICBsaW5lLWhlaWdodDogMyAhaW1wb3J0YW50O1xuICAgICAgICAgICAgICAgICAgICAgICAgZm9udC1mYW1pbHk6ICdMYXRvJywgc2Fucy1zZXJpZjtcbiAgICAgICAgICAgICAgICAgICAgfVxuXG4gICAgICAgICAgICAgICAgICAgIHVsIHtcbiAgICAgICAgICAgICAgICAgICAgICAgIGxpc3Qtc3R5bGU6IG5vbmU7XG4gICAgICAgICAgICAgICAgICAgICAgICBtYXJnaW46IDA7XG4gICAgICAgICAgICAgICAgICAgICAgICBwYWRkaW5nOiAwO1xuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgICAgIC5jb250ZW5lZG9yIHtcbiAgICAgICAgICAgICAgICAgICAgICAgIG1heC13aWR0aDogMTIwcmVtO1xuICAgICAgICAgICAgICAgICAgICAgICAgbWFyZ2luOiAwIGF1dG87XG4gICAgICAgICAgICAgICAgICAgICAgICB3aWR0aDogOTUlO1xuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgICAgIGltZyB7XG4gICAgICAgICAgICAgICAgICAgICAgICBtYXgtd2lkdGg6IDEwMCU7XG4gICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICBgfVxuICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDxIZWFkPlxuICAgICAgICAgICAgICAgIDx0aXRsZT5BbnVhcmlvIEVzdGFkw61zdGljbzwvdGl0bGU+XG4gICAgICAgICAgICAgICAgPG1ldGEgbmFtZT1cImRlc2NyaXB0aW9uXCIgY29udGVudD1cIlNpdGlvIHdlZCBkZSBhbnVhcmlvIGVzdGFkw61zdGljb1wiIC8+XG4gICAgICAgICAgICAgICAgPGxpbmtcbiAgICAgICAgICAgICAgICAgICAgcmVsPVwic3R5bGVzaGVldFwiXG4gICAgICAgICAgICAgICAgICAgIGhyZWY9XCJodHRwczovL2NkbmpzLmNsb3VkZmxhcmUuY29tL2FqYXgvbGlicy9ub3JtYWxpemUvOC4wLjEvbm9ybWFsaXplLm1pbi5jc3NcIlxuICAgICAgICAgICAgICAgICAgICBpbnRlZ3JpdHk9XCJzaGE1MTItTmhTQzFZbXlydVhpZmNqL0tGUldvQzU2MVlwSHBjNUp0emd2YnV6eDVWb3pLcFd2USs0blhoUGRGZ214OHhxZXhSY3BBZ2xUajlzSUJXSU5YYTh4NXc9PVwiXG4gICAgICAgICAgICAgICAgICAgIGNyb3NzT3JpZ2luPVwiYW5vbnltb3VzXCJcbiAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgICAgIDxsaW5rXG4gICAgICAgICAgICAgICAgICAgIGhyZWY9XCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2NzczI/ZmFtaWx5PUxhdG86aXRhbCx3Z2h0QDAsMzAwOzAsNDAwOzEsNzAwJmZhbWlseT1Sb2JvdG86d2dodEA0MDA7NzAwJmRpc3BsYXk9c3dhcFwiXG4gICAgICAgICAgICAgICAgICAgIHJlbD1cInN0eWxlc2hlZXRcIlxuICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICA8L0hlYWQ+XG4gICAgICAgICAgICA8SGVhZGVyIC8+XG4gICAgICAgICAgICB7Y2hpbGRyZW59XG4gICAgICAgIDwvTXVpVGhlbWVQcm92aWRlcj5cbiAgICApO1xufTtcblxuTGF5b3V0LnByb3BUeXBlcyA9IHtcbiAgICBjaGlsZHJlbjogUHJvcFR5cGVzLmFueVxufTtcbmV4cG9ydCBkZWZhdWx0IExheW91dDtcbiJdfQ== */",
+        "name": "17u37je-Layout-Layout",
+        "next": undefined,
+        "styles": ":root{--primary:#0d283d;--primary-dark:#000018;--primary-light:#395068;--contrastText:#ffffff;--secondary:#0c447c;--error:#d50000;--warning:#ff9800;--success:#2e7d32;}html{font-size:100%;box-sizing:border-box;}*,*:before,*:after{box-sizing:inherit;}body{font-size:1rem !important;line-height:3 !important;font-family:'Lato',sans-serif;}ul{list-style:none;margin:0;padding:0;}.contenedor{max-width:120rem;margin:0 auto;width:95%;}img{max-width:100%;};label:Layout;;label:Layout;",
+        "toString": [Function],
+      }
+    }
+  />
+  <Head>
+    <title>
+      Anuario Estadístico
+    </title>
+    <meta
+      content="Sitio wed de anuario estadístico"
+      name="description"
+    />
+    <link
+      crossOrigin="anonymous"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </Head>
+  <Header />
+  <p>
+    Prueba de testing
+  </p>
+</ThemeProvider>
+`;

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en AnuarioEstadistico debe de mostrar el componente correctamente 1`] = `
+<div>
+  <div>
+    <p>
+      Hijo del componente
+    </p>
+  </div>
+</div>
+`;

@@ -116,7 +116,6 @@ const CellField = ({
      * @param {string} value Valor a colocar
      */
     const handleTextChange = (key, value) => {
-        console.log('handleTextChange: click');
         onChange({ [key]: value });
     };
 

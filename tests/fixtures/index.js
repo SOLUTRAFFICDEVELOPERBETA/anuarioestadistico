@@ -75,3 +75,102 @@ export const demoDataSection = [
 
 ]
 
+export const fields = [
+    {
+        type: 'parrafo',
+        value: 'Este es el o primer valor de prueba'
+    },
+    {
+        type: 'parrafo',
+        value: 'Este es el primer valor de prueba'
+    },
+    {
+        type: 'parrafo',
+        value: 'Este es el segundo valor de prueba'
+    },
+    {
+        type: 'parrafo',
+        value: 'Este es el tercero valor de prueba'
+    },
+    {
+        type: 'parrafo',
+        value: {
+            name: 'imagen prueba',
+            path: '/img/prueba.png',
+            url: 'https://www.valladolid.mx/assets/img/default.jpg'
+        }
+    },
+]
+
+export const documents = [
+    {
+        name: 'name for default',
+        lastModified: 1608160976375,
+        title: 'Titulo de pagina de prueba UNO'
+    },
+    {
+        name: 'name for default',
+        lastModified: 1608160976375,
+        title: 'Titulo de pagina de prueba DOS'
+    }
+
+]
+
+export const pagesTest = [
+    {
+        created: 1596810636545,
+        fields: [
+            {
+                id: 'aHS8FiKF7',
+                type: 'title',
+                value: 'Valor de prueba'
+            }
+        ],
+        lastModified: 1608159558944,
+        title: 'ComercioExterior',
+        id: 1
+    },
+    {
+        created: 1596810636545,
+        fields: [
+            {
+                id: 'aHS8FiKF7',
+                type: 'title',
+                value: 'Valor de prueba'
+            }
+        ],
+        lastModified: 1608159558944,
+        title: 'Inicio',
+        id: 2
+    },
+    {
+        created: 1596810636545,
+        fields: [
+            {
+                id: 'aHS8FiK457',
+                type: 'title',
+                value: 'titulo uno'
+            },
+            {
+                id: 'aHS8Fi367457',
+                type: 'title',
+                value: 'subtitule'
+            }
+        ],
+        lastModified: 1608159558944,
+        title: 'acercanosotros',
+        id: 3
+    }
+]
+export const itemList = [
+    { name: 'Nombre1', age: 23, lastName: 'tuberquia' },
+    { name: 'Nombre2', age: 24, lastName: 'tuberquia' },
+    { name: 'Nombre3', age: 25, lastName: 'tuberquia' },
+    { name: 'Nombre4', age: 26, lastName: 'tuberquia' },
+    { name: 'Nombre5', age: 27, lastName: 'tuberquia' },
+    { name: 'Nombre6', age: 28, lastName: 'tuberquia' },
+    { name: 'Nombre7', age: 29, lastName: 'tuberquia' },
+    { name: 'Nombre8', age: 30, lastName: 'tuberquia' },
+    { name: 'Nombre9', age: 31, lastName: 'tuberquia' },
+    { name: 'Nombre10', age: 32, lastName: 'tuberquia' },
+]

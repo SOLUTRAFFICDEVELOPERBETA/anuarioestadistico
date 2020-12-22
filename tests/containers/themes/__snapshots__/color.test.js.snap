@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <ColorPalette/> debe mostrarse correctamente 1`] = `
+<Fragment>
+  <WithStyles(ForwardRef(IconButton))
+    onClick={[Function]}
+  >
+    <WithStyles(ForwardRef(SvgIcon))>
+      <svg
+        height="24"
+        width="24"
+      >
+        <rect
+          height="24"
+          style={
+            Object {
+              "fill": "#0d283d",
+            }
+          }
+          width="24"
+        />
+      </svg>
+    </WithStyles(ForwardRef(SvgIcon))>
+  </WithStyles(ForwardRef(IconButton))>
+  <WithStyles(ForwardRef(Popover))
+    anchorEl={null}
+    anchorOrigin={
+      Object {
+        "horizontal": "center",
+        "vertical": "bottom",
+      }
+    }
+    id="color-popover"
+    onClose={[Function]}
+    open={false}
+    transformOrigin={
+      Object {
+        "horizontal": "center",
+        "vertical": "top",
+      }
+    }
+  >
+    <div
+      className="makeStyles-colorPalette-1"
+    >
+      <WithStyles(ForwardRef(SvgIcon))>
+        <svg
+          height="200"
+          width="200"
+        >
+          <rect
+            height="200"
+            style={
+              Object {
+                "fill": "#0d283d",
+              }
+            }
+            width="200"
+          />
+        </svg>
+      </WithStyles(ForwardRef(SvgIcon))>
+      <WithStyles(ForwardRef(SvgIcon))>
+        <svg
+          height="200"
+          width="200"
+        >
+          <rect
+            height="200"
+            style={
+              Object {
+                "fill": "#0c447c",
+              }
+            }
+            width="200"
+          />
+        </svg>
+      </WithStyles(ForwardRef(SvgIcon))>
+      <WithStyles(ForwardRef(SvgIcon))>
+        <svg
+          height="200"
+          width="200"
+        >
+          <rect
+            height="200"
+            style={
+              Object {
+                "fill": "#a1a61f",
+              }
+            }
+            width="200"
+          />
+        </svg>
+      </WithStyles(ForwardRef(SvgIcon))>
+      <WithStyles(ForwardRef(SvgIcon))>
+        <svg
+          height="200"
+          width="200"
+        >
+          <rect
+            height="200"
+            style={
+              Object {
+                "fill": "#1a8018",
+              }
+            }
+            width="200"
+          />
+        </svg>
+      </WithStyles(ForwardRef(SvgIcon))>
+      <WithStyles(ForwardRef(SvgIcon))>
+        <svg
+          height="200"
+          width="200"
+        >
+          <rect
+            height="200"
+            style={
+              Object {
+                "fill": "#d50000",
+              }
+            }
+            width="200"
+          />
+        </svg>
+      </WithStyles(ForwardRef(SvgIcon))>
+      <WithStyles(ForwardRef(SvgIcon))>
+        <svg
+          height="200"
+          width="200"
+        >
+          <rect
+            height="200"
+            style={
+              Object {
+                "fill": "#f7e92e",
+              }
+            }
+            width="200"
+          />
+        </svg>
+      </WithStyles(ForwardRef(SvgIcon))>
+      <WithStyles(ForwardRef(SvgIcon))>
+        <svg
+          height="200"
+          width="200"
+        >
+          <rect
+            height="200"
+            style={
+              Object {
+                "fill": undefined,
+              }
+            }
+            width="200"
+          />
+        </svg>
+      </WithStyles(ForwardRef(SvgIcon))>
+    </div>
+  </WithStyles(ForwardRef(Popover))>
+</Fragment>
+`;

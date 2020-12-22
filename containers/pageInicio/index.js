@@ -9,7 +9,11 @@ import { Box, Typography, Grid } from '@material-ui/core';
  */
 const PageInicio = ({ fields }) => {
     return (
-        <Box style={{ background: '#f2f4f7' }} paddingLeft={1} paddingRight={1} paddingBottom={2}>
+        <Box
+            style={{ background: '#f2f4f7' }}
+            paddingLeft={1}
+            paddingRight={1}
+            paddingBottom={2}>
             <Grid container spacing={3}>
                 <Grid item md={6}>
                     <Box>

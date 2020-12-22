@@ -15,12 +15,8 @@ import {
     Dialog,
     DialogTitle,
     DialogContent
-    // Grid
 } from '@material-ui/core';
 import { MoreVert, PostAddTwoTone } from '@material-ui/icons';
-// import DocumentTemplateCard from '../components/DocumentTemplateCard'
-import fb from '../config/firebase';
-import useFixedList from '../hooks/useFixedList';
 import SearchInput from '../components/SearchInput';
 import { documents } from '../constants/templates';
 
@@ -40,8 +36,6 @@ const useStyles = makeStyles((theme) => ({
  */
 const DocumentsForm = ({ onSubmit }) => {
     const classes = useStyles();
-    const [templates, setTemplates] = React.useState([]);
-    const [setTemplateList, TemplatesList] = useFixedList(5);
     const [openForm, setOpenForm] = React.useState(false);
     const [optionsAnchorEl, setOptionsAnchorEl] = React.useState(null);
 
@@ -67,27 +61,6 @@ const DocumentsForm = ({ onSubmit }) => {
 
     const openOptions = Boolean(optionsAnchorEl);
 
-    React.useEffect(() => {
-        const getTemplates = () => {
-            fb.db
-                .collection('TEMPLATES')
-                .get()
-                .then((snap) => {
-                    const array = [];
-                    snap.forEach((doc) => {
-                        array.push({ ...doc.data(), id: doc.id });
-                    });
-
-                    setTemplates(documents);
-                });
-        };
-
-        getTemplates();
-    }, []);
-
-    React.useEffect(() => {
-        setTemplateList(templates);
-    }, [templates]);
 
     return (
         <React.Fragment>
@@ -136,13 +109,13 @@ const DocumentsForm = ({ onSubmit }) => {
                     <DialogTitle>selecciona la Página a crear</DialogTitle>
                     <DialogContent>
                         <SearchInput onSearch={handleSearch} />
-                        <TemplatesList
-                            itemRender={(item) => (
-                                <ListItem button divider onClick={() => handleSubmit(item)}>
+                        <List>
+                            {documents.map((item, key) => (
+                                <ListItem key={key} button divider onClick={() => handleSubmit(item)}>
                                     <ListItemText primary={item.title} />
                                 </ListItem>
-                            )}
-                        />
+                            ))}
+                        </List>
                     </DialogContent>
                 </Dialog>
             )}

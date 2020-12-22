@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en ComercioExterior debe de mostrar el componente correctamente 1`] = `
+<div>
+  <div>
+    <div
+      className="MuiBox-root MuiBox-root-1"
+    >
+      <div
+        className="MuiBox-root MuiBox-root-2 css-771n28-SectionGeneric"
+      >
+        <div
+          className="css-1x4qkb1-SectionGeneric"
+        >
+          <h5
+            className="MuiTypography-root css-y9wiai MuiTypography-h5 MuiTypography-colorPrimary MuiTypography-alignCenter"
+            style={
+              Object {
+                "fontWeight": 700,
+                "paddingBottom": "1rem",
+              }
+            }
+          >
+            Valor de prueba
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

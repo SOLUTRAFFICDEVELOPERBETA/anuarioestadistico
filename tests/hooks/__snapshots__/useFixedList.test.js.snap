@@ -1,0 +1,162 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en useFixedList debe cargar la lista de elementos envíada 1`] = `
+Array [
+  <ul
+    className="MuiList-root MuiList-padding"
+  />,
+  <div
+    className="MuiBox-root MuiBox-root-1"
+  >
+    <div
+      className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-align-content-xs-center MuiGrid-justify-xs-flex-end"
+    >
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto MuiGrid-grid-sm-6 MuiGrid-grid-md-3 MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
+      >
+        <span
+          className="MuiTypography-root MuiTypography-caption MuiTypography-colorPrimary MuiTypography-alignCenter MuiTypography-displayBlock"
+        >
+          Pagina 1 de 1
+        </span>
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto MuiGrid-grid-sm-6 MuiGrid-grid-md-2 MuiGrid-grid-lg-2 MuiGrid-grid-xl-2"
+      >
+        <button
+          className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary Mui-disabled MuiIconButton-sizeSmall Mui-disabled"
+          disabled={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={-1}
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 6h2v12H6zm3.5 6l8.5 6V6z"
+              />
+            </svg>
+          </span>
+        </button>
+        <button
+          className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary Mui-disabled MuiIconButton-sizeSmall Mui-disabled"
+          disabled={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={-1}
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+              />
+            </svg>
+          </span>
+        </button>
+        <button
+          className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary Mui-disabled MuiIconButton-sizeSmall Mui-disabled"
+          disabled={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={-1}
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+              />
+            </svg>
+          </span>
+        </button>
+        <button
+          className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary Mui-disabled MuiIconButton-sizeSmall Mui-disabled"
+          disabled={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={-1}
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>,
+]
+`;

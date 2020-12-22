@@ -10,7 +10,6 @@ describe('Pruebas en el componente <SectionGeneric/>', () => {
             type={'title'}
             value={"titulo de prueba"}
             id={'id-title'}
-
         />
     )
 

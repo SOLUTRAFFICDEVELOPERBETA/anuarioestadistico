@@ -13,6 +13,7 @@ const TerrestrialMobility = () => {
     const dataMovilidad = usePages('Movilidad');
 
     if (!dataMovilidad) return <Spinner />;
+    
     return (
         <AnuarioEstadistico>
             <Box>

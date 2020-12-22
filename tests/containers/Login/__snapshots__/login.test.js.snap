@@ -118,12 +118,42 @@ exports[`Pruebas en <Login/> debe mostrarse correctamente 1`] = `
         Olvidaste tu contraseña?
       </a>
     </div>
-    <button
-      className="signIn"
-      type="submit"
+    <div
+      className="MuiButtonGroup-root MuiButtonGroup-fullWidth MuiButtonGroup-vertical"
+      role="group"
+      style={
+        Object {
+          "margin": "10px 0",
+        }
+      }
     >
-      Iniciar Sesión
-    </button>
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButtonGroup-grouped MuiButtonGroup-groupedVertical MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedVertical MuiButtonGroup-groupedOutlined MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge MuiButton-fullWidth"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="submit"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          Iniciar Sesión
+        </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
   </form>
 </div>
 `;

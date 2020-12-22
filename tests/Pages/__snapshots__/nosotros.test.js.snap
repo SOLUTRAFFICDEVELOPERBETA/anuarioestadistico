@@ -1,0 +1,361 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <Nosotros/> debe mostrarse correctamente 1`] = `
+<div>
+  <header
+    className="css-1dgujb3-Header"
+  >
+    <div
+      className="css-17t5f1h-Header"
+    >
+      <a
+        className="css-18ydr54-LogoLink e15zuxae0"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        ANUARIO ESTADÍSTICO
+      </a>
+      <nav
+        className="css-p5r1ul-Nav e19ybrxq1"
+      >
+        <a
+          className="css-6sh57k-NavLink e19ybrxq2"
+        >
+          Jose manuel Prueba
+        </a>
+        <a
+          className="css-6sh57k-NavLink e19ybrxq2"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          Inicio
+        </a>
+        <a
+          className="css-6sh57k-NavLink e19ybrxq2"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          Nosotros
+        </a>
+        <a
+          className="css-6sh57k-NavLink e19ybrxq2"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          Páginas
+        </a>
+        <a
+          className="css-6sh57k-NavLink e19ybrxq2"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          Configuración
+        </a>
+        <img
+          className="css-10vqwh5-LogoOut e19ybrxq0"
+          onClick={[Function]}
+          src="/static/icons/salida.svg"
+        />
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div>
+      <div
+        className="MuiBox-root MuiBox-root-1 css-8wjwz8-BoxContainer e7lsqdp0"
+      >
+        <h3
+          className="MuiTypography-root MuiTypography-h3 MuiTypography-colorPrimary MuiTypography-alignCenter"
+        >
+          titulo uno
+        </h3>
+        <p
+          className="MuiTypography-root MuiTypography-body1 MuiTypography-colorPrimary MuiTypography-alignJustify"
+        >
+          subtitule
+        </p>
+      </div>
+    </div>
+  </main>
+  <footer
+    className="css-sg643w-Footer e902lru0"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-2"
+    >
+      <div
+        className="MuiBox-root MuiBox-root-3"
+      >
+        <div
+          className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+        >
+          <div
+            className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-6 MuiGrid-grid-xl-6"
+          >
+            <div
+              className="MuiBox-root MuiBox-root-4"
+            >
+              <div
+                className="MuiBox-root MuiBox-root-5"
+              >
+                <h2
+                  className="MuiTypography-root MuiTypography-body1"
+                >
+                  WISE
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div
+            className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-6 MuiGrid-grid-xl-6"
+          >
+            <div
+              className="MuiBox-root MuiBox-root-6"
+            >
+              <p
+                className="MuiTypography-root MuiTypography-body1"
+              >
+                Copyright © 
+              </p>
+              <p
+                className="MuiTypography-root MuiTypography-body1"
+              >
+                Publicaciones WISE
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr
+        className="MuiDivider-root"
+        style={
+          Object {
+            "backgroundColor": "#fff",
+          }
+        }
+      />
+      <div
+        className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+      >
+        <div
+          className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-4 MuiGrid-grid-xl-4"
+        >
+          <div
+            className="MuiContainer-root MuiContainer-maxWidthLg"
+          >
+            <h6
+              className="MuiTypography-root MuiTypography-subtitle1 MuiTypography-alignCenter"
+            >
+              Encuentranos
+            </h6>
+            <div
+              className="MuiBox-root MuiBox-root-7"
+            >
+              <ul
+                className="MuiList-root MuiList-padding"
+              >
+                <li
+                  className="MuiListItem-root MuiListItem-gutters"
+                  disabled={false}
+                >
+                  <div
+                    className="MuiListItemIcon-root"
+                  >
+                    <svg
+                      aria-hidden={true}
+                      className="MuiSvgIcon-root MuiSvgIcon-colorError"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    className="MuiListItemText-root"
+                    itemID="dircalle 23"
+                  >
+                    <a
+                      href="/calle%2023"
+                      onClick={[Function]}
+                      onMouseEnter={[Function]}
+                      rel="noopener noreferrer"
+                      style={
+                        Object {
+                          "textDecoration": "none",
+                        }
+                      }
+                      target="_black"
+                    >
+                      calle 23
+                    </a>
+                  </div>
+                </li>
+                <li
+                  className="MuiListItem-root MuiListItem-gutters"
+                  disabled={false}
+                >
+                  <div
+                    className="MuiListItemIcon-root"
+                  >
+                    <svg
+                      aria-hidden={true}
+                      className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    className="MuiListItemText-root"
+                    itemID="urlhttps://www.facebook.com/"
+                  >
+                    <a
+                      href="https://www.facebook.com/"
+                      onClick={[Function]}
+                      onMouseEnter={[Function]}
+                      rel="noopener noreferrer"
+                      style={
+                        Object {
+                          "textDecoration": "none",
+                        }
+                      }
+                      target="_black"
+                    >
+                      Facebook
+                    </a>
+                  </div>
+                </li>
+                <li
+                  className="MuiListItem-root MuiListItem-gutters"
+                  disabled={false}
+                >
+                  <div
+                    className="MuiListItemIcon-root"
+                  >
+                    <svg
+                      aria-hidden={true}
+                      className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    className="MuiListItemText-root"
+                    itemID="urlhttps://www.instagram.com/?hl=es-la"
+                  >
+                    <a
+                      href="https://www.instagram.com/?hl=es-la"
+                      onClick={[Function]}
+                      onMouseEnter={[Function]}
+                      rel="noopener noreferrer"
+                      style={
+                        Object {
+                          "textDecoration": "none",
+                        }
+                      }
+                      target="_black"
+                    >
+                      Instagram
+                    </a>
+                  </div>
+                </li>
+                <li
+                  className="MuiListItem-root MuiListItem-gutters"
+                  disabled={false}
+                >
+                  <div
+                    className="MuiListItemIcon-root"
+                  >
+                    <svg
+                      aria-hidden={true}
+                      className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    className="MuiListItemText-root"
+                    itemID="urlhttps://twitter.com/?lang=es"
+                  >
+                    <a
+                      href="https://twitter.com/?lang=es"
+                      onClick={[Function]}
+                      onMouseEnter={[Function]}
+                      rel="noopener noreferrer"
+                      style={
+                        Object {
+                          "textDecoration": "none",
+                        }
+                      }
+                      target="_black"
+                    >
+                      Twitter
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-4 MuiGrid-grid-xl-4"
+        >
+          <div
+            className="MuiContainer-root acerca-nosotros MuiContainer-maxWidthLg"
+          >
+            <h6
+              className="MuiTypography-root MuiTypography-subtitle1 MuiTypography-alignCenter"
+            >
+              Acerca de nosotros
+            </h6>
+            <p
+              className="MuiTypography-root MuiTypography-body2 MuiTypography-alignJustify"
+            >
+              hacera de nosotros
+            </p>
+          </div>
+        </div>
+        <div
+          className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-4 MuiGrid-grid-xl-4"
+        >
+          <div
+            className="MuiContainer-root MuiContainer-maxWidthXs"
+            style={
+              Object {
+                "display": "flex",
+                "justifyContent": "center",
+                "margin": "2rem auto",
+              }
+            }
+          >
+            <img
+              alt="Logo de la app"
+              height="50%"
+              src="https://www.nashikproperty.com/uploads/builder-logo/default-logo.png"
+              style={
+                Object {
+                  "borderRadius": "50%",
+                }
+              }
+              width="50%"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en Navigator debe mostrarse correctamente 1`] = `
+<div>
+  <Header />
+  <main>
+    <div>
+      <p>
+        <b>
+          Testing
+        </b>
+         Pruebas
+      </p>
+    </div>
+  </main>
+  <MainFooter />
+</div>
+`;

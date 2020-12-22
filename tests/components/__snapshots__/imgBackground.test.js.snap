@@ -12,9 +12,6 @@ exports[`Pruebas en <ImagBackground/> Debe mostrarse correctamente 1`] = `
   >
     Titulo de prueba
   </WithStyles(ForwardRef(Typography))>
-  <div
-    className="r"
-  />
   <WithStyles(ForwardRef(Typography))
     align="center"
     className="subTitile"

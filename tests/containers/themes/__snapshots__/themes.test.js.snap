@@ -1,0 +1,367 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <ThemeSelector/> debe mostrarse correctamente 1`] = `
+<WithStyles(ForwardRef(List))
+  dense={true}
+  subheader={
+    <WithStyles(ForwardRef(ListSubheader))>
+      Temas de la Plataforma
+    </WithStyles(ForwardRef(ListSubheader))>
+  }
+>
+  <WithStyles(ForwardRef(ListItem))
+    button={true}
+    key="0"
+    onClick={[Function]}
+  >
+    <WithStyles(ForwardRef(ListItemText))
+      primary="Por defecto"
+    />
+    <WithStyles(ForwardRef(ListItemSecondaryAction))>
+      <ColorPalette
+        palette={
+          Object {
+            "common": Object {
+              "contrastText": "#000",
+              "dark": "#6f7700",
+              "light": "#d5d754",
+              "main": "#a1a61f",
+            },
+            "error": Object {
+              "contrastText": "#ffffff",
+              "dark": "#9b0000",
+              "light": "#ff5131",
+              "main": "#d50000",
+            },
+            "info": Object {
+              "disabled": "#ccc",
+              "hint": "#f2a71b",
+              "primary": "#424242",
+              "secondary": "#bbb",
+            },
+            "primary": Object {
+              "contrastText": "#ffffff",
+              "dark": "#000018",
+              "light": "#395068",
+              "main": "#0d283d",
+            },
+            "secondary": Object {
+              "contrastText": "#ffffff",
+              "dark": "#001e4f",
+              "light": "#496fac",
+              "main": "#0c447c",
+            },
+            "success": Object {
+              "contrastText": "#fff",
+              "dark": "#005100",
+              "light": "#54af47",
+              "main": "#1a8018",
+            },
+            "warning": Object {
+              "contrastText": "#fff",
+              "dark": "#bdb300",
+              "light": "#ffff5c",
+              "main": "#f7e92e",
+            },
+          }
+        }
+      />
+    </WithStyles(ForwardRef(ListItemSecondaryAction))>
+  </WithStyles(ForwardRef(ListItem))>
+  <WithStyles(ForwardRef(ListItem))
+    button={true}
+    key="1"
+    onClick={[Function]}
+  >
+    <WithStyles(ForwardRef(ListItemText))
+      primary="Naturaleza"
+    />
+    <WithStyles(ForwardRef(ListItemSecondaryAction))>
+      <ColorPalette
+        palette={
+          Object {
+            "common": Object {
+              "contrastText": "#000",
+              "dark": "#828f30",
+              "light": "#e8f28d",
+              "main": "#B4BF5E",
+            },
+            "error": Object {
+              "contrastText": "#fff",
+              "dark": "#9b0000",
+              "light": "#ff5131",
+              "main": "#d50000",
+            },
+            "info": Object {
+              "disabled": "#ccc",
+              "hint": "#B4BF5E",
+              "primary": "#424242",
+              "secondary": "#bbb",
+            },
+            "primary": Object {
+              "contrastText": "#fff",
+              "dark": "#4e5f12",
+              "light": "#adbc6c",
+              "main": "#7C8C3F",
+            },
+            "secondary": Object {
+              "contrastText": "#fff",
+              "dark": "#590000",
+              "light": "#c1534b",
+              "main": "#8C2323",
+            },
+            "success": Object {
+              "contrastText": "#fff",
+              "dark": "#005100",
+              "light": "#54af47",
+              "main": "#1a8018",
+            },
+            "warning": Object {
+              "contrastText": "#fff",
+              "dark": "#bdb300",
+              "light": "#ffff5c",
+              "main": "#f7e92e",
+            },
+          }
+        }
+      />
+    </WithStyles(ForwardRef(ListItemSecondaryAction))>
+  </WithStyles(ForwardRef(ListItem))>
+  <WithStyles(ForwardRef(ListItem))
+    button={true}
+    key="2"
+    onClick={[Function]}
+  >
+    <WithStyles(ForwardRef(ListItemText))
+      primary="Cielo"
+    />
+    <WithStyles(ForwardRef(ListItemSecondaryAction))>
+      <ColorPalette
+        palette={
+          Object {
+            "common": Object {
+              "contrastText": "#000",
+              "dark": "#bb7c00",
+              "light": "#ffdd5c",
+              "main": "#f2ab27",
+            },
+            "error": Object {
+              "contrastText": "#fff",
+              "dark": "#9b0000",
+              "light": "#ff5131",
+              "main": "#d50000",
+            },
+            "info": Object {
+              "disabled": "#ccc",
+              "hint": "#B4BF5E",
+              "primary": "#40342A",
+              "secondary": "#bbb",
+            },
+            "primary": Object {
+              "contrastText": "#fff",
+              "dark": "#bb8f00",
+              "light": "#fff15e",
+              "main": "#F2BF27",
+            },
+            "secondary": Object {
+              "contrastText": "#fff",
+              "dark": "#5aa4bf",
+              "light": "#c0ffff",
+              "main": "#8DD5F2",
+            },
+            "success": Object {
+              "contrastText": "#fff",
+              "dark": "#005100",
+              "light": "#54af47",
+              "main": "#1a8018",
+            },
+            "warning": Object {
+              "contrastText": "#fff",
+              "dark": "#bdb300",
+              "light": "#ffff5c",
+              "main": "#f7e92e",
+            },
+          }
+        }
+      />
+    </WithStyles(ForwardRef(ListItemSecondaryAction))>
+  </WithStyles(ForwardRef(ListItem))>
+  <WithStyles(ForwardRef(ListItem))
+    button={true}
+    key="3"
+    onClick={[Function]}
+  >
+    <WithStyles(ForwardRef(ListItemText))
+      primary="Noche"
+    />
+    <WithStyles(ForwardRef(ListItemSecondaryAction))>
+      <ColorPalette
+        palette={
+          Object {
+            "common": Object {
+              "contrastText": "#000",
+              "dark": "#7f8f48",
+              "light": "#e2f2a5",
+              "main": "#afbf75",
+            },
+            "error": Object {
+              "contrastText": "#fff",
+              "dark": "#9b0000",
+              "light": "#ff5131",
+              "main": "#d50000",
+            },
+            "info": Object {
+              "disabled": "#ccc",
+              "hint": "#afbf75",
+              "primary": "#424242",
+              "secondary": "#bbb",
+            },
+            "primary": Object {
+              "contrastText": "#fff",
+              "dark": "#000018",
+              "light": "#395068",
+              "main": "#0d283d",
+            },
+            "secondary": Object {
+              "contrastText": "#fff",
+              "dark": "#002046",
+              "light": "#4e72a1",
+              "main": "#1b4772",
+            },
+            "success": Object {
+              "contrastText": "#fff",
+              "dark": "#005100",
+              "light": "#54af47",
+              "main": "#1a8018",
+            },
+            "warning": Object {
+              "contrastText": "#fff",
+              "dark": "#bdb300",
+              "light": "#ffff5c",
+              "main": "#f7e92e",
+            },
+          }
+        }
+      />
+    </WithStyles(ForwardRef(ListItemSecondaryAction))>
+  </WithStyles(ForwardRef(ListItem))>
+  <WithStyles(ForwardRef(ListItem))
+    button={true}
+    key="4"
+    onClick={[Function]}
+  >
+    <WithStyles(ForwardRef(ListItemText))
+      primary="Selva"
+    />
+    <WithStyles(ForwardRef(ListItemSecondaryAction))>
+      <ColorPalette
+        palette={
+          Object {
+            "common": Object {
+              "contrastText": "#000",
+              "dark": "#5a8e53",
+              "light": "#baf2b0",
+              "main": "#89bf80",
+            },
+            "error": Object {
+              "contrastText": "#fff",
+              "dark": "#9b0000",
+              "light": "#ff5131",
+              "main": "#d50000",
+            },
+            "info": Object {
+              "disabled": "#ccc",
+              "hint": "#89bf80",
+              "primary": "#424242",
+              "secondary": "#bbb",
+            },
+            "primary": Object {
+              "contrastText": "#fff",
+              "dark": "#005d00",
+              "light": "#5bbd44",
+              "main": "#208c0f",
+            },
+            "secondary": Object {
+              "contrastText": "#fff",
+              "dark": "#a39b00",
+              "light": "#fffe53",
+              "main": "#D9CB0D",
+            },
+            "success": Object {
+              "contrastText": "#fff",
+              "dark": "#005100",
+              "light": "#54af47",
+              "main": "#1a8018",
+            },
+            "warning": Object {
+              "contrastText": "#fff",
+              "dark": "#bdb300",
+              "light": "#ffff5c",
+              "main": "#f7e92e",
+            },
+          }
+        }
+      />
+    </WithStyles(ForwardRef(ListItemSecondaryAction))>
+  </WithStyles(ForwardRef(ListItem))>
+  <WithStyles(ForwardRef(ListItem))
+    button={true}
+    key="5"
+    onClick={[Function]}
+  >
+    <WithStyles(ForwardRef(ListItemText))
+      primary="Usuario"
+    />
+    <WithStyles(ForwardRef(ListItemSecondaryAction))>
+      <ColorPalette
+        palette={
+          Object {
+            "common": Object {
+              "contrastText": "#000",
+              "dark": "#5a8e53",
+              "light": "#baf2b0",
+              "main": "#89bf80",
+            },
+            "error": Object {
+              "contrastText": "#fff",
+              "dark": "#9b0000",
+              "light": "#ff5131",
+              "main": "#d50000",
+            },
+            "info": Object {
+              "disabled": "#ccc",
+              "hint": "#89bf80",
+              "primary": "#424242",
+              "secondary": "#bbb",
+            },
+            "primary": Object {
+              "contrastText": "#fff",
+              "dark": "#005d00",
+              "light": "#5bbd44",
+              "main": "#208c0f",
+            },
+            "secondary": Object {
+              "contrastText": "#fff",
+              "dark": "#a39b00",
+              "light": "#fffe53",
+              "main": "#D9CB0D",
+            },
+            "success": Object {
+              "contrastText": "#fff",
+              "dark": "#005100",
+              "light": "#54af47",
+              "main": "#1a8018",
+            },
+            "warning": Object {
+              "contrastText": "#fff",
+              "dark": "#bdb300",
+              "light": "#ffff5c",
+              "main": "#f7e92e",
+            },
+          }
+        }
+      />
+    </WithStyles(ForwardRef(ListItemSecondaryAction))>
+  </WithStyles(ForwardRef(ListItem))>
+</WithStyles(ForwardRef(List))>
+`;

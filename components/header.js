@@ -8,7 +8,7 @@ const LogoLink = styled('a')`
     color: #ffff;
     cursor: pointer;
     font-size: 1rem;
-    font-weight: 600
+    font-weight: 600;
 `;
 
 /**

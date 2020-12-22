@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en AuthLayout debe mostrarse correctamente 1`] = `
+<div
+  className="css-6ctbyo-ContainerDiv e15g2ioh0"
+>
+  <p>
+    <b>
+      Dios
+    </b>
+     es amor
+  </p>
+</div>
+`;

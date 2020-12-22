@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Prueba en <PageInicio/> debe mostrarse correctamente 1`] = `
+<Styled(MuiBox)
+  paddingBottom={2}
+  paddingLeft={1}
+  paddingRight={1}
+  style={
+    Object {
+      "background": "#f2f4f7",
+    }
+  }
+>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={3}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      md={6}
+    >
+      <Styled(MuiBox)>
+        <WithStyles(ForwardRef(Typography))
+          color="textPrimary"
+          style={
+            Object {
+              "fontWeight": 700,
+              "marginBottom": "0.5rem",
+            }
+          }
+          variant="h5"
+        >
+          Este es el primer valor de prueba
+        </WithStyles(ForwardRef(Typography))>
+        <WithStyles(ForwardRef(Typography))
+          align="justify"
+          color="textSecondary"
+          component="p"
+          style={
+            Object {
+              "marginBottom": "0.5rem",
+            }
+          }
+        >
+          Este es el segundo valor de prueba
+        </WithStyles(ForwardRef(Typography))>
+        <WithStyles(ForwardRef(Typography))
+          align="justify"
+          color="textSecondary"
+          component="p"
+          style={
+            Object {
+              "marginBottom": "0.5rem",
+            }
+          }
+        >
+          Este es el tercero valor de prueba
+        </WithStyles(ForwardRef(Typography))>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      md={6}
+    >
+      <Styled(MuiBox)>
+        <img
+          alt="imgmovidad"
+          height={400}
+          src="https://www.valladolid.mx/assets/img/default.jpg"
+          width={600}
+        />
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+</Styled(MuiBox)>
+`;

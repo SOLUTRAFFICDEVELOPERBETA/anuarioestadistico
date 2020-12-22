@@ -24,7 +24,7 @@ const usePages = (source) => {
             id: page.id
         }));
 
-    return d;
+    return d ;
 };
 
 export default usePages;

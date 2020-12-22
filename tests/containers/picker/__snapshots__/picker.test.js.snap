@@ -1,0 +1,434 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Prueba en <ColorPicker/> debe mostrarse correctamente 1`] = `
+<WithStyles(ForwardRef(ListItem))
+  divider={true}
+>
+  <WithStyles(ForwardRef(ListItemText))
+    primary="#00000"
+  />
+  <WithStyles(ForwardRef(ListItemSecondaryAction))>
+    <WithStyles(ForwardRef(IconButton))
+      onClick={[Function]}
+    >
+      <WithStyles(ForwardRef(SvgIcon))>
+        <svg
+          height="24"
+          width="24"
+        >
+          <rect
+            height="24"
+            style={
+              Object {
+                "fill": undefined,
+              }
+            }
+            width="24"
+          />
+        </svg>
+      </WithStyles(ForwardRef(SvgIcon))>
+    </WithStyles(ForwardRef(IconButton))>
+    <WithStyles(ForwardRef(Popover))
+      anchorEl={null}
+      anchorOrigin={
+        Object {
+          "horizontal": "center",
+          "vertical": "bottom",
+        }
+      }
+      id="color-popover-#00000"
+      onClose={[Function]}
+      open={false}
+      transformOrigin={
+        Object {
+          "horizontal": "center",
+          "vertical": "top",
+        }
+      }
+    >
+      <div
+        className="makeStyles-colorPalette-1"
+      >
+        <WithStyles(ForwardRef(IconButton))
+          key="0"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#1976d2",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          key="1"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#0d47a1",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          key="2"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#2962ff",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          key="3"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#01579b",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          key="4"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#dc004e",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          key="5"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#b71c1c",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          key="6"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#f44336",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          key="7"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#bf360c",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          key="8"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#ff9800",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          key="9"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#ff6f00",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          key="10"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#2196f3",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          key="11"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#006064",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          key="12"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#4caf50",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          key="13"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#1b5e20",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          key="14"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#546e7a",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          key="15"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#455a64",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          key="16"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#263238",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          key="17"
+          onClick={[Function]}
+        >
+          <WithStyles(ForwardRef(SvgIcon))>
+            <svg
+              height="200"
+              width="200"
+            >
+              <rect
+                height="200"
+                style={
+                  Object {
+                    "fill": "#212121",
+                  }
+                }
+                width="200"
+              />
+            </svg>
+          </WithStyles(ForwardRef(SvgIcon))>
+        </WithStyles(ForwardRef(IconButton))>
+      </div>
+    </WithStyles(ForwardRef(Popover))>
+  </WithStyles(ForwardRef(ListItemSecondaryAction))>
+</WithStyles(ForwardRef(ListItem))>
+`;

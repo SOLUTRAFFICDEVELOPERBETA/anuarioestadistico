@@ -2,7 +2,7 @@
 
 exports[`Pruebas en <MainFooter/> Debe mostrarse correctamente 1`] = `
 <footer
-  className="css-1ddulje-Footer e902lru0"
+  className="css-sg643w-Footer e902lru0"
 >
   <div
     className="MuiBox-root MuiBox-root-1"
@@ -125,7 +125,7 @@ exports[`Pruebas en <MainFooter/> Debe mostrarse correctamente 1`] = `
                 >
                   <svg
                     aria-hidden={true}
-                    className="MuiSvgIcon-root"
+                    className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -269,6 +269,11 @@ exports[`Pruebas en <MainFooter/> Debe mostrarse correctamente 1`] = `
             alt="Logo de la app"
             height="50%"
             src="https://www.nashikproperty.com/uploads/builder-logo/default-logo.png"
+            style={
+              Object {
+                "borderRadius": "50%",
+              }
+            }
             width="50%"
           />
         </div>

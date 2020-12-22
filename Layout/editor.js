@@ -154,7 +154,7 @@ const EditorLayout = ({ children, onSave, onChangeTitle }) => {
                 </form>
                 <List className={classes.drawerMenu}>
                     <ListSubheader>Campos del Documento</ListSubheader>
-                    <ListItem button onClick={() => onCreateFile(PARAGRAPH)}>
+                    <ListItem className="id-field-text" button onClick={() => onCreateFile(PARAGRAPH)}>
                         <ListItemIcon>
                             <TextFieldsTwoTone color="primary" />
                         </ListItemIcon>
@@ -212,7 +212,7 @@ const EditorLayout = ({ children, onSave, onChangeTitle }) => {
                 <Divider />
                 <List>
                     <ListSubheader>Opciones</ListSubheader>
-                    <ListItem button onClick={onSave}>
+                    <ListItem className="componente-onsave" button onClick={onSave}>
                         <ListItemIcon>
                             <SaveTwoTone color="primary" />
                         </ListItemIcon>

@@ -12,7 +12,7 @@ import PasswordField from '../../components/PasswordField'
 import AuthContext from '../../contexts/auth'
 
 // Estilos del componente
-const ContainerCar = styled.dv`
+const ContainerCar = styled.div`
      background-color: #ffffff;
     padding: 10px 40px;
     max-width: 520px;
@@ -48,11 +48,12 @@ const Register = () => {
 
     const onSubmit = values => {
         const { password, confirmPassword } = values
-
+        console.log('clicn no ha pasado');
         if (password !== confirmPassword) {
             showMessage('La contraseña no coinciden', 'error')
             return
         }
+        console.log('CLICK PASO');
         registerUser(values)
         reset()
     }

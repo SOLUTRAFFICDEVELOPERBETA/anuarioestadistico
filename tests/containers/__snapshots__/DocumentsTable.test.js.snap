@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <DocumentsTable/> debe mostrarse correctamente 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <WithStyles(ForwardRef(Paper))
+    className="makeStyles-paper-2"
+  >
+    <DocumentTableToolbar
+      onSearch={[Function]}
+    />
+    <WithStyles(ForwardRef(TableContainer))>
+      <WithStyles(ForwardRef(Table))
+        className="makeStyles-table-3"
+      >
+        <DocumentTableHead
+          classes={
+            Object {
+              "delete": "makeStyles-delete-5",
+              "paper": "makeStyles-paper-2",
+              "root": "makeStyles-root-1",
+              "send": "makeStyles-send-6",
+              "table": "makeStyles-table-3",
+              "visuallyHidden": "makeStyles-visuallyHidden-4",
+            }
+          }
+          onRequestSort={[Function]}
+          order="desc"
+          orderBy="lastModified"
+        />
+        <WithStyles(ForwardRef(TableBody))>
+          <WithStyles(ForwardRef(TableRow))
+            hover={true}
+            key="name for default"
+            role="checkbox"
+            tabIndex={-1}
+          >
+            <WithStyles(ForwardRef(TableCell))
+              scope="row"
+            >
+              Titulo de pagina de prueba UNO
+            </WithStyles(ForwardRef(TableCell))>
+            <WithStyles(ForwardRef(TableCell))
+              align="right"
+              scope="row"
+            >
+              Dec 16, 2020
+            </WithStyles(ForwardRef(TableCell))>
+            <WithStyles(ForwardRef(TableCell))
+              align="center"
+              padding="none"
+              scope="row"
+            >
+              <WithStyles(ForwardRef(Tooltip))
+                arrow={true}
+                title="Borrar"
+              >
+                <WithStyles(ForwardRef(IconButton))
+                  className="makeStyles-delete-5"
+                  onClick={[Function]}
+                  size="small"
+                >
+                  <CloseIcon
+                    fontSize="small"
+                  />
+                </WithStyles(ForwardRef(IconButton))>
+              </WithStyles(ForwardRef(Tooltip))>
+              <WithStyles(ForwardRef(Tooltip))
+                arrow={true}
+                title="Abrir"
+              >
+                <WithStyles(ForwardRef(IconButton))
+                  className="makeStyles-send-6"
+                  onClick={[Function]}
+                  size="small"
+                >
+                  <NavigateNextIcon
+                    fontSize="small"
+                  />
+                </WithStyles(ForwardRef(IconButton))>
+              </WithStyles(ForwardRef(Tooltip))>
+            </WithStyles(ForwardRef(TableCell))>
+          </WithStyles(ForwardRef(TableRow))>
+          <WithStyles(ForwardRef(TableRow))
+            hover={true}
+            key="name for default"
+            role="checkbox"
+            tabIndex={-1}
+          >
+            <WithStyles(ForwardRef(TableCell))
+              scope="row"
+            >
+              Titulo de pagina de prueba DOS
+            </WithStyles(ForwardRef(TableCell))>
+            <WithStyles(ForwardRef(TableCell))
+              align="right"
+              scope="row"
+            >
+              Dec 16, 2020
+            </WithStyles(ForwardRef(TableCell))>
+            <WithStyles(ForwardRef(TableCell))
+              align="center"
+              padding="none"
+              scope="row"
+            >
+              <WithStyles(ForwardRef(Tooltip))
+                arrow={true}
+                title="Borrar"
+              >
+                <WithStyles(ForwardRef(IconButton))
+                  className="makeStyles-delete-5"
+                  onClick={[Function]}
+                  size="small"
+                >
+                  <CloseIcon
+                    fontSize="small"
+                  />
+                </WithStyles(ForwardRef(IconButton))>
+              </WithStyles(ForwardRef(Tooltip))>
+              <WithStyles(ForwardRef(Tooltip))
+                arrow={true}
+                title="Abrir"
+              >
+                <WithStyles(ForwardRef(IconButton))
+                  className="makeStyles-send-6"
+                  onClick={[Function]}
+                  size="small"
+                >
+                  <NavigateNextIcon
+                    fontSize="small"
+                  />
+                </WithStyles(ForwardRef(IconButton))>
+              </WithStyles(ForwardRef(Tooltip))>
+            </WithStyles(ForwardRef(TableCell))>
+          </WithStyles(ForwardRef(TableRow))>
+          <WithStyles(ForwardRef(TableRow))
+            style={
+              Object {
+                "height": 159,
+              }
+            }
+          >
+            <WithStyles(ForwardRef(TableCell))
+              colSpan={6}
+            />
+          </WithStyles(ForwardRef(TableRow))>
+        </WithStyles(ForwardRef(TableBody))>
+      </WithStyles(ForwardRef(Table))>
+    </WithStyles(ForwardRef(TableContainer))>
+    <WithStyles(ForwardRef(TablePagination))
+      component="div"
+      count={2}
+      onChangePage={[Function]}
+      onChangeRowsPerPage={[Function]}
+      page={0}
+      rowsPerPage={5}
+      rowsPerPageOptions={
+        Array [
+          5,
+          10,
+          25,
+        ]
+      }
+    />
+  </WithStyles(ForwardRef(Paper))>
+</div>
+`;

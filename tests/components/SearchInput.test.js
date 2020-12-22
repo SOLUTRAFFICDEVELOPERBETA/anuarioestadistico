@@ -4,7 +4,7 @@ import React from 'react';
 import SearchInput from '../../components/SearchInput';
 
 describe('Pruebas en el componente <SearchInput/>', () => {
-    const onSearch = jest.fn((data)=> console.log(data))
+    const onSearch = jest.fn()
     const wrapper = shallow(
         <SearchInput
             onSearch={onSearch}

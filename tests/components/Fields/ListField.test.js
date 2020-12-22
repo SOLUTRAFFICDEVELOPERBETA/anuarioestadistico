@@ -13,7 +13,7 @@ import { valueTypeArray } from '../../fixtures';
 describe('Pruebas en <ListField/>', () => {
     
     const onDelete = jest.fn();
-    const onChange = jest.fn((data) => console.log(data));
+    const onChange = jest.fn();
     const showMessage = jest.fn();
     
     test('debe mostrarse correctamente', () => {

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <AuthLogin/> debe mostrarse correctamente 1`] = `
+<AuthLayout>
+  <LogInForm />
+</AuthLayout>
+`;

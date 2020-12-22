@@ -29,3 +29,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 # anuarioestadistico
+
+# NOTE
+Al proyecto se le realizo pruebas unitarias  a cada componente de la aplicación.
+utilizando tecnologías como jest, enzyme, enzyme-to-json
